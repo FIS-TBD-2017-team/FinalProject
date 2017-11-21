@@ -3,104 +3,40 @@ using System.Data;
 
 using MySql.Data.MySqlClient;
 
-namespace MainProject.Backend
+namespace FinalProject.Backend
 {
+    /// <summary>
+    /// Maneja las credenciales de conexión a la base de datos
+    /// </summary>
     public class Connection
     {
-        private static MySqlConnection conn = null;
+        private static String Server = "localhost";
+        private static String Port = "4000";
+        private static String DataBase = "asesorias";
+        private static String User = "root";
+        private static String Pass = "root";
 
         /// <summary>
-        /// Intenta hacer una conexión al servidor de base de datos
-        /// usando los valores especificados en el archivo de configuración
-        /// del proyecto.
+        /// Genera la cadena de conexión para el sistema.
         /// </summary>
-        /// <returns>true if it succesfully connects to the server</returns>
-        public static bool Connect()
-        {
-            String connString =
-                String.Format("Server={0};Port={1};Database=TEST;Uid={2};Pwd={3}",
-                                  FinalProject.Properties.Settings.Default.Server,
-                                  FinalProject.Properties.Settings.Default.Port,
-                                  FinalProject.Properties.Settings.Default.User,
-                                  FinalProject.Properties.Settings.Default.Pass);
-            conn = new MySqlConnection(connString);
-
-            try
-            {
-                conn.Open();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                return false;
-            }
-        }
-        /// <summary>
-        /// Se encarga de cerrar la conexión.
-        /// </summary>
-        public static void Disconnect()
-        {
-            if (conn != null)
-            {
-                conn.Close();
-                conn.Dispose();
-            }
-        }
-
-        /// <summary>
-        /// Toma como parámetro una consulta SQL empaquetada en un objeto MySQLCommand y
-        /// la ejecuta.
-        /// Retorna la tabla de resultados.
-        /// </summary>
-        /// <param name="cmd">Consulta SQL</param>
-        /// <returns>Tabla de resultados</returns>
-        public static DataTable Query(MySqlCommand cmd)
-        {
-            try
-            {
-                if (Connect())
-                {
-                    cmd.Connection = conn;
-                    MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-                    DataTable tbl = new DataTable();
-                    adp.Fill(tbl);
-
-                    return tbl;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-        /// <summary>
-        /// Toma como parámetro una consulta SQL empaquetada en un objeto MySQLCommand y
-        /// la ejecuta.
-        /// </summary>
-        /// <param name="cmd"></param>
         /// <returns></returns>
-        public static bool Execute(MySqlCommand cmd)
+        public static String ConnectionString()
         {
-            try
-            {
-                if (Connect())
-                {
-                    cmd.Connection = conn;
-                    cmd.ExecuteNonQuery();
-                    Disconnect();
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            return String.Format("Server={0};Port={1};Database={2};Uid={3};Pwd={4}",
+                                 Server,
+                                 Port,
+                                 DataBase,
+                                 User,
+                                 Pass);
+        }
+
+        /// <summary>
+        /// Genera una nueva conexión con las credenciales definidas arriba.
+        /// </summary>
+        /// <returns></returns>
+        public static MySqlConnection CreateNew()
+        {
+            return new MySqlConnection(ConnectionString());
         }
     }
 }

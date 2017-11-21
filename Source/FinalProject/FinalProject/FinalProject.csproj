@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon-app.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -50,7 +53,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backend\Asesor.cs" />
+    <Compile Include="Backend\Asesoria.cs" />
     <Compile Include="Backend\Connection.cs" />
+    <Compile Include="Backend\HoraLibre.cs" />
+    <Compile Include="Backend\Materia.cs" />
+    <Compile Include="Backend\Oferta.cs" />
+    <Compile Include="Backend\Tutor.cs" />
+    <Compile Include="Frontend\FrmAsesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\FrmAsesor.Designer.cs">
+      <DependentUpon>FrmAsesor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\FrmAsesoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\FrmAsesoria.Designer.cs">
+      <DependentUpon>FrmAsesoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\FrmListaAsesores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\FrmListaAsesores.Designer.cs">
+      <DependentUpon>FrmListaAsesores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +92,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frontend\FrmAsesor.resx">
+      <DependentUpon>FrmAsesor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\FrmAsesoria.resx">
+      <DependentUpon>FrmAsesoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\FrmListaAsesores.resx">
+      <DependentUpon>FrmListaAsesores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -67,6 +115,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -83,6 +132,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon-app.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
