@@ -35,7 +35,7 @@ namespace FinalProject.Backend
         {
             String query = "SELECT * FROM materia";
 
-            MySqlConnection conn = Connection.CreateNew();
+            MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
 

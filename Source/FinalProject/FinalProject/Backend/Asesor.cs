@@ -68,7 +68,7 @@ namespace FinalProject.Backend
         {
             String query = "SELECT * FROM asesor";
 
-            MySqlConnection conn = Connection.CreateNew();
+            MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
 
@@ -98,7 +98,7 @@ namespace FinalProject.Backend
         {
             String query = "SELECT * FROM asesor WHERE idtutor = @idtutor";
 
-            MySqlConnection conn = Connection.CreateNew();
+            MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@idtutor", tutor.IdTutor);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -129,7 +129,7 @@ namespace FinalProject.Backend
         {
             String query = "SELECT * FROM asesor WHERE nocontrol = @nocontrol LIMIT 1";
 
-            MySqlConnection conn = Connection.CreateNew();
+            MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@nocontrol", NoControl);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -155,7 +155,7 @@ namespace FinalProject.Backend
         {
             String query = "SELECT * FROM materiasofertadas WHERE nocontrol = @nocontrol";
 
-            MySqlConnection conn = Connection.CreateNew();
+            MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@nocontrol", NoControl);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);

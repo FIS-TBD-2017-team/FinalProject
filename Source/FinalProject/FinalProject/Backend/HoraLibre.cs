@@ -60,7 +60,7 @@ namespace FinalProject.Backend
             String query = "SELECT * FROM horaslibres WHERE nocontrol = @nocontrol " +
                            "ORDER BY dia, hora";
 
-            MySqlConnection conn = Connection.CreateNew();
+            MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@nocontrol", asesor.NoControl);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -92,7 +92,7 @@ namespace FinalProject.Backend
             String query = "SELECT * FROM horaslibres WHERE nocontrol = @nocontrol AND " +
                            "dia = @dia AND hora = @hora LIMIT 1";
 
-            MySqlConnection conn = Connection.CreateNew();
+            MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@nocontrol", hl.NoControl);
             cmd.Parameters.AddWithValue("@dia", hl.Dia);
@@ -119,7 +119,7 @@ namespace FinalProject.Backend
         {
             String query = "INSERT INTO horaslibres VALUES (@nocontrol, @dia, @hora)";
 
-            MySqlConnection conn = Connection.CreateNew();
+            MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@nocontrol", hl.NoControl);
             cmd.Parameters.AddWithValue("@dia", hl.Dia);

@@ -53,7 +53,7 @@ namespace FinalProject.Backend
         {
             String query = "SELECT * FROM tutor WHERE usuario = @usuario AND pass = sha2(@pass,512) LIMIT 1";
 
-            MySqlConnection conn = Connection.CreateNew();
+            MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@usuario", Usuario);
             cmd.Parameters.AddWithValue("@pass", Pass);
@@ -79,7 +79,7 @@ namespace FinalProject.Backend
         {
             String query = "SELECT * FROM tutor WHERE idtutor = @idtutor LIMIT 1";
 
-            MySqlConnection conn = Connection.CreateNew();
+            MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@idtutor", IdTutor);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
