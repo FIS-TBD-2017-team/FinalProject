@@ -143,6 +143,19 @@ WHERE
     D.idGrupoTutoria = G.idGrupoTutoria
 ;
 
+CREATE VIEW MateriasOfertadas AS
+SELECT 
+	O.idoferta,
+    O.nocontrol,
+    O.idmateria,
+    M.nombre
+FROM 
+	asesorias.oferta O, 
+    SICE.materias M 
+WHERE 
+	O.idMateria = M.idMateria
+;
+
 -- ####################################################################
 -- DATOS DE PRUEBA
 -- ####################################################################

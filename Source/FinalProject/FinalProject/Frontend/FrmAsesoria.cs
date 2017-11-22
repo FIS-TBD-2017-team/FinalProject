@@ -12,9 +12,10 @@ namespace FinalProject.Frontend
 {
     public partial class FrmAsesoria : Form
     {
-        public FrmAsesoria()
+        public FrmAsesoria(String NoControl)
         {
             InitializeComponent();
+            
         }
     }
 }

@@ -31,7 +31,9 @@ namespace FinalProject.Frontend
         }
         private void CargarListaAsesorias()
         {
+            dtListaAsesorias.AutoGenerateColumns = false;
             dtListaAsesorias.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtListaAsesorias.DataSource = Asesoria.Activas(tutor);
         }
 
         private void btnAdministrar_Click(object sender, EventArgs e)
@@ -47,6 +49,12 @@ namespace FinalProject.Frontend
         {
             if (CerrarApp)
                 Application.Exit();
+        }
+
+        private void dtListaAsesorias_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String NoControl = dtListaAsesorias[e.ColumnIndex, e.RowIndex].Value.ToString();
+            (new FrmAsesoria(NoControl)).ShowDialog();
         }
     }
 }

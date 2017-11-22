@@ -108,10 +108,5 @@ namespace FinalProject.Backend
             }
         }
         
-
-        public static List<Asesoria> AsesoriasActivas(int IdTutor)
-        {
-            return null;
-        }
     }
 }

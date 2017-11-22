@@ -56,7 +56,7 @@ namespace FinalProject.Frontend
         public void CargarMaterias()
         {
             dtMaterias.AutoGenerateColumns = false;
-            //dtMaterias.DataSource = Alumno.Materias(asesor.NoControl);
+            dtMaterias.DataSource = Materia.Select(asesor);
         }
 
         private void btnAgregarModulo_Click(object sender, EventArgs e)
