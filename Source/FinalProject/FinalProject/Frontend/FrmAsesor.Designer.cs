@@ -45,18 +45,16 @@
             this.lblTutor = new System.Windows.Forms.Label();
             this.lblTutort = new System.Windows.Forms.Label();
             this.lblSubDatos = new System.Windows.Forms.Label();
-            this.lblTelefono = new System.Windows.Forms.Label();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.lblSubHoras = new System.Windows.Forms.Label();
             this.dtHorasLibres = new System.Windows.Forms.DataGridView();
+            this.dtcDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbDia = new System.Windows.Forms.ComboBox();
             this.cmbHora = new System.Windows.Forms.ComboBox();
             this.btnAgregarModulo = new System.Windows.Forms.Button();
             this.btnQuitarModulo = new System.Windows.Forms.Button();
-            this.dtcDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnQuitarMateria = new System.Windows.Forms.Button();
             this.btnAgregarMateria = new System.Windows.Forms.Button();
             this.cmbMateria = new System.Windows.Forms.ComboBox();
@@ -66,8 +64,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pbPerfil = new System.Windows.Forms.PictureBox();
             this.pnlBack = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtHorasLibres)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPerfil)).BeginInit();
@@ -209,22 +207,11 @@
             this.lblSubDatos.TabIndex = 15;
             this.lblSubDatos.Text = "Datos de contacto";
             // 
-            // lblTelefono
-            // 
-            this.lblTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(386, 290);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(63, 19);
-            this.lblTelefono.TabIndex = 17;
-            this.lblTelefono.Text = "Teléfono:";
-            this.lblTelefono.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // lblCorreo
             // 
             this.lblCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCorreo.AutoSize = true;
-            this.lblCorreo.Location = new System.Drawing.Point(395, 259);
+            this.lblCorreo.Location = new System.Drawing.Point(395, 273);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(54, 19);
             this.lblCorreo.TabIndex = 16;
@@ -234,18 +221,10 @@
             // txtCorreo
             // 
             this.txtCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCorreo.Location = new System.Drawing.Point(458, 257);
+            this.txtCorreo.Location = new System.Drawing.Point(458, 271);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(204, 25);
             this.txtCorreo.TabIndex = 18;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTelefono.Location = new System.Drawing.Point(458, 288);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(130, 25);
-            this.txtTelefono.TabIndex = 19;
             // 
             // lblSubHoras
             // 
@@ -300,6 +279,22 @@
             this.dtHorasLibres.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtHorasLibres.Size = new System.Drawing.Size(290, 195);
             this.dtHorasLibres.TabIndex = 20;
+            // 
+            // dtcDia
+            // 
+            this.dtcDia.DataPropertyName = "DiaCompleto";
+            this.dtcDia.HeaderText = "Dia";
+            this.dtcDia.Name = "dtcDia";
+            this.dtcDia.ReadOnly = true;
+            this.dtcDia.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dtcHora
+            // 
+            this.dtcHora.DataPropertyName = "Hora";
+            this.dtcHora.HeaderText = "Hora";
+            this.dtcHora.Name = "dtcHora";
+            this.dtcHora.ReadOnly = true;
+            this.dtcHora.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // cmbDia
             // 
@@ -365,22 +360,6 @@
             this.btnQuitarModulo.TabIndex = 25;
             this.btnQuitarModulo.Text = "-";
             this.btnQuitarModulo.UseVisualStyleBackColor = true;
-            // 
-            // dtcDia
-            // 
-            this.dtcDia.DataPropertyName = "DiaCompleto";
-            this.dtcDia.HeaderText = "Dia";
-            this.dtcDia.Name = "dtcDia";
-            this.dtcDia.ReadOnly = true;
-            this.dtcDia.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // dtcHora
-            // 
-            this.dtcHora.DataPropertyName = "Hora";
-            this.dtcHora.HeaderText = "Hora";
-            this.dtcHora.Name = "dtcHora";
-            this.dtcHora.ReadOnly = true;
-            this.dtcHora.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // btnQuitarMateria
             // 
@@ -525,15 +504,23 @@
             this.pnlBack.Controls.Add(this.cmbDia);
             this.pnlBack.Controls.Add(this.lblSubHoras);
             this.pnlBack.Controls.Add(this.dtHorasLibres);
-            this.pnlBack.Controls.Add(this.txtTelefono);
             this.pnlBack.Controls.Add(this.txtCorreo);
-            this.pnlBack.Controls.Add(this.lblTelefono);
             this.pnlBack.Controls.Add(this.lblCorreo);
             this.pnlBack.Controls.Add(this.lblSubDatos);
             this.pnlBack.Location = new System.Drawing.Point(0, 0);
             this.pnlBack.Name = "pnlBack";
             this.pnlBack.Size = new System.Drawing.Size(691, 490);
             this.pnlBack.TabIndex = 32;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.label1.Location = new System.Drawing.Point(14, 118);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(174, 25);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Informaciónpersonal";
             // 
             // panel1
             // 
@@ -555,16 +542,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(463, 150);
             this.panel1.TabIndex = 32;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F);
-            this.label1.Location = new System.Drawing.Point(14, 118);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 25);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Informaciónpersonal";
             // 
             // FrmAsesor
             // 
@@ -607,10 +584,8 @@
         private System.Windows.Forms.Label lblTutor;
         private System.Windows.Forms.Label lblTutort;
         private System.Windows.Forms.Label lblSubDatos;
-        private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label lblSubHoras;
         private System.Windows.Forms.DataGridView dtHorasLibres;
         private System.Windows.Forms.ComboBox cmbDia;

@@ -1,45 +1,16 @@
-DROP DATABASE IF EXISTS asesorias;
-
 -- ####################################################################
--- BASE DE DATOS: asesorias
+-- ASESORIAS
 -- Diseñada para el proyecto del sistema de manejo de las asesorías.
 -- ####################################################################
 
--- ####################################################################
--- TABLAS
--- ####################################################################
-
+DROP DATABASE IF EXISTS asesorias;
 CREATE DATABASE asesorias;
 
 USE asesorias;
 
--- TABLA: tutor
--- Almacena información de los tutores que están en 
--- el área de asesorías.
-
-CREATE TABLE tutor (
-	idtutor		int				primary key auto_increment,
-    nombre 		varchar(30) 	not null,
-    apellidos 	varchar(30) 	not null,
-    usuario		varchar(30)		not null,
-    pass		char(128)		not null
-);
-
--- TABLA: asesor
--- Almacena información de los alumnos registrados como asesores.
-
-CREATE TABLE asesor (
-	nocontrol 	char(9) 		primary key,
-    nombre 		varchar(30) 	not null,
-    apellidos 	varchar(30) 	not null,
-    activo 		bool 			not null,
-    carrera		varchar(35)		not null,
-    semestre 	int 			not null,
-    correo 		varchar(40) 	null,
-    telefono 	varchar(20) 	null,
-    idtutor		int				not null,
-    constraint  foreign key(idtutor) references tutor(idtutor)
-);
+-- ####################################################################
+-- TABLAS
+-- ####################################################################
 
 -- TABLA: horaslibres
 -- Almacena las horas disponibles de un asesor para dar asesorías.
@@ -47,16 +18,7 @@ CREATE TABLE asesor (
 CREATE TABLE horaslibres (
 	nocontrol	char(9)			not null,
     dia			enum('LUN', 'MAR', 'MIE', 'JUE', 'VIE') not null,
-    hora		time			not null,
-    constraint  foreign key(nocontrol) references asesor(nocontrol)
-);
-
--- TABLA: materia
--- Almacena los datos de las materias
-
-CREATE TABLE materia (
-	idmateria	int 			primary key auto_increment,
-    nombre		varchar(32)		not null
+    hora		time			not null
 );
 
 -- TABLA: oferta
@@ -66,23 +28,7 @@ CREATE TABLE materia (
 CREATE TABLE oferta (
 	idoferta	int				primary key auto_increment,
 	nocontrol 	char(9) 		not null,
-    idmateria	int 			not null,
-    constraint  foreign key(nocontrol) references asesor(nocontrol),
-    constraint  foreign key(idmateria) references materia(idmateria)
-);
-
--- TABLA: alumno
--- Almacena los datos de los alumnos que toman asesorías.
-
-CREATE TABLE alumno (
-	nocontrol 	char(9) 		primary key,
-    nombre 		varchar(30) 	not null,
-    apellidos 	varchar(30) 	not null,
-    semestre 	int 			not null,
-    correo 		varchar(40) 	null,
-    telefono 	varchar(20) 	null,
-    idtutor		int				not null,
-    constraint  foreign key(idtutor) references tutor(idtutor)
+    idmateria	int 			not null
 );
 
 -- TABLA: asesoria
@@ -92,9 +38,7 @@ CREATE TABLE asesoria (
 	idasesoria	int				primary key auto_increment,
     nocontrol 	char(9) 		not null,
     idmateria	int 			not null,
-    estatus		enum('ACTIVA', 'FINALIZADA') not null,
-    constraint  foreign key(nocontrol) references asesor(nocontrol),
-    constraint  foreign key(idmateria) references materia(idmateria)
+    estatus		enum('ACTIVA', 'FINALIZADA') not null
 );
 
 -- TABLA: detalleasesoria
@@ -103,9 +47,7 @@ CREATE TABLE asesoria (
 
 CREATE TABLE detalleasesoria (
 	idasesoria	int				not null,
-    nocontrol	char(9)			not null,
-    constraint  foreign key(idasesoria) references asesoria(idasesoria),
-    constraint  foreign key(nocontrol) references alumno(nocontrol)
+    nocontrol	char(9)			not null
 );
 
 -- TABLA: solicitud
@@ -118,9 +60,7 @@ CREATE TABLE solicitud (
     idtutor		int				not null,
     estatus		enum('PENDIENTE', 'RECHAZADA', 'ACEPTADA') not null,
     notas		text			null,
-    idasesoria	int				null,
-    constraint  foreign key(idmateria) references materia(idmateria),
-    constraint  foreign key(idtutor) references tutor(idtutor)
+    idasesoria	int				null
 );
 
 -- TABLA: detallesolicitud
@@ -130,9 +70,7 @@ CREATE TABLE solicitud (
 CREATE TABLE detallesolicitud (
 	idsolicitud	int				not null,
     nocontrol	char(9)			not null,
-    constraint	primary key(idsolicitud, nocontrol),
-    constraint  foreign key(idsolicitud) references solicitud(idsolicitud),
-    constraint  foreign key(nocontrol) references alumno(nocontrol)
+    constraint	primary key(idsolicitud, nocontrol)
 );
 
 -- TABLA: respuesta
@@ -142,9 +80,7 @@ CREATE TABLE respuesta (
 	idrespuesta	int				primary key auto_increment,
     idsolicitud	int				not null,
     idtutor		int				not null,
-    resp		enum('ACEPTADA', 'RECHAZADA') not null,
-    constraint  foreign key(idsolicitud) references solicitud(idsolicitud),
-    constraint  foreign key(idtutor) references tutor(idtutor)
+    resp		enum('ACEPTADA', 'RECHAZADA') not null
 );
 
 -- TABLA: detallerespuesta
@@ -155,8 +91,7 @@ CREATE TABLE respuesta (
 CREATE TABLE detallerespuesta (
 	idrespuesta	int				not null,
     nocontrol	char(9)			not null,
-    constraint	primary key(idrespuesta, nocontrol),
-    constraint	foreign key(nocontrol) references asesor(nocontrol)
+    constraint	primary key(idrespuesta, nocontrol)
 );
 
 -- TABLA: sesion
@@ -172,8 +107,7 @@ CREATE TABLE sesion (
     lugar		varchar(32)		not null,
     fecha		date			not null,
     hora		time			not null,
-    notas		text			null,
-    constraint 	foreign key(idasesoria) references asesoria(idasesoria)
+    notas		text			null
 );
 
 -- TABLA: detallesesion
@@ -183,71 +117,18 @@ CREATE TABLE detallesesion (
 	idsesion	int				not null,
     nocontrol	char(9)			not null,
     asistio     bool			not null,
-    constraint	primary key(idsesion, nocontrol),
-    constraint	foreign key(idsesion) references sesion(idsesion),
-    constraint	foreign key(nocontrol) references asesor(nocontrol)
+    constraint	primary key(idsesion, nocontrol)
 );
 
 -- ####################################################################
 -- VISTAS
 -- ####################################################################
 
-CREATE VIEW materiasofertadas AS
-SELECT 
-	O.idoferta,
-	A.nocontrol,
-    M.idmateria,
-    M.nombre
-FROM 
-	asesorias.asesor A,
-    asesorias.oferta O,
-	asesorias.materia M
-WHERE 
-	A.nocontrol = O.nocontrol AND
-    M.idmateria = O.idmateria
-;
 
-CREATE VIEW asesoriasactivas AS
-SELECT
-	B.idtutor,
-	A.idasesoria,
-    M.nombre,
-    A.nocontrol,
-    concat(B.nombre, " ", B.apellidos) as nombreasesor,
-    (
-		SELECT
-			count(AD.nocontrol)
-		FROM
-			detalleasesoria AD
-		WHERE
-			AD.idasesoria = A.idasesoria
-	) as alumnos
-FROM
-	asesoria A,
-    materia M,
-    asesor B
-WHERE
-	A.nocontrol = B.nocontrol AND
-    A.idmateria = M.idmateria AND 
-    A.estatus = "ACTIVA"
-;
-
-SELECT * FROM tutor;
 
 -- ####################################################################
 -- DATOS DE PRUEBA
 -- ####################################################################
-
-INSERT INTO tutor VALUES 
-	(null, "Jeziel", "Vazquez Nava", "jeziel", sha2("root", 512)),
-    (null, "Luis German", "Gutierrez Torres", "german", sha2("german", 512)),
-    (null, "Patricia", "Vega Flores", "paty", sha2("paty", 512)),
-    (null, "Efren", "Vega Chavez", "efren", sha2("efren", 512));
-    
-INSERT INTO asesor VALUES
-	("S15120048", "Orlando Isay", "Mendoza Garcia", true, "Ing. Sistemas Computacionales", 5, "orlandoisay@gmail.com", "445 123 2953", 3),
-    ("S15120054", "Tania", "Martinez Villagomez", true, "Ing. Sistemas Computacionales", 5, "thanya.mav@gmail.com", "445 123 5564", 3),
-    ("E15120031", "Kevin", "Lopez Gomez", true, "Ing. Electronica", 4, "kelo1996@outlook.com", "445 929 1234", 1);
     
 INSERT INTO horaslibres VALUES
 	("S15120048", "LUN", "14:00"),
@@ -258,17 +139,6 @@ INSERT INTO horaslibres VALUES
     ("S15120048", "VIE", "12:00"),
     ("S15120048", "VIE", "14:00");
     
-INSERT INTO materia VALUES
-	(null, "Matematicas Discretas"),
-    (null, "Calculo Diferencial"),
-    (null, "Calculo Integral"),
-    (null, "Calculo Vectorial"),
-    (null, "Fundamentos de programacion"),
-    (null, "Estructura de datos"),
-    (null, "Quimica"),
-    (null, "Fisica"),
-    (null, "Mecanica");
-    
 INSERT INTO oferta VALUES
 	(null, "S15120048", 1),
     (null, "S15120048", 5),
@@ -276,21 +146,18 @@ INSERT INTO oferta VALUES
     (null, "S15120054", 2),
     (null, "S15120054", 3),
     (null, "S15120054", 6),
-    (null, "E15120031", 2),
-    (null, "E15120031", 7),
-    (null, "E15120031", 8),
-    (null, "E15120031", 9);
-    
-INSERT INTO alumno VALUES
-	("I14120221", "Eliezier", "Abonce Martinez", 7, "Eliezier@gmail.com", "445 241 2231", 4),
-    ("D14120154", "Juan", "Aboytes Martinez",  7, "aboytes@gmail.com", "445 231 2561", 4),
-    ("G15120391", "Jaime", "Berumen Orozco",  5, "berumen@outlook.com", "445 923 4234", 2);
+    (null, "E14120310", 2),
+    (null, "E14120310", 7),
+    (null, "E14120310", 8),
+    (null, "E14120310", 9);
     
 INSERT INTO asesoria VALUES
 	(null, "S15120048", 1, "ACTIVA"),
     (null, "S15120054", 6, "FINALIZADA");
     
 INSERT INTO detalleasesoria VALUES
-	(1, "G15120391"),
-    (1, "D14120154"),
-    (2, "D14120154");	
+	(1, "I11120182"),
+    (1, "G15120367"),
+    (1, "S15120065"),
+    (2, "S15120065"),
+    (2, "E12120193");	

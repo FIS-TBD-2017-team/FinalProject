@@ -12,14 +12,16 @@ namespace FinalProject.Backend
     {
         public int IdTutor { get; set; }
         public String Nombre { get; set; }
-        public String Apellidos { get; set; }
+        public String Apellido1 { get; set; }
+        public String Apellido2 { get; set; }
         public String Usuario { get; set; }
+        public String Tipo { get; set; }
 
         public String NombreCompleto
         {
             get
             {
-                return String.Format("{0} {1}", Nombre, Apellidos);
+                return String.Format("{0} {1} {2}", Nombre, Apellido1, Apellido2);
             }
         }
 
@@ -31,12 +33,15 @@ namespace FinalProject.Backend
         {
             this.IdTutor = IdTutor;
         }
-        public Tutor(int IdTutor, String Nombre, String Apellidos, String Usuario)
+        public Tutor(int IdTutor, String Nombre, String Apellido1, String Apellido2, 
+                     String Usuario, String Tipo)
         {
             this.IdTutor = IdTutor;
             this.Nombre = Nombre;
-            this.Apellidos = Apellidos;
+            this.Apellido1 = Apellido1;
+            this.Apellido2 = Apellido2;
             this.Usuario = Usuario;
+            this.Tipo = Tipo;
         }
 
         public static Tutor FromDataRow(DataRow dr)
@@ -44,16 +49,18 @@ namespace FinalProject.Backend
             return new Tutor(
                 int.Parse(dr["idtutor"].ToString()),
                 dr["nombre"].ToString(),
-                dr["apellidos"].ToString(),
-                dr["usuario"].ToString()
+                dr["apellido1"].ToString(),
+                dr["apellido2"].ToString(),
+                dr["usuario"].ToString(),
+                dr["tipo"].ToString()
             );
         }
 
         public static Tutor Login(String Usuario, String Pass)
         {
-            String query = "SELECT * FROM tutor WHERE usuario = @usuario AND pass = sha2(@pass,512) LIMIT 1";
+            String query = "SELECT * FROM Tutores WHERE usuario = @usuario AND password = sha2(@pass,512) LIMIT 1";
 
-            MySqlConnection conn = Connection.Asesorias();
+            MySqlConnection conn = Connection.SICE();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@usuario", Usuario);
             cmd.Parameters.AddWithValue("@pass", Pass);
@@ -77,9 +84,9 @@ namespace FinalProject.Backend
         }
         public static Tutor Select(int IdTutor)
         {
-            String query = "SELECT * FROM tutor WHERE idtutor = @idtutor LIMIT 1";
+            String query = "SELECT * FROM Tutores WHERE idtutor = @idtutor LIMIT 1";
 
-            MySqlConnection conn = Connection.Asesorias();
+            MySqlConnection conn = Connection.SICE();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@idtutor", IdTutor);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
