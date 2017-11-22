@@ -124,7 +124,24 @@ CREATE TABLE detallesesion (
 -- VISTAS
 -- ####################################################################
 
-
+CREATE VIEW asesor AS    
+SELECT 
+	G.idTutor,
+	A.noControl,
+    A.nombre,
+    A.apellido1,
+    A.apellido2,
+    A.correo,
+    A.semestre,
+    A.idCarrera    
+FROM 
+	SICE.alumnos A,
+    SICE.alumnosgrupostutorias D,
+    SICE.grupostutorias G
+WHERE
+	A.noControl = D.noControl AND
+    D.idGrupoTutoria = G.idGrupoTutoria
+;
 
 -- ####################################################################
 -- DATOS DE PRUEBA

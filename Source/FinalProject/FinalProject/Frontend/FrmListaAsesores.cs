@@ -25,7 +25,7 @@ namespace FinalProject.Frontend
         {
             this.tutor = tutor;
             dtListaAsesorias.AutoGenerateColumns = false;
-            dtListaAsesorias.DataSource = Asesor.Select(tutor);
+            dtListaAsesorias.DataSource = Alumno.SelectAsesor(tutor);
             dtListaAsesorias.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 

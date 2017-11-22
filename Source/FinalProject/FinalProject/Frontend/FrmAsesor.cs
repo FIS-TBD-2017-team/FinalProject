@@ -13,14 +13,14 @@ namespace FinalProject.Frontend
 {
     public partial class FrmAsesor : Form
     {
-        private Asesor asesor = null;
+        private Alumno asesor = null;
 
         public FrmAsesor(String nocontrol) 
         {
             InitializeComponent();
-            Init(Asesor.Select(nocontrol));
+            Init(Alumno.SelectAsesor(nocontrol));
         }
-        public void Init(Asesor asesor)
+        public void Init(Alumno asesor)
         {
             this.asesor = asesor;
             CargarInformacion();
@@ -32,13 +32,10 @@ namespace FinalProject.Frontend
         {
             lblNoControl.Text = asesor.NoControl;
             lblNombre.Text = asesor.NombreCompleto;
-            lblCarrera.Text = asesor.Carrera;
+            lblCarrera.Text = asesor.NombreCarrera;
             lblSemestre.Text = asesor.Semestre.ToString();
-            lblTutor.Text = Tutor.Select(asesor.IdTutor).NombreCompleto;
-            lblEstatus.Text = asesor.Activo ? "Activo" : "Inactivo";
 
             txtCorreo.Text = asesor.Correo;
-            txtTelefono.Text = asesor.Telefono;
         }
         public void InitCombos()
         {
@@ -59,7 +56,7 @@ namespace FinalProject.Frontend
         public void CargarMaterias()
         {
             dtMaterias.AutoGenerateColumns = false;
-            dtMaterias.DataSource = Asesor.Materias(asesor.NoControl);
+            //dtMaterias.DataSource = Alumno.Materias(asesor.NoControl);
         }
 
         private void btnAgregarModulo_Click(object sender, EventArgs e)

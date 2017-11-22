@@ -55,7 +55,7 @@ namespace FinalProject.Backend
             );
         }
 
-        public static List<HoraLibre> Select(Asesor asesor)
+        public static List<HoraLibre> Select(Alumno asesor)
         {
             String query = "SELECT * FROM horaslibres WHERE nocontrol = @nocontrol " +
                            "ORDER BY dia, hora";

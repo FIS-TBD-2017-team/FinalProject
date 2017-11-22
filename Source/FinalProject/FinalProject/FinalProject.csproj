@@ -53,8 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Backend\Asesor.cs" />
+    <Compile Include="Backend\Alumno.cs" />
     <Compile Include="Backend\Asesoria.cs" />
+    <Compile Include="Backend\Carrera.cs" />
     <Compile Include="Backend\Connection.cs" />
     <Compile Include="Backend\HoraLibre.cs" />
     <Compile Include="Backend\Materia.cs" />

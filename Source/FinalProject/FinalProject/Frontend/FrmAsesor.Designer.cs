@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblNoControlt = new System.Windows.Forms.Label();
             this.lblNoControl = new System.Windows.Forms.Label();
@@ -40,10 +40,6 @@
             this.lblSemestret = new System.Windows.Forms.Label();
             this.lblCarrera = new System.Windows.Forms.Label();
             this.lblCarrerat = new System.Windows.Forms.Label();
-            this.lblEstatus = new System.Windows.Forms.Label();
-            this.lblEstatust = new System.Windows.Forms.Label();
-            this.lblTutor = new System.Windows.Forms.Label();
-            this.lblTutort = new System.Windows.Forms.Label();
             this.lblSubDatos = new System.Windows.Forms.Label();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
@@ -86,7 +82,7 @@
             // lblNoControlt
             // 
             this.lblNoControlt.AutoSize = true;
-            this.lblNoControlt.Location = new System.Drawing.Point(160, 12);
+            this.lblNoControlt.Location = new System.Drawing.Point(160, 31);
             this.lblNoControlt.Name = "lblNoControlt";
             this.lblNoControlt.Size = new System.Drawing.Size(81, 19);
             this.lblNoControlt.TabIndex = 1;
@@ -96,7 +92,7 @@
             // lblNoControl
             // 
             this.lblNoControl.AutoSize = true;
-            this.lblNoControl.Location = new System.Drawing.Point(247, 12);
+            this.lblNoControl.Location = new System.Drawing.Point(247, 31);
             this.lblNoControl.Name = "lblNoControl";
             this.lblNoControl.Size = new System.Drawing.Size(72, 19);
             this.lblNoControl.TabIndex = 2;
@@ -105,7 +101,7 @@
             // lblNombret
             // 
             this.lblNombret.AutoSize = true;
-            this.lblNombret.Location = new System.Drawing.Point(179, 30);
+            this.lblNombret.Location = new System.Drawing.Point(179, 49);
             this.lblNombret.Name = "lblNombret";
             this.lblNombret.Size = new System.Drawing.Size(62, 19);
             this.lblNombret.TabIndex = 3;
@@ -115,7 +111,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(247, 31);
+            this.lblNombre.Location = new System.Drawing.Point(247, 50);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(183, 19);
             this.lblNombre.TabIndex = 4;
@@ -124,7 +120,7 @@
             // lblSemestre
             // 
             this.lblSemestre.AutoSize = true;
-            this.lblSemestre.Location = new System.Drawing.Point(247, 80);
+            this.lblSemestre.Location = new System.Drawing.Point(247, 99);
             this.lblSemestre.Name = "lblSemestre";
             this.lblSemestre.Size = new System.Drawing.Size(16, 19);
             this.lblSemestre.TabIndex = 8;
@@ -133,7 +129,7 @@
             // lblSemestret
             // 
             this.lblSemestret.AutoSize = true;
-            this.lblSemestret.Location = new System.Drawing.Point(175, 79);
+            this.lblSemestret.Location = new System.Drawing.Point(175, 98);
             this.lblSemestret.Name = "lblSemestret";
             this.lblSemestret.Size = new System.Drawing.Size(66, 19);
             this.lblSemestret.TabIndex = 7;
@@ -143,7 +139,7 @@
             // lblCarrera
             // 
             this.lblCarrera.AutoSize = true;
-            this.lblCarrera.Location = new System.Drawing.Point(247, 61);
+            this.lblCarrera.Location = new System.Drawing.Point(247, 80);
             this.lblCarrera.Name = "lblCarrera";
             this.lblCarrera.Size = new System.Drawing.Size(207, 19);
             this.lblCarrera.TabIndex = 6;
@@ -152,50 +148,12 @@
             // lblCarrerat
             // 
             this.lblCarrerat.AutoSize = true;
-            this.lblCarrerat.Location = new System.Drawing.Point(184, 60);
+            this.lblCarrerat.Location = new System.Drawing.Point(184, 79);
             this.lblCarrerat.Name = "lblCarrerat";
             this.lblCarrerat.Size = new System.Drawing.Size(57, 19);
             this.lblCarrerat.TabIndex = 5;
             this.lblCarrerat.Text = "Carrera:";
             this.lblCarrerat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblEstatus
-            // 
-            this.lblEstatus.AutoSize = true;
-            this.lblEstatus.Location = new System.Drawing.Point(247, 122);
-            this.lblEstatus.Name = "lblEstatus";
-            this.lblEstatus.Size = new System.Drawing.Size(45, 19);
-            this.lblEstatus.TabIndex = 13;
-            this.lblEstatus.Text = "Activo";
-            // 
-            // lblEstatust
-            // 
-            this.lblEstatust.AutoSize = true;
-            this.lblEstatust.Location = new System.Drawing.Point(190, 121);
-            this.lblEstatust.Name = "lblEstatust";
-            this.lblEstatust.Size = new System.Drawing.Size(51, 19);
-            this.lblEstatust.TabIndex = 12;
-            this.lblEstatust.Text = "Estatus:";
-            this.lblEstatust.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblTutor
-            // 
-            this.lblTutor.AutoSize = true;
-            this.lblTutor.Location = new System.Drawing.Point(247, 103);
-            this.lblTutor.Name = "lblTutor";
-            this.lblTutor.Size = new System.Drawing.Size(125, 19);
-            this.lblTutor.TabIndex = 11;
-            this.lblTutor.Text = "Patricia Vega Flores";
-            // 
-            // lblTutort
-            // 
-            this.lblTutort.AutoSize = true;
-            this.lblTutort.Location = new System.Drawing.Point(198, 102);
-            this.lblTutort.Name = "lblTutort";
-            this.lblTutort.Size = new System.Drawing.Size(43, 19);
-            this.lblTutort.TabIndex = 10;
-            this.lblTutort.Text = "Tutor:";
-            this.lblTutort.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblSubDatos
             // 
@@ -246,27 +204,27 @@
             this.dtHorasLibres.BackgroundColor = System.Drawing.Color.White;
             this.dtHorasLibres.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtHorasLibres.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtHorasLibres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtHorasLibres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dtHorasLibres.ColumnHeadersHeight = 35;
             this.dtHorasLibres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtHorasLibres.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dtcDia,
             this.dtcHora});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtHorasLibres.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtHorasLibres.DefaultCellStyle = dataGridViewCellStyle8;
             this.dtHorasLibres.EnableHeadersVisualStyles = false;
             this.dtHorasLibres.Location = new System.Drawing.Point(372, 370);
             this.dtHorasLibres.MultiSelect = false;
@@ -424,14 +382,14 @@
             this.dtMaterias.BackgroundColor = System.Drawing.Color.White;
             this.dtMaterias.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtMaterias.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dtMaterias.ColumnHeadersHeight = 35;
             this.dtMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -518,9 +476,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 14F);
             this.label1.Location = new System.Drawing.Point(14, 118);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 25);
+            this.label1.Size = new System.Drawing.Size(179, 25);
             this.label1.TabIndex = 33;
-            this.label1.Text = "Informaciónpersonal";
+            this.label1.Text = "Información personal";
             // 
             // panel1
             // 
@@ -528,13 +486,9 @@
             this.panel1.Controls.Add(this.lblNoControlt);
             this.panel1.Controls.Add(this.pbPerfil);
             this.panel1.Controls.Add(this.lblNoControl);
-            this.panel1.Controls.Add(this.lblEstatus);
             this.panel1.Controls.Add(this.lblNombret);
-            this.panel1.Controls.Add(this.lblEstatust);
             this.panel1.Controls.Add(this.lblNombre);
-            this.panel1.Controls.Add(this.lblTutor);
             this.panel1.Controls.Add(this.lblCarrerat);
-            this.panel1.Controls.Add(this.lblTutort);
             this.panel1.Controls.Add(this.lblCarrera);
             this.panel1.Controls.Add(this.lblSemestre);
             this.panel1.Controls.Add(this.lblSemestret);
@@ -579,10 +533,6 @@
         private System.Windows.Forms.Label lblCarrera;
         private System.Windows.Forms.Label lblCarrerat;
         private System.Windows.Forms.PictureBox pbPerfil;
-        private System.Windows.Forms.Label lblEstatus;
-        private System.Windows.Forms.Label lblEstatust;
-        private System.Windows.Forms.Label lblTutor;
-        private System.Windows.Forms.Label lblTutort;
         private System.Windows.Forms.Label lblSubDatos;
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.TextBox txtCorreo;

@@ -100,7 +100,7 @@
             // 
             // dtcCarrera
             // 
-            this.dtcCarrera.DataPropertyName = "Carrera";
+            this.dtcCarrera.DataPropertyName = "NombreCarrera";
             this.dtcCarrera.HeaderText = "Carrera";
             this.dtcCarrera.Name = "dtcCarrera";
             this.dtcCarrera.ReadOnly = true;
