@@ -154,7 +154,7 @@
             this.lblMensajeBienvenida.AutoSize = true;
             this.lblMensajeBienvenida.Location = new System.Drawing.Point(10, 10);
             this.lblMensajeBienvenida.Name = "lblMensajeBienvenida";
-            this.lblMensajeBienvenida.Size = new System.Drawing.Size(139, 19);
+            this.lblMensajeBienvenida.Size = new System.Drawing.Size(138, 19);
             this.lblMensajeBienvenida.TabIndex = 0;
             this.lblMensajeBienvenida.Text = "Bienvenido: Persona X";
             // 

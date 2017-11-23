@@ -104,6 +104,12 @@
     <Compile Include="Frontend\FrmSesion.Designer.cs">
       <DependentUpon>FrmSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\FrmSolicitarAsesoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\FrmSolicitarAsesoria.Designer.cs">
+      <DependentUpon>FrmSolicitarAsesoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Frontend\FrmAsesor.resx">
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\FrmSolicitarAsesoria.resx">
+      <DependentUpon>FrmSolicitarAsesoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
