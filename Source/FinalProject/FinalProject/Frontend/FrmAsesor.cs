@@ -92,5 +92,50 @@ namespace FinalProject.Frontend
                 MessageBox.Show("Ese módulo ya está enlistado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnQuitarModulo_Click(object sender, EventArgs e)
+        {
+            if (dtHorasLibres.SelectedRows.Count == 0)
+                return;
+
+            var dr = dtHorasLibres.SelectedRows[0];
+            HoraLibre hl = (HoraLibre)dr.DataBoundItem;
+            HoraLibre.Delete(hl);
+            CargarHorasLibres();
+        }
+
+        private void btnAgregarMateria_Click(object sender, EventArgs e)
+        {
+            Oferta oferta = new Oferta(-1, asesor.NoControl, (int)cmbMateria.SelectedValue);
+            if(!Oferta.Exists(oferta)) {
+                Oferta.Insert(oferta);
+                CargarMaterias();
+            } else
+            {
+                MessageBox.Show("Esa materia ya está en la lista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
+        }
+
+        private void btnQuitarMateria_Click(object sender, EventArgs e)
+        {
+            if (dtMaterias.SelectedRows.Count == 0)
+                return;
+
+            var dr = dtMaterias.SelectedRows[0];
+            Materia materia = (Materia)dr.DataBoundItem;
+            Oferta.Delete(new Oferta(-1, asesor.NoControl, materia.IdMateria));
+            CargarMaterias();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            asesor.Correo = txtCorreo.Text;
+            if (Alumno.Update(asesor))
+                MessageBox.Show("Datos actualizados correctamente.", "Aviso",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("No se pudieon actualizar los datos.", "Error",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

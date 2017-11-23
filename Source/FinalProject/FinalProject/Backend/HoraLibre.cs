@@ -139,5 +139,28 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        public static void Delete(HoraLibre hl)
+        {
+            String query = "DELETE FROM horaslibres WHERE nocontrol = @nocontrol AND dia = @dia AND hora = @hora";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@nocontrol", hl.NoControl);
+            cmd.Parameters.AddWithValue("@dia", hl.Dia);
+            cmd.Parameters.AddWithValue("@hora", hl.Hora);
+            try
+            {
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
     }
 }

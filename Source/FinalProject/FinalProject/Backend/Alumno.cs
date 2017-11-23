@@ -117,5 +117,28 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        public static bool Update(Alumno alumno)
+        {
+            String query = "UPDATE alumnos SET correo=@correo WHERE nocontrol = @nocontrol";
+
+            MySqlConnection conn = Connection.SICE();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@nocontrol", alumno.NoControl);
+            cmd.Parameters.AddWithValue("@correo", alumno.Correo);
+            
+            try
+            {
+                conn.Open();
+                return cmd.ExecuteNonQuery() == 1;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
     }
 }

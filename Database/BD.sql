@@ -148,7 +148,8 @@ SELECT
 	O.idoferta,
     O.nocontrol,
     O.idmateria,
-    M.nombre
+    M.nombre,
+    M.idCarrera
 FROM 
 	asesorias.oferta O, 
     SICE.materias M 
