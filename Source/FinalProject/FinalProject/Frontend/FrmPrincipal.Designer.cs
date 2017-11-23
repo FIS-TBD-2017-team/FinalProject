@@ -40,11 +40,11 @@
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.dtListaAsesorias = new System.Windows.Forms.DataGridView();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlLeft.SuspendLayout();
             this.pnlTop.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -107,6 +107,7 @@
             this.btnConsultar.TabIndex = 1;
             this.btnConsultar.Text = "Consultar solicitudes";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnSolicitar
             // 
@@ -210,16 +211,6 @@
             this.dtListaAsesorias.TabIndex = 1;
             this.dtListaAsesorias.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListaAsesorias_CellContentDoubleClick);
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Light", 20F);
-            this.lblTitulo.Location = new System.Drawing.Point(6, 13);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(223, 37);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Asesorías en curso";
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "IdAsesoria";
@@ -251,6 +242,16 @@
             this.Column4.HeaderText = "Nombre del asesor";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Light", 20F);
+            this.lblTitulo.Location = new System.Drawing.Point(6, 13);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(223, 37);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Asesorías en curso";
             // 
             // FrmPrincipal
             // 

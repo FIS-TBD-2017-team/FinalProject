@@ -59,6 +59,7 @@ CREATE TABLE solicitud (
     idmateria	int 			not null,
     idtutor		int				not null,
     estatus		enum('PENDIENTE', 'RECHAZADA', 'ACEPTADA') not null,
+    horario 	text 			null	,
     notas		text			null,
     idasesoria	int				null
 );
