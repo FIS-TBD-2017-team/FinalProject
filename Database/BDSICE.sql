@@ -23,8 +23,7 @@ CREATE TABLE Carreras (
 CREATE TABLE Materias (
 	idMateria				int				primary key auto_increment,
     nombre					varchar(45)		not null,
-    idCarrera				int				null,
-    constraint				foreign key(idCarrera) references Carreras(idCarrera)
+    idCarrera				int				null
 );
 
 CREATE TABLE Grupos (

@@ -18,21 +18,28 @@ namespace FinalProject.Frontend
         public FrmListaAsesores(int IdTutor)
         {
             InitializeComponent();
+            dtListaAsesorias.AutoGenerateColumns = false;
+            dtListaAsesorias.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             Init(Tutor.Select(IdTutor));
         }
 
         private void Init(Tutor tutor)
         {
             this.tutor = tutor;
-            dtListaAsesorias.AutoGenerateColumns = false;
+            CargarDatos();
+        }
+
+        private void CargarDatos()
+        {
+            dtListaAsesorias.DataSource = null;
             dtListaAsesorias.DataSource = Alumno.SelectAsesor(tutor);
-            dtListaAsesorias.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
         private void dtListaAsesorias_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             String NoControl = dtListaAsesorias[0, e.RowIndex].Value.ToString();
             (new FrmAsesor(NoControl)).ShowDialog();
+            CargarDatos();
         }
     }
 }

@@ -216,7 +216,7 @@
             this.dtListaAsesorias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtListaAsesorias.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtListaAsesorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtListaAsesorias.Size = new System.Drawing.Size(587, 181);
+            this.dtListaAsesorias.Size = new System.Drawing.Size(570, 181);
             this.dtListaAsesorias.TabIndex = 15;
             // 
             // dtcNoControl
@@ -293,7 +293,7 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(587, 176);
+            this.dataGridView1.Size = new System.Drawing.Size(570, 176);
             this.dataGridView1.TabIndex = 17;
             // 
             // dataGridViewTextBoxColumn3

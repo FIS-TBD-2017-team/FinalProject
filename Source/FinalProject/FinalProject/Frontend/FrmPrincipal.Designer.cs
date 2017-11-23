@@ -179,6 +179,7 @@
             // 
             // dtListaAsesorias
             // 
+            this.dtListaAsesorias.AllowUserToAddRows = false;
             this.dtListaAsesorias.AllowUserToDeleteRows = false;
             this.dtListaAsesorias.AllowUserToResizeRows = false;
             this.dtListaAsesorias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -199,6 +200,7 @@
             this.dtListaAsesorias.EnableHeadersVisualStyles = false;
             this.dtListaAsesorias.Location = new System.Drawing.Point(13, 53);
             this.dtListaAsesorias.Name = "dtListaAsesorias";
+            this.dtListaAsesorias.ReadOnly = true;
             this.dtListaAsesorias.RowHeadersVisible = false;
             this.dtListaAsesorias.RowHeadersWidth = 45;
             this.dtListaAsesorias.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -206,30 +208,39 @@
             this.dtListaAsesorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtListaAsesorias.Size = new System.Drawing.Size(687, 401);
             this.dtListaAsesorias.TabIndex = 1;
+            this.dtListaAsesorias.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListaAsesorias_CellContentDoubleClick);
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "IdAsesoria";
             this.Column1.FillWeight = 126.9036F;
             this.Column1.HeaderText = "Id";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "NombreMateria";
             this.Column2.FillWeight = 93.27411F;
             this.Column2.HeaderText = "Materia";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "NoControl";
             this.Column3.FillWeight = 93.27411F;
             this.Column3.HeaderText = "No. Control del asesor";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "NombreAsesor";
             this.Column4.FillWeight = 93.27411F;
             this.Column4.HeaderText = "Nombre del asesor";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // lblTitulo
             // 

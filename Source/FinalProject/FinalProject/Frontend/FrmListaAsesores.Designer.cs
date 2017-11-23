@@ -35,7 +35,6 @@
             this.dtcNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtcCarrera = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtcCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtListaAsesorias)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,8 +67,7 @@
             this.dtcNoControl,
             this.dtcNombre,
             this.dtcCarrera,
-            this.dtcCorreo,
-            this.dtcTelefono});
+            this.dtcCorreo});
             this.dtListaAsesorias.EnableHeadersVisualStyles = false;
             this.dtListaAsesorias.Location = new System.Drawing.Point(12, 49);
             this.dtListaAsesorias.MultiSelect = false;
@@ -112,13 +110,6 @@
             this.dtcCorreo.Name = "dtcCorreo";
             this.dtcCorreo.ReadOnly = true;
             // 
-            // dtcTelefono
-            // 
-            this.dtcTelefono.DataPropertyName = "Telefono";
-            this.dtcTelefono.HeaderText = "Teléfono";
-            this.dtcTelefono.Name = "dtcTelefono";
-            this.dtcTelefono.ReadOnly = true;
-            // 
             // FrmListaAsesores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -146,6 +137,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcCarrera;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcCorreo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcTelefono;
     }
 }

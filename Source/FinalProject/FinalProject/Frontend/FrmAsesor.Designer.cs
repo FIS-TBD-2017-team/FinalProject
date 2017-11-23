@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblNoControlt = new System.Windows.Forms.Label();
             this.lblNoControl = new System.Windows.Forms.Label();
@@ -62,6 +62,7 @@
             this.pnlBack = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtHorasLibres)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPerfil)).BeginInit();
@@ -180,6 +181,7 @@
             // 
             this.txtCorreo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCorreo.Location = new System.Drawing.Point(458, 271);
+            this.txtCorreo.MaxLength = 100;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(204, 25);
             this.txtCorreo.TabIndex = 18;
@@ -204,27 +206,27 @@
             this.dtHorasLibres.BackgroundColor = System.Drawing.Color.White;
             this.dtHorasLibres.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtHorasLibres.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtHorasLibres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtHorasLibres.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtHorasLibres.ColumnHeadersHeight = 35;
             this.dtHorasLibres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtHorasLibres.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dtcDia,
             this.dtcHora});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtHorasLibres.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtHorasLibres.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtHorasLibres.EnableHeadersVisualStyles = false;
             this.dtHorasLibres.Location = new System.Drawing.Point(372, 370);
             this.dtHorasLibres.MultiSelect = false;
@@ -318,6 +320,7 @@
             this.btnQuitarModulo.TabIndex = 25;
             this.btnQuitarModulo.Text = "-";
             this.btnQuitarModulo.UseVisualStyleBackColor = true;
+            this.btnQuitarModulo.Click += new System.EventHandler(this.btnQuitarModulo_Click);
             // 
             // btnQuitarMateria
             // 
@@ -330,6 +333,7 @@
             this.btnQuitarMateria.TabIndex = 30;
             this.btnQuitarMateria.Text = "-";
             this.btnQuitarMateria.UseVisualStyleBackColor = true;
+            this.btnQuitarMateria.Click += new System.EventHandler(this.btnQuitarMateria_Click);
             // 
             // btnAgregarMateria
             // 
@@ -342,6 +346,7 @@
             this.btnAgregarMateria.TabIndex = 29;
             this.btnAgregarMateria.Text = "+";
             this.btnAgregarMateria.UseVisualStyleBackColor = true;
+            this.btnAgregarMateria.Click += new System.EventHandler(this.btnAgregarMateria_Click);
             // 
             // cmbMateria
             // 
@@ -350,12 +355,6 @@
             this.cmbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbMateria.FormattingEnabled = true;
-            this.cmbMateria.Items.AddRange(new object[] {
-            "Lunes",
-            "Martes",
-            "Miércoles",
-            "Jueves",
-            "Viernes"});
             this.cmbMateria.Location = new System.Drawing.Point(372, 614);
             this.cmbMateria.Name = "cmbMateria";
             this.cmbMateria.Size = new System.Drawing.Size(206, 25);
@@ -382,14 +381,14 @@
             this.dtMaterias.BackgroundColor = System.Drawing.Color.White;
             this.dtMaterias.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtMaterias.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtMaterias.ColumnHeadersHeight = 35;
             this.dtMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtMaterias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -430,6 +429,7 @@
             this.btnGuardar.TabIndex = 31;
             this.btnGuardar.Text = "Guardar cambios";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // pbPerfil
             // 
@@ -447,6 +447,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBack.AutoScroll = true;
+            this.pnlBack.Controls.Add(this.panel2);
             this.pnlBack.Controls.Add(this.label1);
             this.pnlBack.Controls.Add(this.panel1);
             this.pnlBack.Controls.Add(this.btnGuardar);
@@ -496,6 +497,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(463, 150);
             this.panel1.TabIndex = 32;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(84, 916);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 10);
+            this.panel2.TabIndex = 33;
             // 
             // FrmAsesor
             // 
@@ -554,5 +562,6 @@
         private System.Windows.Forms.Panel pnlBack;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
