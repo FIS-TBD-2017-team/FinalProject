@@ -40,11 +40,11 @@
             this.pnlBottom = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.dtListaAsesorias = new System.Windows.Forms.DataGridView();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlLeft.SuspendLayout();
             this.pnlTop.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -153,7 +153,7 @@
             this.lblMensajeBienvenida.AutoSize = true;
             this.lblMensajeBienvenida.Location = new System.Drawing.Point(10, 10);
             this.lblMensajeBienvenida.Name = "lblMensajeBienvenida";
-            this.lblMensajeBienvenida.Size = new System.Drawing.Size(139, 19);
+            this.lblMensajeBienvenida.Size = new System.Drawing.Size(138, 19);
             this.lblMensajeBienvenida.TabIndex = 0;
             this.lblMensajeBienvenida.Text = "Bienvenido: Persona X";
             // 
@@ -207,16 +207,6 @@
             this.dtListaAsesorias.Size = new System.Drawing.Size(687, 401);
             this.dtListaAsesorias.TabIndex = 1;
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Light", 20F);
-            this.lblTitulo.Location = new System.Drawing.Point(6, 13);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(223, 37);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Asesorías en curso";
-            // 
             // Column1
             // 
             this.Column1.FillWeight = 126.9036F;
@@ -240,6 +230,16 @@
             this.Column4.FillWeight = 93.27411F;
             this.Column4.HeaderText = "Nombre del asesor";
             this.Column4.Name = "Column4";
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Light", 20F);
+            this.lblTitulo.Location = new System.Drawing.Point(6, 13);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(223, 37);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Asesorías en curso";
             // 
             // FrmPrincipal
             // 
