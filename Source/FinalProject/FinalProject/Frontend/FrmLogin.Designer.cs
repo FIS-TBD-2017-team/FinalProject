@@ -33,7 +33,6 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
-            this.cmbRol = new System.Windows.Forms.ComboBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.pbIcon = new System.Windows.Forms.PictureBox();
@@ -63,16 +62,6 @@
             // 
             resources.ApplyResources(this.lblPass, "lblPass");
             this.lblPass.Name = "lblPass";
-            // 
-            // cmbRol
-            // 
-            this.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cmbRol, "cmbRol");
-            this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Items.AddRange(new object[] {
-            resources.GetString("cmbRol.Items"),
-            resources.GetString("cmbRol.Items1")});
-            this.cmbRol.Name = "cmbRol";
             // 
             // btnIngresar
             // 
@@ -104,7 +93,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnIngresar);
-            this.Controls.Add(this.cmbRol);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.txtPass);
@@ -128,7 +116,6 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblPass;
-        private System.Windows.Forms.ComboBox cmbRol;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Panel pnlLeft;
     }

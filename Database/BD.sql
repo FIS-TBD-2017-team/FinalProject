@@ -158,6 +158,23 @@ WHERE
 	O.idMateria = M.idMateria
 ;
 
+CREATE VIEW AlumnosAsesoria AS
+SELECT 
+	D.idasesoria,
+    A.noControl,
+    A.nombre,
+    A.apellido1,
+    A.apellido2,
+    A.correo,
+    A.semestre,
+    A.idCarrera
+FROM 
+	detalleasesoria D,
+    SICE.alumnos A
+WHERE
+	D.nocontrol = A.noControl
+;
+
 -- ####################################################################
 -- DATOS DE PRUEBA
 -- ####################################################################
@@ -193,3 +210,9 @@ INSERT INTO detalleasesoria VALUES
     (1, "S15120065"),
     (2, "S15120065"),
     (2, "E12120193");	
+    
+INSERT INTO solicitud VALUES 
+	(null, 6, 3, "PENDIENTE", "09:00", "Árboles", null);
+    
+INSERT INTO sesion VALUES
+	(null, 1, "REALIZADA", "B6", "2017-11-24", "11:00:00", "");

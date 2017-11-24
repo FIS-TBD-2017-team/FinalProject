@@ -33,7 +33,7 @@ namespace FinalProject.Backend
             this.IdMateria = IdMateria;
             this.Estatus = Estatus;
 
-            this.NombreAsesor = Alumno.SelectAsesor(NoControl).NombreCompleto;
+            this.NombreAsesor = Alumno.Select(NoControl).NombreCompleto;
             this.NombreMateria = Materia.Select(IdMateria).Nombre;
         }
 
@@ -125,6 +125,37 @@ namespace FinalProject.Backend
             {
                 adp.Fill(tbl);
                 return Asesoria.FromDataRow(tbl.Rows[0]);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+        public static List<Alumno> Integrantes(int IdAsesoria)
+        {
+            String query = "SELECT * FROM AlumnosAsesoria WHERE idasesoria=@idasesoria";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idasesoria", IdAsesoria);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+
+            DataTable tbl = new DataTable();
+
+            try
+            {
+                adp.Fill(tbl);
+
+                List<Alumno> list = new List<Alumno>();
+
+                foreach (DataRow dr in tbl.Rows)
+                    list.Add(Alumno.FromDataRow(dr));
+
+                return list;
             }
             catch (Exception ex)
             {

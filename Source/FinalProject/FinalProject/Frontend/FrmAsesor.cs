@@ -18,7 +18,7 @@ namespace FinalProject.Frontend
         public FrmAsesor(String nocontrol) 
         {
             InitializeComponent();
-            Init(Alumno.SelectAsesor(nocontrol));
+            Init(Alumno.Select(nocontrol));
         }
         public void Init(Alumno asesor)
         {

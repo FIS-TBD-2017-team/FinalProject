@@ -145,7 +145,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtUser.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="txtPass.Location" type="System.Drawing.Point, System.Drawing">
     <value>196, 88</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtPass.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="lblUser.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -202,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblUser.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="lblPass.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -232,39 +232,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblPass.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cmbRol.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="cmbRol.Items" xml:space="preserve">
-    <value>Tutor</value>
-  </data>
-  <data name="cmbRol.Items1" xml:space="preserve">
-    <value>Coordinador</value>
-  </data>
-  <data name="cmbRol.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 124</value>
-  </data>
-  <data name="cmbRol.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="cmbRol.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 25</value>
-  </data>
-  <data name="cmbRol.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;cmbRol.Name" xml:space="preserve">
-    <value>cmbRol</value>
-  </data>
-  <data name="&gt;&gt;cmbRol.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbRol.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cmbRol.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="btnIngresar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
@@ -277,7 +244,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnIngresar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 158</value>
+    <value>196, 121</value>
   </data>
   <data name="btnIngresar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -307,7 +274,7 @@
     <value>NoControl</value>
   </data>
   <data name="pbIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 14</value>
+    <value>25, 27</value>
   </data>
   <data name="pbIcon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -337,7 +304,7 @@
     <value>0, 0</value>
   </data>
   <data name="pnlLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 232</value>
+    <value>180, 187</value>
   </data>
   <data name="pnlLeft.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -352,7 +319,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlLeft.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -361,7 +328,7 @@
     <value>7, 17</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>372, 232</value>
+    <value>372, 187</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Light, 10pt</value>
@@ -2031,9 +1998,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>

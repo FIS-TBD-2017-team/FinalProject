@@ -60,8 +60,15 @@
     <Compile Include="Backend\HoraLibre.cs" />
     <Compile Include="Backend\Materia.cs" />
     <Compile Include="Backend\Oferta.cs" />
+    <Compile Include="Backend\Sesion.cs" />
     <Compile Include="Backend\Solicitud.cs" />
     <Compile Include="Backend\Tutor.cs" />
+    <Compile Include="Frontend\FrmAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\FrmAlumno.Designer.cs">
+      <DependentUpon>FrmAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\FrmAsesor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +119,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frontend\FrmAlumno.resx">
+      <DependentUpon>FrmAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\FrmAsesor.resx">
       <DependentUpon>FrmAsesor.cs</DependentUpon>
     </EmbeddedResource>

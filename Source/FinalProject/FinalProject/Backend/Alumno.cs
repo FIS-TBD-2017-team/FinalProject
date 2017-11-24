@@ -92,11 +92,11 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
-        public static Alumno SelectAsesor(String NoControl)
+        public static Alumno Select(String NoControl)
         {
-            String query = "SELECT * FROM asesor WHERE nocontrol = @nocontrol LIMIT 1";
+            String query = "SELECT * FROM alumnos WHERE nocontrol = @nocontrol LIMIT 1";
 
-            MySqlConnection conn = Connection.Asesorias();
+            MySqlConnection conn = Connection.SICE();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@nocontrol", NoControl);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);

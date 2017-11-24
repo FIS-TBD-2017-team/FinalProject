@@ -47,7 +47,7 @@ namespace FinalProject.Backend
         public static Solicitud FromDataRow(DataRow dr)
         {
             return new Solicitud(
-                int.Parse(dr["idasesoria"].ToString()),
+                int.Parse(dr["idsolicitud"].ToString()),
                 int.Parse(dr["idmateria"].ToString()),
                 int.Parse(dr["idtutor"].ToString()),
                 dr["estatus"].ToString(),

@@ -53,13 +53,18 @@ namespace FinalProject.Frontend
 
         private void dtListaAsesorias_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            String NoControl = dtListaAsesorias[e.ColumnIndex, e.RowIndex].Value.ToString();
-            (new FrmAsesoria(NoControl)).ShowDialog();
+            Asesoria asesoria = (Asesoria)dtListaAsesorias.SelectedRows[0].DataBoundItem;
+            (new FrmAsesoria(asesoria)).ShowDialog();
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             (new FrmSolicitudesPendientes(tutor)).ShowDialog();
+        }
+
+        private void btnSolicitar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

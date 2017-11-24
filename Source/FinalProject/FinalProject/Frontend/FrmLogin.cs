@@ -16,7 +16,6 @@ namespace FinalProject.Frontend
         public FrmLogin()
         {
             InitializeComponent();
-            cmbRol.SelectedIndex = 0;
         }
 
         private bool ValidarDatos()

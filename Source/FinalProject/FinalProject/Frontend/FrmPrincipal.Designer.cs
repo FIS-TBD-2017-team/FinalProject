@@ -122,6 +122,7 @@
             this.btnSolicitar.TabIndex = 0;
             this.btnSolicitar.Text = "&Solicitar asesoría";
             this.btnSolicitar.UseVisualStyleBackColor = true;
+            this.btnSolicitar.Click += new System.EventHandler(this.btnSolicitar_Click);
             // 
             // pnlTop
             // 
@@ -154,7 +155,7 @@
             this.lblMensajeBienvenida.AutoSize = true;
             this.lblMensajeBienvenida.Location = new System.Drawing.Point(10, 10);
             this.lblMensajeBienvenida.Name = "lblMensajeBienvenida";
-            this.lblMensajeBienvenida.Size = new System.Drawing.Size(138, 19);
+            this.lblMensajeBienvenida.Size = new System.Drawing.Size(139, 19);
             this.lblMensajeBienvenida.TabIndex = 0;
             this.lblMensajeBienvenida.Text = "Bienvenido: Persona X";
             // 
@@ -265,6 +266,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipal_FormClosing);
             this.pnlLeft.ResumeLayout(false);
