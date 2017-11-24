@@ -32,7 +32,7 @@ namespace FinalProject.Backend
         public Solicitud(int IdSolicitud, int IdMateria, int IdTutor, String Estatus,
                          String Horario, String Notas)
         {
-            this.IdAsesoria = IdAsesoria;
+            this.IdSolicitud = IdSolicitud;
             this.IdMateria = IdMateria;
             this.IdTutor = IdTutor;
             this.Estatus = Estatus;
@@ -58,7 +58,7 @@ namespace FinalProject.Backend
 
         public static List<Solicitud> Select(Tutor tutor)
         {
-            String query = "SELECT * FROM solicitud WHERE idtutor=@idtutor";
+            String query = "SELECT * FROM solicitud WHERE estatus='PENDIENTE' AND idtutor=@idtutor";
 
             MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -86,9 +86,61 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
-        public static Solicitud Select(int IdAsesoria)
+        public static Solicitud Select(int IdSolicitud)
         {
-            throw new NotImplementedException();
+            String query = "SELECT * FROM solicitud WHERE idsolicitud=@idsolicitud";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idtutor", IdSolicitud);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+
+            DataTable tbl = new DataTable();
+
+            try
+            {
+                adp.Fill(tbl);
+                return Solicitud.FromDataRow(tbl.Rows[0]);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+        public static List<Alumno> Integrantes(int IdSolicitud)
+        {
+            String query = "SELECT * FROM AlumnosSolicitud WHERE idsolicitud=@idsolicitud";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idsolicitud", IdSolicitud);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+
+            DataTable tbl = new DataTable();
+
+            try
+            {
+                adp.Fill(tbl);
+
+                List<Alumno> list = new List<Alumno>();
+
+                foreach (DataRow dr in tbl.Rows)
+                    list.Add(Alumno.FromDataRow(dr));
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
         }
     }
 }

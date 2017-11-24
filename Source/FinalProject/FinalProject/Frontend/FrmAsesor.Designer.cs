@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAsesor));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblNoControlt = new System.Windows.Forms.Label();
             this.lblNoControl = new System.Windows.Forms.Label();
@@ -60,9 +61,9 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pbPerfil = new System.Windows.Forms.PictureBox();
             this.pnlBack = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtHorasLibres)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtMaterias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPerfil)).BeginInit();
@@ -471,6 +472,13 @@
             this.pnlBack.Size = new System.Drawing.Size(691, 490);
             this.pnlBack.TabIndex = 32;
             // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(84, 916);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 10);
+            this.panel2.TabIndex = 33;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -498,13 +506,6 @@
             this.panel1.Size = new System.Drawing.Size(463, 150);
             this.panel1.TabIndex = 32;
             // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(84, 916);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 10);
-            this.panel2.TabIndex = 33;
-            // 
             // FrmAsesor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -513,10 +514,11 @@
             this.ClientSize = new System.Drawing.Size(691, 490);
             this.Controls.Add(this.pnlBack);
             this.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(707, 528);
             this.Name = "FrmAsesor";
-            this.Text = "FrmAsesor";
+            this.Text = "Asesor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dtHorasLibres)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtMaterias)).EndInit();

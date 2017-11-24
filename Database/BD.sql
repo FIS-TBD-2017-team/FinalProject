@@ -58,7 +58,7 @@ CREATE TABLE solicitud (
 	idsolicitud	int				primary key auto_increment,
     idmateria	int 			not null,
     idtutor		int				not null,
-    estatus		enum('PENDIENTE', 'RECHAZADA', 'ACEPTADA') not null,
+    estatus		enum('PENDIENTE', 'ACEPTADA', 'RECHAZADA') not null,
     horario 	text 			null	,
     notas		text			null,
     idasesoria	int				null
@@ -175,6 +175,25 @@ WHERE
 	D.nocontrol = A.noControl
 ;
 
+CREATE VIEW AlumnosSolicitud AS
+SELECT 
+	D.idsolicitud,
+    A.noControl,
+    A.nombre,
+    A.apellido1,
+    A.apellido2,
+    A.correo,
+    A.semestre,
+    A.idCarrera
+FROM 
+	solicitud S,
+	detallesolicitud D,
+    SICE.alumnos A
+WHERE
+	S.idsolicitud = D.idsolicitud AND
+	D.nocontrol = A.noControl
+;
+
 -- ####################################################################
 -- DATOS DE PRUEBA
 -- ####################################################################
@@ -212,7 +231,12 @@ INSERT INTO detalleasesoria VALUES
     (2, "E12120193");	
     
 INSERT INTO solicitud VALUES 
-	(null, 6, 3, "PENDIENTE", "09:00", "Árboles", null);
-    
+	(1, 6, 3, "PENDIENTE", "09:00", "Árboles", null);
+ 
+ INSERT INTO detallesolicitud VALUES 
+	(1, "E14120310"),
+    (1, "S15120032"),
+    (1, "S15120065");
+ 
 INSERT INTO sesion VALUES
 	(null, 1, "REALIZADA", "B6", "2017-11-24", "11:00:00", "");

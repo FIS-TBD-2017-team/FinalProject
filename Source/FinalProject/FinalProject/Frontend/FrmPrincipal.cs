@@ -59,12 +59,17 @@ namespace FinalProject.Frontend
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            (new FrmSolicitudesPendientes(tutor)).ShowDialog();
+            (new FrmConsultarSolicitudes(tutor)).ShowDialog();
         }
 
         private void btnSolicitar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAtender_Click(object sender, EventArgs e)
+        {
+            (new FrmAtenderSolicitudes(tutor)).ShowDialog();
         }
     }
 }

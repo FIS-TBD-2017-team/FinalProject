@@ -1,6 +1,6 @@
 ﻿namespace FinalProject.Frontend
 {
-    partial class FrmSolicitudesPendientes
+    partial class FrmConsultarSolicitudes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultarSolicitudes));
             this.label1 = new System.Windows.Forms.Label();
             this.dtListaSolicitudes = new System.Windows.Forms.DataGridView();
-            this.cmbMateria = new System.Windows.Forms.ComboBox();
             this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtcMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcNoControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcNombreAsesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtcHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcEstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtcNotas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtListaSolicitudes)).BeginInit();
             this.SuspendLayout();
@@ -67,12 +66,11 @@
             this.dtListaSolicitudes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dtcId,
             this.dtcMateria,
-            this.dtcNoControl,
-            this.dtcNombreAsesor,
             this.dtcHorario,
+            this.dtcEstatus,
             this.dtcNotas});
             this.dtListaSolicitudes.EnableHeadersVisualStyles = false;
-            this.dtListaSolicitudes.Location = new System.Drawing.Point(12, 73);
+            this.dtListaSolicitudes.Location = new System.Drawing.Point(12, 42);
             this.dtListaSolicitudes.Name = "dtListaSolicitudes";
             this.dtListaSolicitudes.ReadOnly = true;
             this.dtListaSolicitudes.RowHeadersVisible = false;
@@ -80,19 +78,9 @@
             this.dtListaSolicitudes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtListaSolicitudes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtListaSolicitudes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtListaSolicitudes.Size = new System.Drawing.Size(668, 276);
+            this.dtListaSolicitudes.Size = new System.Drawing.Size(668, 307);
             this.dtListaSolicitudes.TabIndex = 2;
-            // 
-            // cmbMateria
-            // 
-            this.cmbMateria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbMateria.FormattingEnabled = true;
-            this.cmbMateria.Location = new System.Drawing.Point(12, 42);
-            this.cmbMateria.Name = "cmbMateria";
-            this.cmbMateria.Size = new System.Drawing.Size(170, 25);
-            this.cmbMateria.TabIndex = 23;
+            this.dtListaSolicitudes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListaSolicitudes_CellDoubleClick);
             // 
             // dtcId
             // 
@@ -110,28 +98,19 @@
             this.dtcMateria.Name = "dtcMateria";
             this.dtcMateria.ReadOnly = true;
             // 
-            // dtcNoControl
-            // 
-            this.dtcNoControl.DataPropertyName = "NoControl";
-            this.dtcNoControl.FillWeight = 93.27411F;
-            this.dtcNoControl.HeaderText = "No. Control";
-            this.dtcNoControl.Name = "dtcNoControl";
-            this.dtcNoControl.ReadOnly = true;
-            // 
-            // dtcNombreAsesor
-            // 
-            this.dtcNombreAsesor.DataPropertyName = "NombreAsesor";
-            this.dtcNombreAsesor.FillWeight = 93.27411F;
-            this.dtcNombreAsesor.HeaderText = "Nombre del asesor";
-            this.dtcNombreAsesor.Name = "dtcNombreAsesor";
-            this.dtcNombreAsesor.ReadOnly = true;
-            // 
             // dtcHorario
             // 
             this.dtcHorario.DataPropertyName = "Horario";
             this.dtcHorario.HeaderText = "Horario";
             this.dtcHorario.Name = "dtcHorario";
             this.dtcHorario.ReadOnly = true;
+            // 
+            // dtcEstatus
+            // 
+            this.dtcEstatus.DataPropertyName = "Estatus";
+            this.dtcEstatus.HeaderText = "Estatus";
+            this.dtcEstatus.Name = "dtcEstatus";
+            this.dtcEstatus.ReadOnly = true;
             // 
             // dtcNotas
             // 
@@ -140,18 +119,18 @@
             this.dtcNotas.Name = "dtcNotas";
             this.dtcNotas.ReadOnly = true;
             // 
-            // FrmSolicitudesPendientes
+            // FrmConsultarSolicitudes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(692, 361);
-            this.Controls.Add(this.cmbMateria);
             this.Controls.Add(this.dtListaSolicitudes);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FrmSolicitudesPendientes";
+            this.Name = "FrmConsultarSolicitudes";
             this.Text = "FrmAsesoriasPendientes";
             ((System.ComponentModel.ISupportInitialize)(this.dtListaSolicitudes)).EndInit();
             this.ResumeLayout(false);
@@ -163,12 +142,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtListaSolicitudes;
-        private System.Windows.Forms.ComboBox cmbMateria;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcMateria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcNoControl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcNombreAsesor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcHorario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcEstatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcNotas;
     }
 }

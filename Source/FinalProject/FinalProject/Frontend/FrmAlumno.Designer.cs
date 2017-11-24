@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAlumno));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblNoControlt = new System.Windows.Forms.Label();
             this.lblNoControl = new System.Windows.Forms.Label();
@@ -246,6 +247,7 @@
             this.ClientSize = new System.Drawing.Size(691, 490);
             this.Controls.Add(this.pnlBack);
             this.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(707, 528);
             this.Name = "FrmAlumno";

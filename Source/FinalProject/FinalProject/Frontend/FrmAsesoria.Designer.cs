@@ -49,13 +49,13 @@
             this.dtcCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblSubSesiones = new System.Windows.Forms.Label();
             this.dtSesiones = new System.Windows.Forms.DataGridView();
-            this.btnAgregarSesion = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAgregarSesion = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtSesiones)).BeginInit();
             this.SuspendLayout();
@@ -291,26 +291,6 @@
             this.dtSesiones.Size = new System.Drawing.Size(593, 176);
             this.dtSesiones.TabIndex = 17;
             // 
-            // btnAgregarSesion
-            // 
-            this.btnAgregarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarSesion.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.btnAgregarSesion.Location = new System.Drawing.Point(576, 356);
-            this.btnAgregarSesion.Name = "btnAgregarSesion";
-            this.btnAgregarSesion.Size = new System.Drawing.Size(36, 23);
-            this.btnAgregarSesion.TabIndex = 25;
-            this.btnAgregarSesion.Text = "+";
-            this.btnAgregarSesion.UseVisualStyleBackColor = true;
-            this.btnAgregarSesion.Click += new System.EventHandler(this.btnAgregarSesion_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(12, 563);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 10);
-            this.panel2.TabIndex = 34;
-            // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Estatus";
@@ -345,6 +325,26 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Notas";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // btnAgregarSesion
+            // 
+            this.btnAgregarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarSesion.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.btnAgregarSesion.Location = new System.Drawing.Point(576, 356);
+            this.btnAgregarSesion.Name = "btnAgregarSesion";
+            this.btnAgregarSesion.Size = new System.Drawing.Size(36, 23);
+            this.btnAgregarSesion.TabIndex = 25;
+            this.btnAgregarSesion.Text = "+";
+            this.btnAgregarSesion.UseVisualStyleBackColor = true;
+            this.btnAgregarSesion.Click += new System.EventHandler(this.btnAgregarSesion_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(12, 563);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 10);
+            this.panel2.TabIndex = 34;
             // 
             // FrmAsesoria
             // 

@@ -93,6 +93,7 @@
             this.btnAtender.TabIndex = 1;
             this.btnAtender.Text = "Atender solicitudes";
             this.btnAtender.UseVisualStyleBackColor = true;
+            this.btnAtender.Click += new System.EventHandler(this.btnAtender_Click);
             // 
             // btnConsultar
             // 
