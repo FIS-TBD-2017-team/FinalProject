@@ -11,7 +11,7 @@ namespace FinalProject.Backend
     public class Connection
     {
         private static String Server = "localhost";
-        private static String Port = "4000";
+        private static String Port = "3306";
         private static String User = "root";
         private static String Pass = "root";
 

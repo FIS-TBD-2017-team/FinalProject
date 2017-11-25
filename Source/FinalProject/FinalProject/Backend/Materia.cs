@@ -64,6 +64,36 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        public static List<Materia> SelectSem(int semestre)
+        {
+            String query = "SELECT * FROM materias where idCarrera =@idSemestre";
+            MySqlConnection conn = Connection.SICE();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idSemestre", semestre);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+
+            DataTable tbl = new DataTable();
+
+            try
+            {
+                adp.Fill(tbl);
+
+                List<Materia> list = new List<Materia>();
+
+                foreach (DataRow dr in tbl.Rows)
+                    list.Add(Materia.FromDataRow(dr));
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
         public static List<Materia> Select(Alumno asesor)
         {
             String query = "SELECT * FROM MateriasOfertadas WHERE nocontrol = @nocontrol";

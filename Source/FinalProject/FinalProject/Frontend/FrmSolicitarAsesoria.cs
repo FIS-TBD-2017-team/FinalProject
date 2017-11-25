@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalProject.Backend;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,11 +18,6 @@ namespace FinalProject.Frontend
             InitializeComponent();
         }
 
-        private void lblCorreo_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -34,6 +30,29 @@ namespace FinalProject.Frontend
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnBuscarAlumno_Click(object sender, EventArgs e)
+        {
+            Alumno alumno = Alumno.Select(txtNoControl.Text);
+            if (alumno == null) {
+                MessageBox.Show("Clave del alumno incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            lblCarrera.Text = alumno.NombreCarrera;
+            lblCorreo.Text = alumno.Correo;
+            lblNoSemestre.Text = alumno.Semestre+"";
+            lblNombre.Text = alumno.NombreCompleto;
+            if (alumno.Correo != null)
+                lblNoControl.Text = alumno.NoControl;
+            else
+                lblCorreo.Text = "No disponible";
+            cmbMateria.DataSource = null;
+            List<Materia> materias = Materia.SelectSem(alumno.IdCarrera);
+            cmbMateria.DataSource = materias;
+            cmbMateria.DisplayMember = "nombre";
+            cmbMateria.ValueMember = "idMateria";
         }
     }
 }
