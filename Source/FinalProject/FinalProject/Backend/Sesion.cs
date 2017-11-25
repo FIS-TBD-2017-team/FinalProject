@@ -53,7 +53,7 @@ namespace FinalProject.Backend
 
         public static List<Sesion>Select(Asesoria asesoria)
         {
-            String query = "SELECT * FROM sesion WHERE idasesoria=@idasesoria";
+            String query = "SELECT * FROM sesion WHERE idasesoria=@idasesoria ORDER BY Fecha, Hora";
 
             MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -76,6 +76,59 @@ namespace FinalProject.Backend
             catch (Exception ex)
             {
                 return null;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+        public static Sesion Select(int IdSesion)
+        {
+            String query = "SELECT * FROM sesion WHERE idsesion=@idsesion";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idsesion", IdSesion);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+
+            DataTable tbl = new DataTable();
+
+            try
+            {
+                adp.Fill(tbl);
+                return Sesion.FromDataRow(tbl.Rows[0]);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+
+        public static void Insert(Sesion sesion)
+        {
+            String query = "INSERT INTO sesion VALUES(null,@idasesoria,@estatus,@lugar,@fecha,@hora,@notas)";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idasesoria", sesion.IdAsesoria);
+            cmd.Parameters.AddWithValue("@estatus", sesion.Estatus);
+            cmd.Parameters.AddWithValue("@lugar", sesion.Lugar);
+            cmd.Parameters.AddWithValue("@fecha", sesion.Fecha);
+            cmd.Parameters.AddWithValue("@hora", sesion.Hora);
+            cmd.Parameters.AddWithValue("@notas", sesion.Notas);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return;
             }
             finally
             {

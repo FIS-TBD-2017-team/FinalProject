@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Backend\Alumno.cs" />
     <Compile Include="Backend\Asesoria.cs" />
+    <Compile Include="Backend\Asistencia.cs" />
     <Compile Include="Backend\Carrera.cs" />
     <Compile Include="Backend\Connection.cs" />
     <Compile Include="Backend\HoraLibre.cs" />
@@ -86,6 +87,12 @@
     </Compile>
     <Compile Include="Frontend\FrmAtenderSolicitudes.Designer.cs">
       <DependentUpon>FrmAtenderSolicitudes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\FrmSesionAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\FrmSesionAsistencia.Designer.cs">
+      <DependentUpon>FrmSesionAsistencia.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\FrmSolicitud.cs">
       <SubType>Form</SubType>
@@ -154,6 +161,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\FrmSesion.resx">
+      <DependentUpon>FrmSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\FrmSesionAsistencia.resx">
+      <DependentUpon>FrmSesionAsistencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\FrmSolicitarAsesoria.resx">
       <DependentUpon>FrmSolicitarAsesoria.cs</DependentUpon>

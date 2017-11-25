@@ -59,7 +59,15 @@ namespace FinalProject.Frontend
 
         private void btnAgregarSesion_Click(object sender, EventArgs e)
         {
-            (new FrmSesion()).ShowDialog();
+            (new FrmSesion(asesoria.IdAsesoria)).ShowDialog();
+            CargarSesiones();
+        }
+
+        private void dtSesiones_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Sesion sesion = (Sesion)dtSesiones.SelectedRows[0].DataBoundItem;
+            if (!sesion.Estatus.Equals("REALIZADA")) return;
+            (new FrmSesionAsistencia(sesion)).ShowDialog();
             CargarSesiones();
         }
     }

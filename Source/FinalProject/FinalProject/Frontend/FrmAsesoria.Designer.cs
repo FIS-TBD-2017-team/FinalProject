@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAsesoria));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblIdt = new System.Windows.Forms.Label();
             this.lblMateriat = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAgregarSesion = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtSesiones)).BeginInit();
             this.SuspendLayout();
@@ -290,6 +290,7 @@
             this.dtSesiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtSesiones.Size = new System.Drawing.Size(593, 176);
             this.dtSesiones.TabIndex = 17;
+            this.dtSesiones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtSesiones_CellDoubleClick);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -331,7 +332,7 @@
             this.btnAgregarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarSesion.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.btnAgregarSesion.Location = new System.Drawing.Point(576, 356);
+            this.btnAgregarSesion.Location = new System.Drawing.Point(576, 357);
             this.btnAgregarSesion.Name = "btnAgregarSesion";
             this.btnAgregarSesion.Size = new System.Drawing.Size(36, 23);
             this.btnAgregarSesion.TabIndex = 25;
@@ -339,21 +340,13 @@
             this.btnAgregarSesion.UseVisualStyleBackColor = true;
             this.btnAgregarSesion.Click += new System.EventHandler(this.btnAgregarSesion_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(12, 563);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 10);
-            this.panel2.TabIndex = 34;
-            // 
             // FrmAsesoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(641, 511);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(658, 511);
             this.Controls.Add(this.btnAgregarSesion);
             this.Controls.Add(this.dtSesiones);
             this.Controls.Add(this.lblSubSesiones);
@@ -373,10 +366,12 @@
             this.Controls.Add(this.lblIdt);
             this.Controls.Add(this.lblTitulo);
             this.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmAsesoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAsesoria";
+            this.Text = "Asesoría";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtSesiones)).EndInit();
             this.ResumeLayout(false);
@@ -408,7 +403,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcCarrera;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcCorreo;
         private System.Windows.Forms.Button btnAgregarSesion;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;

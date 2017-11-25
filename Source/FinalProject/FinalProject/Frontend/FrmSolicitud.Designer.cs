@@ -143,7 +143,7 @@
             this.dtAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAlumnos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAlumnos.Size = new System.Drawing.Size(576, 171);
+            this.dtAlumnos.Size = new System.Drawing.Size(572, 171);
             this.dtAlumnos.TabIndex = 16;
             this.dtAlumnos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtAlumnos_CellDoubleClick);
             // 
@@ -191,7 +191,7 @@
             this.txtNotas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNotas.Location = new System.Drawing.Point(297, 48);
             this.txtNotas.Name = "txtNotas";
-            this.txtNotas.Size = new System.Drawing.Size(296, 62);
+            this.txtNotas.Size = new System.Drawing.Size(291, 62);
             this.txtNotas.TabIndex = 19;
             this.txtNotas.Text = "";
             // 
@@ -241,7 +241,7 @@
             this.dtAsesores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAsesores.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAsesores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAsesores.Size = new System.Drawing.Size(576, 171);
+            this.dtAsesores.Size = new System.Drawing.Size(572, 171);
             this.dtAsesores.TabIndex = 23;
             this.dtAsesores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtAsesores_CellDoubleClick);
             // 
@@ -291,7 +291,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnGuardar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnGuardar.Location = new System.Drawing.Point(430, 331);
+            this.btnGuardar.Location = new System.Drawing.Point(425, 331);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(163, 54);
@@ -323,7 +323,7 @@
             this.btnDesignar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnDesignar.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnDesignar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDesignar.Location = new System.Drawing.Point(430, 604);
+            this.btnDesignar.Location = new System.Drawing.Point(425, 604);
             this.btnDesignar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDesignar.Name = "btnDesignar";
             this.btnDesignar.Size = new System.Drawing.Size(163, 54);
