@@ -61,6 +61,7 @@
     <Compile Include="Backend\HoraLibre.cs" />
     <Compile Include="Backend\Materia.cs" />
     <Compile Include="Backend\Oferta.cs" />
+    <Compile Include="Backend\Respuesta.cs" />
     <Compile Include="Backend\Sesion.cs" />
     <Compile Include="Backend\Solicitud.cs" />
     <Compile Include="Backend\Tutor.cs" />
@@ -82,6 +83,12 @@
     <Compile Include="Frontend\FrmAsesoria.Designer.cs">
       <DependentUpon>FrmAsesoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\FrmAtenderSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\FrmAtenderSolicitud.Designer.cs">
+      <DependentUpon>FrmAtenderSolicitud.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\FrmAtenderSolicitudes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,11 +107,11 @@
     <Compile Include="Frontend\FrmSesionAsistencia.Designer.cs">
       <DependentUpon>FrmSesionAsistencia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frontend\FrmSolicitud.cs">
+    <Compile Include="Frontend\FrmConsultarSolicitud.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frontend\FrmSolicitud.Designer.cs">
-      <DependentUpon>FrmSolicitud.cs</DependentUpon>
+    <Compile Include="Frontend\FrmConsultarSolicitud.Designer.cs">
+      <DependentUpon>FrmConsultarSolicitud.cs</DependentUpon>
     </Compile>
     <Compile Include="Frontend\FrmConsultarSolicitudes.cs">
       <SubType>Form</SubType>
@@ -153,6 +160,9 @@
     <EmbeddedResource Include="Frontend\FrmAsesoria.resx">
       <DependentUpon>FrmAsesoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\FrmAtenderSolicitud.resx">
+      <DependentUpon>FrmAtenderSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\FrmAtenderSolicitudes.resx">
       <DependentUpon>FrmAtenderSolicitudes.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,8 +187,8 @@
     <EmbeddedResource Include="Frontend\FrmSolicitarAsesoria.resx">
       <DependentUpon>FrmSolicitarAsesoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frontend\FrmSolicitud.resx">
-      <DependentUpon>FrmSolicitud.cs</DependentUpon>
+    <EmbeddedResource Include="Frontend\FrmConsultarSolicitud.resx">
+      <DependentUpon>FrmConsultarSolicitud.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

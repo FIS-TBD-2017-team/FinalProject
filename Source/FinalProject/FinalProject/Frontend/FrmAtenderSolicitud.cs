@@ -11,21 +11,28 @@ using System.Windows.Forms;
 
 namespace FinalProject.Frontend
 {
-    public partial class FrmSolicitud : Form
+    public partial class FrmAtenderSolicitud : Form
     {
+        private Tutor tutor = null;
         private Solicitud solicitud = null;
 
-        public FrmSolicitud(Solicitud solicitud)
+        public FrmAtenderSolicitud(Tutor tutor, Solicitud solicitud)
         {
             InitializeComponent();
 
+            this.tutor = tutor;
             this.solicitud = solicitud;
 
             dtAlumnos.AutoGenerateColumns = false;
             dtAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
+            dtAsesores.AutoGenerateColumns = false;
+            dtAsesores.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dtAsesores.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
             CargarInformacion();
             CargarAlumnos();
+            CargarAsesores();
         }
         public void CargarInformacion()
         {
@@ -42,14 +49,17 @@ namespace FinalProject.Frontend
         public void CargarAsesores()
         {
             dtAsesores.DataSource = null;
-            //dtAlumnos.DataSource = Solicitud.Integrantes(solicitud.IdSolicitud);
-        }
 
-        private void dtAlumnos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Alumno alumno = (Alumno)dtAlumnos.SelectedRows[0].DataBoundItem;
-            (new FrmAlumno(alumno.NoControl)).ShowDialog();
-            CargarAlumnos();
+            // Obtiene la lista de asesores capaces de asesorar en dicha materia,
+            // que sean tutorados del usuario actual
+            var list = Alumno.SelectAsesor(tutor, solicitud.IdMateria);
+
+            // Si no hay asesores capaces elimina el filtro de materia, y muestra
+            // la lista completa de asesores del tutor.
+            if (list.Count == 0)
+                list = Alumno.SelectAsesor(tutor);
+
+            dtAsesores.DataSource = list;
         }
 
         private void dtAsesores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -61,8 +71,18 @@ namespace FinalProject.Frontend
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            solicitud.Notas = txtNotas.Text;
             // TODO: Actualizar la basura
+        }
+
+        private void dtAsesores_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void btnRechazar_Click(object sender, EventArgs e)
+        {
+            Respuesta.Insert(new Respuesta(-1, solicitud.IdSolicitud, tutor.IdTutor, "RECHAZADA"));
+            Close();
         }
     }
 }

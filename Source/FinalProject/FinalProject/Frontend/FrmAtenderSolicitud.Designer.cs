@@ -1,6 +1,6 @@
 ﻿namespace FinalProject.Frontend
 {
-    partial class FrmSolicitud
+    partial class FrmAtenderSolicitud
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSolicitud));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAtenderSolicitud));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblSubAlumnos = new System.Windows.Forms.Label();
             this.lblMateria = new System.Windows.Forms.Label();
@@ -45,16 +45,16 @@
             this.lblHorariot = new System.Windows.Forms.Label();
             this.lblHorario = new System.Windows.Forms.Label();
             this.dtAsesores = new System.Windows.Forms.DataGridView();
+            this.lblSubAsesores = new System.Windows.Forms.Label();
+            this.btnRechazar = new System.Windows.Forms.Button();
+            this.btnDesignar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblSubAsesores = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnDesignar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.dtcProponer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtAsesores)).BeginInit();
             this.SuspendLayout();
@@ -65,9 +65,9 @@
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Light", 16F);
             this.lblTitulo.Location = new System.Drawing.Point(12, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(92, 30);
+            this.lblTitulo.Size = new System.Drawing.Size(170, 30);
             this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "Solicitud";
+            this.lblTitulo.Text = "Atender solicitud";
             // 
             // lblSubAlumnos
             // 
@@ -133,6 +133,7 @@
             this.dtcNombre,
             this.dtcCarrera,
             this.dtcCorreo});
+            this.dtAlumnos.Enabled = false;
             this.dtAlumnos.EnableHeadersVisualStyles = false;
             this.dtAlumnos.Location = new System.Drawing.Point(16, 153);
             this.dtAlumnos.MultiSelect = false;
@@ -145,7 +146,6 @@
             this.dtAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtAlumnos.Size = new System.Drawing.Size(572, 171);
             this.dtAlumnos.TabIndex = 16;
-            this.dtAlumnos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtAlumnos_CellDoubleClick);
             // 
             // dtcNoControl
             // 
@@ -189,6 +189,7 @@
             this.txtNotas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNotas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNotas.Enabled = false;
             this.txtNotas.Location = new System.Drawing.Point(297, 48);
             this.txtNotas.Name = "txtNotas";
             this.txtNotas.Size = new System.Drawing.Size(291, 62);
@@ -230,9 +231,10 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.dataGridViewTextBoxColumn4,
+            this.dtcProponer});
             this.dtAsesores.EnableHeadersVisualStyles = false;
-            this.dtAsesores.Location = new System.Drawing.Point(16, 426);
+            this.dtAsesores.Location = new System.Drawing.Point(16, 355);
             this.dtAsesores.MultiSelect = false;
             this.dtAsesores.Name = "dtAsesores";
             this.dtAsesores.ReadOnly = true;
@@ -243,7 +245,64 @@
             this.dtAsesores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtAsesores.Size = new System.Drawing.Size(572, 171);
             this.dtAsesores.TabIndex = 23;
-            this.dtAsesores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtAsesores_CellDoubleClick);
+            this.dtAsesores.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtAsesores_CellValueChanged);
+            // 
+            // lblSubAsesores
+            // 
+            this.lblSubAsesores.AutoSize = true;
+            this.lblSubAsesores.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.lblSubAsesores.Location = new System.Drawing.Point(12, 327);
+            this.lblSubAsesores.Name = "lblSubAsesores";
+            this.lblSubAsesores.Size = new System.Drawing.Size(159, 25);
+            this.lblSubAsesores.TabIndex = 22;
+            this.lblSubAsesores.Text = "Proponer asesores";
+            // 
+            // btnRechazar
+            // 
+            this.btnRechazar.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+            this.btnRechazar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRechazar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btnRechazar.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnRechazar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnRechazar.Location = new System.Drawing.Point(16, 533);
+            this.btnRechazar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRechazar.Name = "btnRechazar";
+            this.btnRechazar.Size = new System.Drawing.Size(163, 54);
+            this.btnRechazar.TabIndex = 33;
+            this.btnRechazar.Text = "Rechazar solicitud";
+            this.btnRechazar.UseVisualStyleBackColor = true;
+            this.btnRechazar.Click += new System.EventHandler(this.btnRechazar_Click);
+            // 
+            // btnDesignar
+            // 
+            this.btnDesignar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDesignar.FlatAppearance.BorderColor = System.Drawing.SystemColors.HotTrack;
+            this.btnDesignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesignar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btnDesignar.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnDesignar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnDesignar.Location = new System.Drawing.Point(425, 533);
+            this.btnDesignar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDesignar.Name = "btnDesignar";
+            this.btnDesignar.Size = new System.Drawing.Size(163, 54);
+            this.btnDesignar.TabIndex = 34;
+            this.btnDesignar.Text = "Designar asesor";
+            this.btnDesignar.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(205, 586);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 10);
+            this.panel2.TabIndex = 35;
+            this.panel2.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(209, 532);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 10);
+            this.panel1.TabIndex = 36;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -273,81 +332,13 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // lblSubAsesores
+            // dtcProponer
             // 
-            this.lblSubAsesores.AutoSize = true;
-            this.lblSubAsesores.Font = new System.Drawing.Font("Segoe UI Light", 14F);
-            this.lblSubAsesores.Location = new System.Drawing.Point(12, 398);
-            this.lblSubAsesores.Name = "lblSubAsesores";
-            this.lblSubAsesores.Size = new System.Drawing.Size(177, 25);
-            this.lblSubAsesores.TabIndex = 22;
-            this.lblSubAsesores.Text = "Asesores propuestos";
+            this.dtcProponer.HeaderText = "Proponer";
+            this.dtcProponer.Name = "dtcProponer";
+            this.dtcProponer.ReadOnly = true;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.SystemColors.HotTrack;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnGuardar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnGuardar.Location = new System.Drawing.Point(425, 331);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(163, 54);
-            this.btnGuardar.TabIndex = 32;
-            this.btnGuardar.Text = "Guardar cambios";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnCancelar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCancelar.Location = new System.Drawing.Point(17, 331);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(163, 54);
-            this.btnCancelar.TabIndex = 33;
-            this.btnCancelar.Text = "Cancelar solicitud";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnDesignar
-            // 
-            this.btnDesignar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesignar.FlatAppearance.BorderColor = System.Drawing.SystemColors.HotTrack;
-            this.btnDesignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDesignar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnDesignar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnDesignar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDesignar.Location = new System.Drawing.Point(425, 604);
-            this.btnDesignar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnDesignar.Name = "btnDesignar";
-            this.btnDesignar.Size = new System.Drawing.Size(163, 54);
-            this.btnDesignar.TabIndex = 34;
-            this.btnDesignar.Text = "Designar asesor";
-            this.btnDesignar.UseVisualStyleBackColor = true;
-            this.btnDesignar.Visible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(151, 657);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 10);
-            this.panel2.TabIndex = 35;
-            this.panel2.Visible = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(151, 600);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 10);
-            this.panel1.TabIndex = 36;
-            // 
-            // FrmSolicitud
+            // FrmAtenderSolicitud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -357,8 +348,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnDesignar);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnRechazar);
             this.Controls.Add(this.dtAsesores);
             this.Controls.Add(this.lblSubAsesores);
             this.Controls.Add(this.lblHorariot);
@@ -375,7 +365,7 @@
             this.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FrmSolicitud";
+            this.Name = "FrmAtenderSolicitud";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Solicitud";
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).EndInit();
@@ -403,15 +393,15 @@
         private System.Windows.Forms.Label lblHorariot;
         private System.Windows.Forms.Label lblHorario;
         private System.Windows.Forms.DataGridView dtAsesores;
+        private System.Windows.Forms.Label lblSubAsesores;
+        private System.Windows.Forms.Button btnRechazar;
+        private System.Windows.Forms.Button btnDesignar;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.Label lblSubAsesores;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnDesignar;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcProponer;
     }
 }

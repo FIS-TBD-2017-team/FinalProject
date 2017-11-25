@@ -14,10 +14,13 @@ namespace FinalProject.Frontend
     public partial class FrmConsultarSolicitudes : Form
     {
         private Tutor tutor = null;
+
         public FrmConsultarSolicitudes(Tutor tutor)
         {
             InitializeComponent();
+
             this.tutor = tutor;
+
             dtListaSolicitudes.AutoGenerateColumns = false;
             dtListaSolicitudes.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             CargarSolicitudes();
@@ -35,7 +38,7 @@ namespace FinalProject.Frontend
 
             if (!solicitud.Estatus.Equals("PENDIENTE")) return;
 
-            (new FrmSolicitud(solicitud)).ShowDialog();
+            (new FrmConsultarSolicitud(solicitud)).ShowDialog();
             CargarSolicitudes();
         }
     }

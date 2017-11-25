@@ -58,11 +58,42 @@ namespace FinalProject.Backend
 
         public static List<Solicitud> Select(Tutor tutor)
         {
-            String query = "SELECT * FROM solicitud WHERE estatus='PENDIENTE' AND idtutor=@idtutor";
+            String query = "SELECT * FROM solicitud WHERE idtutor=@idtutor";
 
             MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@idtutor", tutor.IdTutor);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+
+            DataTable tbl = new DataTable();
+
+            try
+            {
+                adp.Fill(tbl);
+                List<Solicitud> list = new List<Solicitud>();
+
+                foreach (DataRow dr in tbl.Rows)
+                    list.Add(Solicitud.FromDataRow(dr));
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+        public static List<Solicitud> Pendientes(Tutor tutor)
+        {
+            String query = "SolicitudesPendientes";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@_idtutor", tutor.IdTutor);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
 
             DataTable tbl = new DataTable();

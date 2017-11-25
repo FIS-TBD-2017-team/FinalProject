@@ -218,6 +218,34 @@ ORDER BY
 ;
 
 -- ####################################################################
+-- PROCEDIMIENTOS ALMACENADOS
+-- ####################################################################
+
+DELIMITER $$
+
+CREATE PROCEDURE SolicitudesPendientes (IN _idtutor int)
+BEGIN
+	SELECT 
+		S.idsolicitud,
+		S.idmateria,
+		S.idtutor,
+		S.estatus,
+		S.horario,
+		S.notas,
+		S.idasesoria
+	FROM 
+		solicitud S    
+	WHERE 
+		estatus = 'PENDIENTE' AND 
+		idtutor != _idtutor
+	HAVING
+		( SELECT count(*) FROM respuesta R WHERE S.idsolicitud = R.idsolicitud AND R.idtutor = _idtutor) = 0
+	;
+END $$
+
+DELIMITER ;
+
+-- ####################################################################
 -- DATOS DE PRUEBA
 -- ####################################################################
     
