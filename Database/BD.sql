@@ -194,7 +194,28 @@ WHERE
 	D.nocontrol = A.noControl
 ;
 
+-- ####################################################################
+-- REPORTES
+-- ####################################################################
 
+CREATE VIEW ReporteAsesores AS
+SELECT
+	C.Carrera,
+    A.NoControl,
+    concat(A.Nombre, ' ', A.Apellido1, ' ', A.Apellido2) as Nombre,
+    concat(T.Nombre, ' ', T.Apellido1, ' ', T.Apellido2) as Tutor,
+    ( SELECT count(*) FROM asesorias.asesoria X WHERE X.nocontrol = A.noControl ) as 'Asesorías totales',
+    ( SELECT count(*) FROM asesorias.asesoria X WHERE X.nocontrol = A.noControl AND X.estatus = "ACTIVA") as 'Asesorías actuales'
+FROM 
+	SICE.carreras C,
+    asesorias.asesor A,
+    SICE.tutores T
+WHERE
+	C.idCarrera = A.idCarrera AND
+    A.idTutor = T.idTutor
+ORDER BY
+	C.Carrera, A.noControl
+;
 
 -- ####################################################################
 -- DATOS DE PRUEBA

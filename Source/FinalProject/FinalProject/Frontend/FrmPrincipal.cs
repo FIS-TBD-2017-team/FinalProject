@@ -71,5 +71,10 @@ namespace FinalProject.Frontend
         {
             (new FrmAtenderSolicitudes(tutor)).ShowDialog();
         }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            (new FrmReportes()).ShowDialog();
+        }
     }
 }

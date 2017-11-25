@@ -56,6 +56,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAgregarSesion = new System.Windows.Forms.Button();
+            this.btnQuitarSesion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtSesiones)).BeginInit();
             this.SuspendLayout();
@@ -217,7 +218,7 @@
             this.dtAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAlumnos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAlumnos.Size = new System.Drawing.Size(593, 181);
+            this.dtAlumnos.Size = new System.Drawing.Size(610, 181);
             this.dtAlumnos.TabIndex = 15;
             this.dtAlumnos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtAlumnos_CellDoubleClick);
             // 
@@ -288,7 +289,7 @@
             this.dtSesiones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtSesiones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtSesiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtSesiones.Size = new System.Drawing.Size(593, 176);
+            this.dtSesiones.Size = new System.Drawing.Size(610, 176);
             this.dtSesiones.TabIndex = 17;
             this.dtSesiones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtSesiones_CellDoubleClick);
             // 
@@ -332,13 +333,26 @@
             this.btnAgregarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarSesion.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.btnAgregarSesion.Location = new System.Drawing.Point(576, 357);
+            this.btnAgregarSesion.Location = new System.Drawing.Point(551, 357);
             this.btnAgregarSesion.Name = "btnAgregarSesion";
             this.btnAgregarSesion.Size = new System.Drawing.Size(36, 23);
             this.btnAgregarSesion.TabIndex = 25;
             this.btnAgregarSesion.Text = "+";
             this.btnAgregarSesion.UseVisualStyleBackColor = true;
             this.btnAgregarSesion.Click += new System.EventHandler(this.btnAgregarSesion_Click);
+            // 
+            // btnQuitarSesion
+            // 
+            this.btnQuitarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuitarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuitarSesion.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.btnQuitarSesion.Location = new System.Drawing.Point(593, 357);
+            this.btnQuitarSesion.Name = "btnQuitarSesion";
+            this.btnQuitarSesion.Size = new System.Drawing.Size(36, 23);
+            this.btnQuitarSesion.TabIndex = 26;
+            this.btnQuitarSesion.Text = "-";
+            this.btnQuitarSesion.UseVisualStyleBackColor = true;
+            this.btnQuitarSesion.Click += new System.EventHandler(this.btnQuitarSesion_Click);
             // 
             // FrmAsesoria
             // 
@@ -347,6 +361,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(658, 511);
+            this.Controls.Add(this.btnQuitarSesion);
             this.Controls.Add(this.btnAgregarSesion);
             this.Controls.Add(this.dtSesiones);
             this.Controls.Add(this.lblSubSesiones);
@@ -408,5 +423,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Button btnQuitarSesion;
     }
 }

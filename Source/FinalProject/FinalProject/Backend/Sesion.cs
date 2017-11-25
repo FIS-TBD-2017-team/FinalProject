@@ -108,6 +108,11 @@ namespace FinalProject.Backend
             }
         }
 
+        internal static void Delete()
+        {
+            throw new NotImplementedException();
+        }
+
         public static void Insert(Sesion sesion)
         {
             String query = "INSERT INTO sesion VALUES(null,@idasesoria,@estatus,@lugar,@fecha,@hora,@notas)";
@@ -120,6 +125,30 @@ namespace FinalProject.Backend
             cmd.Parameters.AddWithValue("@fecha", sesion.Fecha);
             cmd.Parameters.AddWithValue("@hora", sesion.Hora);
             cmd.Parameters.AddWithValue("@notas", sesion.Notas);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+        public static void Delete(int IdSesion)
+        {
+            Asistencia.Delete(IdSesion);
+
+            String query = "DELETE FROM sesion WHERE idsesion=@idsesion";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idsesion", IdSesion);
 
             try
             {

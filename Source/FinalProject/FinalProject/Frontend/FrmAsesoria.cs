@@ -70,5 +70,13 @@ namespace FinalProject.Frontend
             (new FrmSesionAsistencia(sesion)).ShowDialog();
             CargarSesiones();
         }
+
+        private void btnQuitarSesion_Click(object sender, EventArgs e)
+        {
+            if (dtSesiones.RowCount == 0) return;
+            Sesion sesion = (Sesion)dtSesiones.SelectedRows[0].DataBoundItem;
+            Sesion.Delete(sesion.IdSesion);
+            CargarSesiones();
+        }
     }
 }

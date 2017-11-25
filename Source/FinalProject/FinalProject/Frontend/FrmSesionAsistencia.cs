@@ -14,6 +14,7 @@ namespace FinalProject.Frontend
     public partial class FrmSesionAsistencia : Form
     {
         private Sesion sesion;
+        private List<Asistencia> list;
 
         public FrmSesionAsistencia(Sesion sesion)
         {
@@ -27,7 +28,7 @@ namespace FinalProject.Frontend
         }
         public void CargarAsistencia()
         {
-            var list = Asistencia.Select(sesion.IdSesion);
+            list = Asistencia.Select(sesion.IdSesion);
 
             // Es la primera vez que se usa esta sesión
             if (list.Count == 0)
@@ -42,7 +43,12 @@ namespace FinalProject.Frontend
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            if (Asistencia.PasarLista(list))
+                MessageBox.Show("Información guardada correctamente.", "Info", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Ocurrió un error.", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

@@ -124,5 +124,27 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        public static void Delete(int IdSesion)
+        {
+            String query = "DELETE FROM detallesesion WHERE idsesion=@idsesion";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idsesion", IdSesion);
+            
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
     }
 }

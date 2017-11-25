@@ -45,6 +45,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnReportes = new System.Windows.Forms.Button();
             this.pnlLeft.SuspendLayout();
             this.pnlTop.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -55,6 +56,7 @@
             // pnlLeft
             // 
             this.pnlLeft.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.pnlLeft.Controls.Add(this.btnReportes);
             this.pnlLeft.Controls.Add(this.btnAdministrar);
             this.pnlLeft.Controls.Add(this.btnAtender);
             this.pnlLeft.Controls.Add(this.btnConsultar);
@@ -255,6 +257,21 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Asesorías en curso";
             // 
+            // btnReportes
+            // 
+            this.btnReportes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReportes.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.ForeColor = System.Drawing.Color.White;
+            this.btnReportes.Location = new System.Drawing.Point(10, 210);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(130, 60);
+            this.btnReportes.TabIndex = 4;
+            this.btnReportes.Text = "Generar reportes";
+            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -299,5 +316,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button btnReportes;
     }
 }

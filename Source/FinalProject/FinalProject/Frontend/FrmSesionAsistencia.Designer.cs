@@ -33,10 +33,10 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblFechat = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.dtcNoControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtcNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtcAsistio = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +58,6 @@
             this.dtcNoControl,
             this.dtcNombre,
             this.dtcAsistio});
-            this.dtAlumnos.Enabled = false;
             this.dtAlumnos.EnableHeadersVisualStyles = false;
             this.dtAlumnos.Location = new System.Drawing.Point(12, 64);
             this.dtAlumnos.MultiSelect = false;
@@ -99,27 +98,6 @@
             this.lblFecha.TabIndex = 30;
             this.lblFecha.Text = "00/00/0000";
             // 
-            // dtcNoControl
-            // 
-            this.dtcNoControl.DataPropertyName = "NoControl";
-            this.dtcNoControl.HeaderText = "No. Control";
-            this.dtcNoControl.Name = "dtcNoControl";
-            this.dtcNoControl.ReadOnly = true;
-            // 
-            // dtcNombre
-            // 
-            this.dtcNombre.DataPropertyName = "NombreAlumno";
-            this.dtcNombre.HeaderText = "Nombre";
-            this.dtcNombre.Name = "dtcNombre";
-            this.dtcNombre.ReadOnly = true;
-            // 
-            // dtcAsistio
-            // 
-            this.dtcAsistio.HeaderText = "Asistencia";
-            this.dtcAsistio.Name = "dtcAsistio";
-            this.dtcAsistio.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtcAsistio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // btnGuardar
             // 
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -136,6 +114,28 @@
             this.btnGuardar.Text = "Guardar cambios";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // dtcNoControl
+            // 
+            this.dtcNoControl.DataPropertyName = "NoControl";
+            this.dtcNoControl.HeaderText = "No. Control";
+            this.dtcNoControl.Name = "dtcNoControl";
+            this.dtcNoControl.ReadOnly = true;
+            // 
+            // dtcNombre
+            // 
+            this.dtcNombre.DataPropertyName = "NombreAlumno";
+            this.dtcNombre.HeaderText = "Nombre";
+            this.dtcNombre.Name = "dtcNombre";
+            this.dtcNombre.ReadOnly = true;
+            // 
+            // dtcAsistio
+            // 
+            this.dtcAsistio.DataPropertyName = "Asistio";
+            this.dtcAsistio.HeaderText = "Asistencia";
+            this.dtcAsistio.Name = "dtcAsistio";
+            this.dtcAsistio.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtcAsistio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FrmSesionAsistencia
             // 
@@ -165,9 +165,9 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblFechat;
         private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcNoControl;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcNombre;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dtcAsistio;
-        private System.Windows.Forms.Button btnGuardar;
     }
 }

@@ -70,6 +70,23 @@ CREATE TABLE AlumnosGruposTutorias (
 );
 
 -- ####################################################################
+-- TRIGGERS
+-- ####################################################################
+
+DELIMITER $$
+
+CREATE TRIGGER SICE.VALIDA_CORREO
+BEFORE UPDATE
+ON SICE.alumnos FOR EACH ROW
+BEGIN
+	IF NOT ((NEW.correo LIKE "%@%.%") OR (NEW.correo = "")) THEN
+		SET NEW.correo = "";
+	END IF;
+END$$
+
+DELIMITER ;
+
+-- ####################################################################
 -- DATOS DE PRUEBA
 -- ####################################################################
 

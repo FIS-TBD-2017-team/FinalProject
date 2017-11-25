@@ -39,13 +39,24 @@ namespace FinalProject.Frontend
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Asignar el nuevo correo
             alumno.Correo = txtCorreo.Text;
-            if (Alumno.Update(alumno))
+
+            // Intenta actualizar
+            Alumno.Update(alumno);
+
+            // Como se usa un trigger, para validar compara el correo en la caja
+            // de texto contra el correo registrado en la base de datos.
+            // Si son iguales significa que se pudo actualizar correctamente,
+            // de lo contrario significa que no es un correo válido.
+            if (Alumno.Select(alumno.NoControl).Correo.Equals(alumno.Correo))
                 MessageBox.Show("Datos actualizados correctamente.", "Aviso",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("No se pudieon actualizar los datos.", "Error",
+                MessageBox.Show("Datos inválidos.", "Error",
                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            txtCorreo.Focus();
         }
     }
 }
