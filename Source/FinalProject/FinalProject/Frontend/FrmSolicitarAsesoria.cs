@@ -13,9 +13,16 @@ namespace FinalProject.Frontend
 {
     public partial class FrmSolicitarAsesoria : Form
     {
+        Tutor tutor;
         public FrmSolicitarAsesoria()
         {
             InitializeComponent();
+        }
+
+        public FrmSolicitarAsesoria(Tutor tutor)
+        {
+            InitializeComponent();
+            this.tutor = tutor;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -28,9 +35,29 @@ namespace FinalProject.Frontend
 
         }
 
+        private bool ValidarDatos() {
+            if (cmbMateria.Text.Length == 0)
+            {
+                MessageBox.Show("Falta el campo:\n - Materia a solicitar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
+            if (!ValidarDatos())
+                return;
+            Solicitud solicitud = new Solicitud(
+                -1,
+                int.Parse(cmbMateria.SelectedValue.ToString()),
+                tutor.IdTutor,
+                "PENDIENTE",
+                "",
+                txtTema.Text
+            );
+            solicitud.Insert(solicitud);
+            Close();
         }
 
         private void btnBuscarAlumno_Click(object sender, EventArgs e)
@@ -40,6 +67,7 @@ namespace FinalProject.Frontend
                 MessageBox.Show("Clave del alumno incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            btnGuardar.Enabled = true;
             lblCarrera.Text = alumno.NombreCarrera;
             lblCorreo.Text = alumno.Correo;
             lblNoSemestre.Text = alumno.Semestre+"";
