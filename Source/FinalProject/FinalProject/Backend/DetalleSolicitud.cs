@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace FinalProject.Backend
 {
@@ -55,6 +56,34 @@ namespace FinalProject.Backend
             finally
             {
                 trans.Dispose();
+                conn.Dispose();
+            }
+        }
+        public DetalleSolicitud FromDataRow(DataRow dr)
+        {
+            return new DetalleSolicitud(
+                int.Parse(dr["idsolicitud"].ToString()),
+                dr["noControl"].ToString()
+            );
+        }
+        public void Insert(DetalleSolicitud detalleSolicitud)
+        {
+            String query = "INSERT INTO detallesolicitud VALUES(@idSolicitud,@noControl);";
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idSolicitud", detalleSolicitud.IdSolicitud);
+            cmd.Parameters.AddWithValue("@noControl", detalleSolicitud.NoControl);
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+            finally
+            {
                 conn.Dispose();
             }
         }

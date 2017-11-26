@@ -323,9 +323,9 @@ namespace FinalProject.Backend
         }
 
         // Falta agregar horarios
-        public void Insert(Solicitud solicitud)
+        public int Insert(Solicitud solicitud)
         {
-            String query = "INSERT INTO solicitud VALUES(null,@idMateria,@idTutor,'PENDIENTE',null,@notas,null)";
+            String query = "INSERT INTO solicitud VALUES(null,@idMateria,@idTutor,'PENDIENTE',null,@notas,null); select last_insert_id() from solicitud;";
             MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@idMateria", solicitud.IdMateria);
@@ -334,11 +334,12 @@ namespace FinalProject.Backend
             try
             {
                 conn.Open();
-                cmd.ExecuteNonQuery();
+                int lastInsert = int.Parse(cmd.ExecuteScalar().ToString());
+                return lastInsert;
             }
             catch (Exception ex)
             {
-                return;
+                return 0;
             }
             finally
             {
