@@ -92,6 +92,39 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        public static List<Alumno> SelectAsesor(Tutor tutor, int IdMateria)
+        {
+            String query = "SELECT * FROM asesor A, oferta O WHERE A.noControl = O.nocontrol " +
+                           "AND idtutor = @idtutor AND idmateria=@idmateria";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idtutor", tutor.IdTutor);
+            cmd.Parameters.AddWithValue("@idmateria", IdMateria);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+
+            DataTable tbl = new DataTable();
+
+            try
+            {
+                adp.Fill(tbl);
+
+                List<Alumno> list = new List<Alumno>();
+
+                foreach (DataRow dr in tbl.Rows)
+                    list.Add(Alumno.FromDataRow(dr));
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
         public static Alumno Select(String NoControl)
         {
             String query = "SELECT * FROM alumnos WHERE nocontrol = @nocontrol LIMIT 1";

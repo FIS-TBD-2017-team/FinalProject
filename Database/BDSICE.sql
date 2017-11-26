@@ -99,13 +99,13 @@ INSERT INTO Carreras VALUES
 
 INSERT INTO Materias VALUES
 	(1, "Matematicas Discretas", 1),
-    (2, "Calculo Diferencial", null),
-    (3, "Calculo Integral", null),
-    (4, "Calculo Vectorial", null),
+    (2, "Calculo Diferencial", -1),
+    (3, "Calculo Integral", -1),
+    (4, "Calculo Vectorial", -1),
     (5, "Fundamentos de programacion", 1),
     (6, "Estructura de datos", 1),
-    (7, "Quimica", null),
-    (8, "Fisica", null),
+    (7, "Quimica", -1),
+    (8, "Fisica", -1),
     (9, "Mecanica", 2);
     
 INSERT INTO Grupos VALUES 

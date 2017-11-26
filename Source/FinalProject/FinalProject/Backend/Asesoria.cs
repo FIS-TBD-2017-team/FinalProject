@@ -47,6 +47,54 @@ namespace FinalProject.Backend
             );
         }
 
+        public static void Insert(Asesoria asesoria)
+        {
+            String query = "INSERT INTO asesoria VALUES(null,@nocontrol,@idmateria,@estatus)";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@nocontrol", asesoria.NoControl);
+            cmd.Parameters.AddWithValue("@idmateria", asesoria.IdMateria);
+            cmd.Parameters.AddWithValue("@estatus", asesoria.Estatus);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+        public static int InsertAndSelect(Asesoria asesoria)
+        {
+            Asesoria.Insert(asesoria);
+
+            String query = "SELECT idasesoria FROM asesoria ORDER BY idasesoria DESC LIMIT 1";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            try
+            {
+                conn.Open();
+                return int.Parse(cmd.ExecuteScalar().ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                return -1;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
         public static List<Asesoria> Activas(Tutor tutor)
         {
             String query = "SELECT * FROM asesoria A, asesor B WHERE A.noControl = B.noControl AND " +

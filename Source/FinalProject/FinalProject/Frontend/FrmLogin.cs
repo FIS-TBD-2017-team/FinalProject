@@ -44,8 +44,7 @@ namespace FinalProject.Frontend
         private void LimpiarDatos()
         {
             txtUser.Text = "";
-            txtPass.Text = "";
-            txtUser.Focus();        
+            txtPass.Text = "";   
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -63,6 +62,7 @@ namespace FinalProject.Frontend
             LimpiarDatos();
             (new FrmPrincipal(tutor.IdTutor)).ShowDialog();
             this.Show();
+            txtUser.Focus();
         }
 
         private void txt_KeyDown(object sender, KeyEventArgs e)

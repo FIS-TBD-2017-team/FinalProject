@@ -218,6 +218,92 @@ ORDER BY
 ;
 
 -- ####################################################################
+-- PROCEDIMIENTOS ALMACENADOS
+-- ####################################################################
+
+DELIMITER $$
+
+CREATE PROCEDURE SolicitudesPendientes (IN _idtutor int)
+BEGIN
+	SELECT 
+		S.idsolicitud,
+		S.idmateria,
+		S.idtutor,
+		S.estatus,
+		S.horario,
+		S.notas,
+		S.idasesoria
+	FROM 
+		solicitud S    
+	WHERE 
+		estatus = 'PENDIENTE' AND 
+		idtutor != _idtutor
+	HAVING
+		( SELECT count(*) FROM respuesta R WHERE S.idsolicitud = R.idsolicitud AND R.idtutor = _idtutor) = 0
+	;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE ConsultarSolicitudes(IN _idtutor INT)
+BEGIN
+	SELECT * FROM solicitud WHERE idtutor = _idtutor;
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE ConsultarSolicitud(IN _idsolicitud INT)
+BEGIN
+	SELECT * FROM solicitud WHERE idsolicitud = _idsolicitud;
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE IntegrantesSolicitud (IN _idsolicitud INT)
+BEGIN
+	SELECT * FROM AlumnosSolicitud WHERE idsolicitud = _idsolicitud;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE AsesoresPropuestos(IN _idsolicitud INT)
+BEGIN
+	SELECT 
+		A.*
+	FROM 
+		respuesta R,
+		detallerespuesta DR,
+		asesor A
+	WHERE
+		R.idrespuesta = DR.idrespuesta AND
+		DR.nocontrol = A.noControl AND
+        R.idsolicitud = _idsolicitud
+	;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE ActualizarSolicitud (
+	IN _idsolicitud INT,
+    IN _estatus VARCHAR(9),
+    IN _idasesoria INT
+)
+BEGIN
+	UPDATE solicitud SET estatus = _estatus, idasesoria = _idasesoria WHERE idsolicitud = _idsolicitud;
+END $$
+DELIMITER ;
+
+-- ####################################################################
 -- DATOS DE PRUEBA
 -- ####################################################################
     
