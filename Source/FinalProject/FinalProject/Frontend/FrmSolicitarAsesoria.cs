@@ -56,7 +56,11 @@ namespace FinalProject.Frontend
                 "",
                 txtTema.Text
             );
-            solicitud.Insert(solicitud);
+            DetalleSolicitud detalle = new DetalleSolicitud(
+                solicitud.Insert(solicitud),
+                lblNoControl.Text
+            );
+            detalle.Insert(detalle);
             Close();
         }
 
