@@ -16,5 +16,11 @@ namespace FinalProject.Frontend
         {
             InitializeComponent();
         }
+
+        private void btnRepAsesores_Click(object sender, EventArgs e)
+        {
+            DataTable dt = Backend.Reportes.RepAsesores();
+            (new Reportes.FrmRepAsesores(dt)).ShowDialog();
+        }
     }
 }
