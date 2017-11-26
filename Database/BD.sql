@@ -245,6 +245,33 @@ END $$
 
 DELIMITER ;
 
+DELIMITER $$
+
+CREATE PROCEDURE ConsultarSolicitudes(IN _idtutor INT)
+BEGIN
+	SELECT * FROM solicitud WHERE idtutor = _idtutor;
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE ConsultarSolicitud(IN _idsolicitud INT)
+BEGIN
+	SELECT * FROM solicitud WHERE idsolicitud = _idsolicitud;
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE IntegrantesSolicitud (IN _idsolicitud INT)
+BEGIN
+	SELECT * FROM AlumnosSolicitud WHERE idsolicitud = _idsolicitud;
+END $$
+
+DELIMITER ;
+
 -- ####################################################################
 -- DATOS DE PRUEBA
 -- ####################################################################

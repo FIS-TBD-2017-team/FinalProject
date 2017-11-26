@@ -56,13 +56,15 @@ namespace FinalProject.Backend
             );
         }
 
-        public static List<Solicitud> Select(Tutor tutor)
+        
+        public static List<Solicitud> ConsultasSP(Tutor tutor)
         {
-            String query = "SELECT * FROM solicitud WHERE idtutor=@idtutor";
+            String query = "ConsultarSolicitudes";
 
             MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@idtutor", tutor.IdTutor);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@_idtutor", tutor.IdTutor);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
 
             DataTable tbl = new DataTable();
@@ -86,7 +88,7 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
-        public static List<Solicitud> Pendientes(Tutor tutor)
+        public static List<Solicitud> PendientesSP(Tutor tutor)
         {
             String query = "SolicitudesPendientes";
 
@@ -117,13 +119,14 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
-        public static Solicitud Select(int IdSolicitud)
+        public static Solicitud SelectSP(int IdSolicitud)
         {
-            String query = "SELECT * FROM solicitud WHERE idsolicitud=@idsolicitud";
+            String query = "ConsultarSolicitud";
 
             MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@idtutor", IdSolicitud);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@_idsolicitud", IdSolicitud);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
 
             DataTable tbl = new DataTable();
@@ -142,13 +145,14 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
-        public static List<Alumno> Integrantes(int IdSolicitud)
+        public static List<Alumno> IntegrantesSP(int IdSolicitud)
         {
-            String query = "SELECT * FROM AlumnosSolicitud WHERE idsolicitud=@idsolicitud";
+            String query = "IntegrantesSolicitud";
 
             MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@idsolicitud", IdSolicitud);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@_idsolicitud", IdSolicitud);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
 
             DataTable tbl = new DataTable();
@@ -173,5 +177,6 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        
     }
 }

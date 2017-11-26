@@ -29,7 +29,7 @@ namespace FinalProject.Frontend
         public void CargarSolicitudes()
         {
             dtListaSolicitudes.DataSource = null;
-            dtListaSolicitudes.DataSource = Solicitud.Select(tutor);
+            dtListaSolicitudes.DataSource = Solicitud.ConsultasSP(tutor);
         }
 
         private void dtListaSolicitudes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -58,5 +58,28 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        public static int InsertAndSelect(Respuesta resp)
+        {
+            Respuesta.Insert(resp);
+
+            String query = "SELECT idrespuesta FROM respuesta ORDER BY idrespuesta DESC LIMIT 1";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            try
+            {
+                conn.Open();
+                return int.Parse(cmd.ExecuteScalar().ToString());
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
     }
 }

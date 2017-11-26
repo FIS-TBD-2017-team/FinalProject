@@ -44,7 +44,7 @@ namespace FinalProject.Frontend
         public void CargarAlumnos()
         {
             dtAlumnos.DataSource = null;
-            dtAlumnos.DataSource = Solicitud.Integrantes(solicitud.IdSolicitud);
+            dtAlumnos.DataSource = Solicitud.IntegrantesSP(solicitud.IdSolicitud);
         }
         public void CargarAsesores()
         {
@@ -74,14 +74,34 @@ namespace FinalProject.Frontend
             // TODO: Actualizar la basura
         }
 
-        private void dtAsesores_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void btnRechazar_Click(object sender, EventArgs e)
         {
             Respuesta.Insert(new Respuesta(-1, solicitud.IdSolicitud, tutor.IdTutor, "RECHAZADA"));
+            Close();
+        }
+
+        private void btnDesignar_Click(object sender, EventArgs e)
+        {
+            List<Alumno> list = new List<Alumno>();
+
+            foreach (DataGridViewRow row in dtAsesores.Rows)
+                if ((bool)row.Cells[4].Value)
+                    list.Add(new Alumno(row.Cells[0].Value.ToString()));
+
+            if(list.Count == 0)
+            {
+                MessageBox.Show("No se seleccionaron asesores.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int IdRespuesta = 
+                Respuesta.InsertAndSelect(new Respuesta(-1, solicitud.IdSolicitud, tutor.IdTutor, "ACEPTADA"));
+
+            MessageBox.Show(IdRespuesta.ToString());
+            
+            // foreach (Alumno alm in list)
+            //     DetalleRespuesta.Insert()
+
             Close();
         }
     }

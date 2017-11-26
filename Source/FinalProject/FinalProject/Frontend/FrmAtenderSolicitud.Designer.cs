@@ -45,16 +45,16 @@
             this.lblHorariot = new System.Windows.Forms.Label();
             this.lblHorario = new System.Windows.Forms.Label();
             this.dtAsesores = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcProponer = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblSubAsesores = new System.Windows.Forms.Label();
             this.btnRechazar = new System.Windows.Forms.Button();
             this.btnDesignar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcProponer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtAsesores)).BeginInit();
             this.SuspendLayout();
@@ -144,7 +144,7 @@
             this.dtAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAlumnos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAlumnos.Size = new System.Drawing.Size(572, 171);
+            this.dtAlumnos.Size = new System.Drawing.Size(555, 171);
             this.dtAlumnos.TabIndex = 16;
             // 
             // dtcNoControl
@@ -192,7 +192,7 @@
             this.txtNotas.Enabled = false;
             this.txtNotas.Location = new System.Drawing.Point(297, 48);
             this.txtNotas.Name = "txtNotas";
-            this.txtNotas.Size = new System.Drawing.Size(291, 62);
+            this.txtNotas.Size = new System.Drawing.Size(274, 62);
             this.txtNotas.TabIndex = 19;
             this.txtNotas.Text = "";
             // 
@@ -237,15 +237,44 @@
             this.dtAsesores.Location = new System.Drawing.Point(16, 355);
             this.dtAsesores.MultiSelect = false;
             this.dtAsesores.Name = "dtAsesores";
-            this.dtAsesores.ReadOnly = true;
             this.dtAsesores.RowHeadersVisible = false;
             this.dtAsesores.RowHeadersWidth = 45;
             this.dtAsesores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAsesores.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAsesores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAsesores.Size = new System.Drawing.Size(572, 171);
+            this.dtAsesores.Size = new System.Drawing.Size(555, 171);
             this.dtAsesores.TabIndex = 23;
-            this.dtAsesores.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtAsesores_CellValueChanged);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "NoControl";
+            this.dataGridViewTextBoxColumn1.HeaderText = "No. Control";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "NombreCompleto";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "NombreCarrera";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Carrera";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Correo";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Correo";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dtcProponer
+            // 
+            this.dtcProponer.HeaderText = "Proponer";
+            this.dtcProponer.Name = "dtcProponer";
+            this.dtcProponer.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtcProponer.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // lblSubAsesores
             // 
@@ -281,13 +310,14 @@
             this.btnDesignar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnDesignar.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnDesignar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDesignar.Location = new System.Drawing.Point(425, 533);
+            this.btnDesignar.Location = new System.Drawing.Point(408, 533);
             this.btnDesignar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDesignar.Name = "btnDesignar";
             this.btnDesignar.Size = new System.Drawing.Size(163, 54);
             this.btnDesignar.TabIndex = 34;
-            this.btnDesignar.Text = "Designar asesor";
+            this.btnDesignar.Text = "Designar asesores";
             this.btnDesignar.UseVisualStyleBackColor = true;
+            this.btnDesignar.Click += new System.EventHandler(this.btnDesignar_Click);
             // 
             // panel2
             // 
@@ -303,40 +333,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 10);
             this.panel1.TabIndex = 36;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "NoControl";
-            this.dataGridViewTextBoxColumn1.HeaderText = "No. Control";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "NombreCompleto";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "NombreCarrera";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Carrera";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Correo";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Correo";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dtcProponer
-            // 
-            this.dtcProponer.HeaderText = "Proponer";
-            this.dtcProponer.Name = "dtcProponer";
-            this.dtcProponer.ReadOnly = true;
             // 
             // FrmAtenderSolicitud
             // 
@@ -402,6 +398,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcProponer;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dtcProponer;
     }
 }

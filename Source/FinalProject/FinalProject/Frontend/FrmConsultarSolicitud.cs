@@ -37,7 +37,7 @@ namespace FinalProject.Frontend
         public void CargarAlumnos()
         {
             dtAlumnos.DataSource = null;
-            dtAlumnos.DataSource = Solicitud.Integrantes(solicitud.IdSolicitud);
+            dtAlumnos.DataSource = Solicitud.IntegrantesSP(solicitud.IdSolicitud);
         }
         public void CargarAsesores()
         {
