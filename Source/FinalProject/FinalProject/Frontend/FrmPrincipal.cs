@@ -64,7 +64,7 @@ namespace FinalProject.Frontend
 
         private void btnSolicitar_Click(object sender, EventArgs e)
         {
-            (new FrmSolicitarAsesoria()).ShowDialog();
+            (new FrmSolicitarAsesoria(tutor)).ShowDialog();
         }
 
         private void btnAtender_Click(object sender, EventArgs e)
