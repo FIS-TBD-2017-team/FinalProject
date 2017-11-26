@@ -19,6 +19,12 @@ namespace FinalProject.Backend
             this.NoControl = NoControl;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo DetalleAsesoria.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static DetalleAsesoria FromDataRow(DataRow dr)
         {
             return new DetalleAsesoria(
@@ -27,6 +33,12 @@ namespace FinalProject.Backend
             );
         }
 
+        /// <summary>
+        /// Ingresa la lista de DetalleAsesoria a la base de datos.
+        /// Agrega una lista de alumnos a la asesoría.
+        /// </summary>
+        /// <param name="lista"></param>
+        /// <returns></returns>
         public static bool Insert(List<DetalleAsesoria> lista)
         {
             MySqlConnection conn = Connection.Asesorias();

@@ -15,7 +15,13 @@ namespace FinalProject.Backend
         public int IdMateria { get; set; }
         public String Estatus { get; set; }
 
+        /// <summary>
+        /// Nombre completo con el formato Nombre Apellidos.
+        /// </summary>
         public String NombreAsesor { get; set; }
+        /// <summary>
+        /// Nombre de la materia de la asesoría.
+        /// </summary>
         public String NombreMateria { get; set; }
 
         public Asesoria()
@@ -37,6 +43,12 @@ namespace FinalProject.Backend
             this.NombreMateria = Materia.Select(IdMateria).Nombre;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo Asesoria.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static Asesoria FromDataRow(DataRow dr)
         {
             return new Asesoria(
@@ -47,6 +59,11 @@ namespace FinalProject.Backend
             );
         }
 
+        /// <summary>
+        /// Inserta en la base de datos un registro de tipo asesoria,
+        /// con los datos del objeto pasado como parámetro.
+        /// </summary>
+        /// <param name="asesoria"></param>
         public static void Insert(Asesoria asesoria)
         {
             String query = "INSERT INTO asesoria VALUES(null,@nocontrol,@idmateria,@estatus)";
@@ -71,6 +88,13 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Inserta en la base de datos un registro de tipo asesoría, con
+        /// los datos del objeto pasado como parámetro.
+        /// Además, regresa el Id del registro.
+        /// </summary>
+        /// <param name="asesoria"></param>
+        /// <returns></returns>
         public static int InsertAndSelect(Asesoria asesoria)
         {
             Asesoria.Insert(asesoria);
@@ -95,6 +119,12 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la lista de las asesorías activas de todos los
+        /// asesores para un tutor dado.
+        /// </summary>
+        /// <param name="tutor"></param>
+        /// <returns></returns>
         public static List<Asesoria> Activas(Tutor tutor)
         {
             String query = "SELECT * FROM asesoria A, asesor B WHERE A.noControl = B.noControl AND " +
@@ -120,6 +150,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -127,6 +158,11 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la lista de asesorías que tiene un asesor.
+        /// </summary>
+        /// <param name="asesor"></param>
+        /// <returns></returns>
         public static List<Asesoria> Select(Alumno asesor)
         {
             String query = "SELECT * FROM asesoria A, asesor B WHERE A.noControl = B.noControl AND B.noControl = @nocontrol";
@@ -151,6 +187,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -158,6 +195,11 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la información de la asesoría.
+        /// </summary>
+        /// <param name="IdAsesoria"></param>
+        /// <returns></returns>
         public static Asesoria Select(int IdAsesoria)
         {
             String query = "SELECT * FROM asesoria  WHERE idasesoria = @idasesoria";
@@ -176,6 +218,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -183,6 +226,11 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la lista de alumnos que integran la asesoría.
+        /// </summary>
+        /// <param name="IdAsesoria"></param>
+        /// <returns></returns>
         public static List<Alumno> Integrantes(int IdAsesoria)
         {
             String query = "SELECT * FROM AlumnosAsesoria WHERE idasesoria=@idasesoria";
@@ -207,6 +255,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally

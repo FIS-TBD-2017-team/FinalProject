@@ -60,9 +60,11 @@
     <Compile Include="Backend\Connection.cs" />
     <Compile Include="Backend\DetalleAsesoria.cs" />
     <Compile Include="Backend\DetalleRespuesta.cs" />
+    <Compile Include="Backend\DetalleSolicitud.cs" />
     <Compile Include="Backend\HoraLibre.cs" />
     <Compile Include="Backend\Materia.cs" />
     <Compile Include="Backend\Oferta.cs" />
+    <Compile Include="Backend\Reportes.cs" />
     <Compile Include="Backend\Respuesta.cs" />
     <Compile Include="Backend\Sesion.cs" />
     <Compile Include="Backend\Solicitud.cs" />

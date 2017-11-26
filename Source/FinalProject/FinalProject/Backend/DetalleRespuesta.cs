@@ -19,6 +19,12 @@ namespace FinalProject.Backend
             this.NoControl = NoControl;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo DetalleRespuesta.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static DetalleRespuesta FromDataRow(DataRow dr)
         {
             return new DetalleRespuesta(
@@ -27,6 +33,12 @@ namespace FinalProject.Backend
             );
         }
 
+        /// <summary>
+        /// Ingresa en la base de datos un registro de tipo DetalleRespuesta.
+        /// Asigna un asesor como propuesto para una asesoría a través de su
+        /// número de control.
+        /// </summary>
+        /// <param name="dr"></param>
         public static void Insert(DetalleRespuesta dr)
         {
             String query = "INSERT INTO detallerespuesta VALUES (@idrespuesta,@nocontrol)";
@@ -44,6 +56,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return;
             }
             finally

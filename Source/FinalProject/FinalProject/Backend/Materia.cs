@@ -25,6 +25,12 @@ namespace FinalProject.Backend
             this.IdCarrera = IdCarrera;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo Materia.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static Materia FromDataRow(DataRow dr)
         {
             return new Materia(
@@ -34,6 +40,10 @@ namespace FinalProject.Backend
             );
         }
 
+        /// <summary>
+        /// Regresa la lista de materias.
+        /// </summary>
+        /// <returns></returns>
         public static List<Materia> Select()
         {
             String query = "SELECT * FROM materias";
@@ -57,6 +67,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -66,7 +77,7 @@ namespace FinalProject.Backend
         }
         public static List<Materia> SelectSem(int semestre)
         {
-            String query = "SELECT * FROM materias where idCarrera =@idSemestre";
+            String query = "SELECT * FROM materias where idCarrera=@idSemestre";
             MySqlConnection conn = Connection.SICE();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@idSemestre", semestre);
@@ -87,6 +98,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -94,6 +106,12 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la lista de materias que un asesor tiene 
+        /// marcadas como ofertadas.
+        /// </summary>
+        /// <param name="asesor"></param>
+        /// <returns></returns>
         public static List<Materia> Select(Alumno asesor)
         {
             String query = "SELECT * FROM MateriasOfertadas WHERE nocontrol = @nocontrol";
@@ -118,6 +136,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -125,6 +144,12 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la información de una materia dado su id
+        /// como parámetro.
+        /// </summary>
+        /// <param name="IdMateria"></param>
+        /// <returns></returns>
         public static Materia Select(int IdMateria)
         {
             String query = "SELECT * FROM materias WHERE idmateria = @idmateria";
@@ -143,6 +168,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally

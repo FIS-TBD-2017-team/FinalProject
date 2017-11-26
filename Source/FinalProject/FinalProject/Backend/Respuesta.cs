@@ -23,6 +23,12 @@ namespace FinalProject.Backend
             this.Resp = Resp;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo Respuesta.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static Respuesta FromDataRow(DataRow dr)
         {
             return new Respuesta(
@@ -32,7 +38,11 @@ namespace FinalProject.Backend
                 dr["resp"].ToString()
             );
         }
-
+        /// <summary>
+        /// Ingresa en la base de datos la respuesta de un tutor 
+        /// a la solicitud de asesoría de otro tutor.
+        /// </summary>
+        /// <param name="resp"></param>
         public static void Insert(Respuesta resp)
         {
             String query = "INSERT INTO respuesta VALUES (null,@idsolicitud,@idtutor,@resp)";
@@ -51,6 +61,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return;
             }
             finally
@@ -58,6 +69,13 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Ingresa en la base de datos la repusta de un tutor a la 
+        /// solicitud de asesoría de otro tutor.
+        /// Regresa el id de la respusta ingresada.
+        /// </summary>
+        /// <param name="resp"></param>
+        /// <returns></returns>
         public static int InsertAndSelect(Respuesta resp)
         {
             Respuesta.Insert(resp);
@@ -74,6 +92,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return -1;
             }
             finally

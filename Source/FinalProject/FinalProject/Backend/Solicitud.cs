@@ -18,7 +18,13 @@ namespace FinalProject.Backend
         public String Notas { get; set; }
         public int IdAsesoria { get; set; }
 
+        /// <summary>
+        /// Nombre del tutor en el formato: Nombre Apellidos.
+        /// </summary>
         public String NombreTutor { get; set; }
+        /// <summary>
+        /// Nombre de la materia de la solicitud.
+        /// </summary>
         public String NombreMateria { get; set; }
 
         public Solicitud()
@@ -44,6 +50,12 @@ namespace FinalProject.Backend
             this.NombreMateria = Materia.Select(IdMateria).Nombre;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo Solicitud.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static Solicitud FromDataRow(DataRow dr)
         {
             return new Solicitud(
@@ -55,7 +67,47 @@ namespace FinalProject.Backend
                 dr["notas"].ToString()
             );
         }
-                
+
+        /// <summary>
+        /// Crea el registro una nueva solicitud en la base de datos.
+        /// Agrega los integrantes a la solicitud.
+        /// </summary>
+        /// <param name="solicitud"></param>
+        /// <param name="lista"></param>
+        /// <returns></returns>
+        public static void RegistrarSP(Solicitud solicitud, List<Alumno> lista)
+        {
+            String query = "RegistrarSolicitud";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("_idmateria", solicitud.IdMateria);
+            cmd.Parameters.AddWithValue("_idtutor", solicitud.IdTutor);
+            cmd.Parameters.AddWithValue("_horario", solicitud.Horario);
+            cmd.Parameters.AddWithValue("_notas", solicitud.Notas);
+
+            try
+            {
+                conn.Open();
+                int IdSolicitud = int.Parse(cmd.ExecuteScalar().ToString());
+                DetalleSolicitud.Insert(IdSolicitud, lista);
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.StackTrace);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+        /// <summary>
+        /// Actualiza la información de la solicitud en la base datos.
+        /// Utiliza procedimientos almacenados.
+        /// </summary>
+        /// <param name="solicitud"></param>
         public static void ActualizarSP(Solicitud solicitud)
         {
             String query = "ActualizarSolicitud";
@@ -81,6 +133,12 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la lista de las solicitudes que ha realizado un tutor.
+        /// Utiliza procedimientos almacenados.
+        /// </summary>
+        /// <param name="tutor"></param>
+        /// <returns></returns>
         public static List<Solicitud> ConsultasSP(Tutor tutor)
         {
             String query = "ConsultarSolicitudes";
@@ -105,6 +163,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -112,6 +171,13 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la lista de las solicitudes que han hecho los demás 
+        /// tutores, y que se encuentran en estatus "PENDIENTE".
+        /// Utiliza procedimientos almacenados.
+        /// </summary>
+        /// <param name="tutor"></param>
+        /// <returns></returns>
         public static List<Solicitud> PendientesSP(Tutor tutor)
         {
             String query = "SolicitudesPendientes";
@@ -136,6 +202,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -143,6 +210,12 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la información de una solicitud.
+        /// Utiliza procedimientos almacenados.
+        /// </summary>
+        /// <param name="IdSolicitud"></param>
+        /// <returns></returns>
         public static Solicitud SelectSP(int IdSolicitud)
         {
             String query = "ConsultarSolicitud";
@@ -162,6 +235,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -169,6 +243,12 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la lista de los integrantes de la solicitud.
+        /// Utiliza procedimientos almacenados.
+        /// </summary>
+        /// <param name="IdSolicitud"></param>
+        /// <returns></returns>
         public static List<Alumno> IntegrantesSP(int IdSolicitud)
         {
             String query = "IntegrantesSolicitud";
@@ -194,6 +274,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -201,6 +282,12 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la lista de asesores propuestos para una solicitud.
+        /// Utiliza procedimientos almacenados.
+        /// </summary>
+        /// <param name="IdSolicitud"></param>
+        /// <returns></returns>
         public static List<Alumno> AsesoresPropuestosSP(int IdSolicitud)
         {
             String query = "AsesoresPropuestos";
@@ -226,6 +313,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally

@@ -44,6 +44,12 @@ namespace FinalProject.Backend
             this.Tipo = Tipo;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo Tutor.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static Tutor FromDataRow(DataRow dr)
         {
             return new Tutor(
@@ -75,6 +81,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -100,6 +107,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally

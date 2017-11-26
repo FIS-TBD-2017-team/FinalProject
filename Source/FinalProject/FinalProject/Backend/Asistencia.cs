@@ -14,6 +14,9 @@ namespace FinalProject.Backend
         public String NoControl { get; set; }
         public bool Asistio { get; set; }
 
+        /// <summary>
+        /// Nombre del alumno en el formato: Nombre Apellidos
+        /// </summary>
         public String NombreAlumno { get; set; }
 
         public Asistencia(int IdSesion, String NoControl, bool Asistio)
@@ -25,6 +28,12 @@ namespace FinalProject.Backend
             this.NombreAlumno = Alumno.Select(NoControl).NombreCompleto;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo Asistencia.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static Asistencia FromDataRow(DataRow dr)
         {
             return new Asistencia(
@@ -34,6 +43,11 @@ namespace FinalProject.Backend
             );
         }
 
+        /// <summary>
+        /// Regresa la lista de asistencia para una sesión dada.
+        /// </summary>
+        /// <param name="IdSesion"></param>
+        /// <returns></returns>
         public static List<Asistencia> Select(int IdSesion)
         {
             String query = "SELECT * FROM detallesesion WHERE idsesion=@idsesion";
@@ -58,6 +72,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -65,6 +80,12 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+
+        /// <summary>
+        /// Crea en la base de datos un registro de asistencia para una sesión
+        /// y un alumno dados.
+        /// </summary>
+        /// <param name="asistencia"></param>
         public static void Insert(Asistencia asistencia)
         {
             String query = "INSERT INTO detallesesion VALUES (@idsesion,@nocontrol,@asistio)";
@@ -82,6 +103,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return;
             }
             finally
@@ -89,6 +111,13 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Actualiza los registro de la base de datos con base en la lista de 
+        /// asistencia pasada como parámetro.
+        /// Utiliza transacciones para asegurar la integridad.
+        /// </summary>
+        /// <param name="lista"></param>
+        /// <returns></returns>
         public static bool PasarLista(List<Asistencia> lista)
         {
             MySqlConnection conn = Connection.Asesorias();
@@ -115,6 +144,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 trans.Rollback();
                 return false;
             }
@@ -124,6 +154,11 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Borra la lista de asistencia de la base de datos para una 
+        /// sesión dada.
+        /// </summary>
+        /// <param name="IdSesion"></param>
         public static void Delete(int IdSesion)
         {
             String query = "DELETE FROM detallesesion WHERE idsesion=@idsesion";
@@ -139,6 +174,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return;
             }
             finally
