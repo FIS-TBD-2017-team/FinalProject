@@ -55,14 +55,40 @@ namespace FinalProject.Backend
                 dr["notas"].ToString()
             );
         }
-
-        public static List<Solicitud> Select(Tutor tutor)
+                
+        public static void ActualizarSP(Solicitud solicitud)
         {
-            String query = "SELECT * FROM solicitud WHERE estatus='PENDIENTE' AND idtutor=@idtutor";
+            String query = "ActualizarSolicitud";
 
             MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@idtutor", tutor.IdTutor);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("_idsolicitud", solicitud.IdSolicitud);
+            cmd.Parameters.AddWithValue("_estatus", solicitud.Estatus);
+            cmd.Parameters.AddWithValue("_idasesoria", solicitud.IdAsesoria);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.StackTrace);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+        public static List<Solicitud> ConsultasSP(Tutor tutor)
+        {
+            String query = "ConsultarSolicitudes";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@_idtutor", tutor.IdTutor);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
 
             DataTable tbl = new DataTable();
@@ -86,13 +112,45 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
-        public static Solicitud Select(int IdSolicitud)
+        public static List<Solicitud> PendientesSP(Tutor tutor)
         {
-            String query = "SELECT * FROM solicitud WHERE idsolicitud=@idsolicitud";
+            String query = "SolicitudesPendientes";
 
             MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@idtutor", IdSolicitud);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@_idtutor", tutor.IdTutor);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+
+            DataTable tbl = new DataTable();
+
+            try
+            {
+                adp.Fill(tbl);
+                List<Solicitud> list = new List<Solicitud>();
+
+                foreach (DataRow dr in tbl.Rows)
+                    list.Add(Solicitud.FromDataRow(dr));
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+        public static Solicitud SelectSP(int IdSolicitud)
+        {
+            String query = "ConsultarSolicitud";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@_idsolicitud", IdSolicitud);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
 
             DataTable tbl = new DataTable();
@@ -111,13 +169,14 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
-        public static List<Alumno> Integrantes(int IdSolicitud)
+        public static List<Alumno> IntegrantesSP(int IdSolicitud)
         {
-            String query = "SELECT * FROM AlumnosSolicitud WHERE idsolicitud=@idsolicitud";
+            String query = "IntegrantesSolicitud";
 
             MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@idsolicitud", IdSolicitud);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@_idsolicitud", IdSolicitud);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
 
             DataTable tbl = new DataTable();
@@ -142,22 +201,32 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
-        // Falta agregar horarios
-        public void Insert(Solicitud solicitud) {
-            String query = "INSERT INTO solicitud VALUES(null,@idMateria,@idTutor,'PENDIENTE',null,@notas,null)";
+        public static List<Alumno> AsesoresPropuestosSP(int IdSolicitud)
+        {
+            String query = "AsesoresPropuestos";
+
             MySqlConnection conn = Connection.Asesorias();
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@idMateria", solicitud.IdMateria);
-            cmd.Parameters.AddWithValue("@idTutor", solicitud.IdTutor);
-            cmd.Parameters.AddWithValue("@notas", solicitud.Notas);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@_idsolicitud", IdSolicitud);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+
+            DataTable tbl = new DataTable();
+
             try
             {
-                conn.Open();
-                cmd.ExecuteNonQuery();
+                adp.Fill(tbl);
+
+                List<Alumno> list = new List<Alumno>();
+
+                foreach (DataRow dr in tbl.Rows)
+                    list.Add(Alumno.FromDataRow(dr));
+
+                return list;
             }
             catch (Exception ex)
             {
-                return;
+                return null;
             }
             finally
             {
