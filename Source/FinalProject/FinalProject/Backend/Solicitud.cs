@@ -321,5 +321,29 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+
+        // Falta agregar horarios
+        public void Insert(Solicitud solicitud)
+        {
+            String query = "INSERT INTO solicitud VALUES(null,@idMateria,@idTutor,'PENDIENTE',null,@notas,null)";
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idMateria", solicitud.IdMateria);
+            cmd.Parameters.AddWithValue("@idTutor", solicitud.IdTutor);
+            cmd.Parameters.AddWithValue("@notas", solicitud.Notas);
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
     }
 }
