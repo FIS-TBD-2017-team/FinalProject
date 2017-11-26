@@ -50,10 +50,8 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblSubAsesores = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnDesignar = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtAsesores)).BeginInit();
             this.SuspendLayout();
@@ -142,7 +140,7 @@
             this.dtAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAlumnos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAlumnos.Size = new System.Drawing.Size(572, 171);
+            this.dtAlumnos.Size = new System.Drawing.Size(589, 171);
             this.dtAlumnos.TabIndex = 16;
             this.dtAlumnos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtAlumnos_CellDoubleClick);
             // 
@@ -188,9 +186,10 @@
             this.txtNotas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNotas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNotas.Enabled = false;
             this.txtNotas.Location = new System.Drawing.Point(297, 48);
             this.txtNotas.Name = "txtNotas";
-            this.txtNotas.Size = new System.Drawing.Size(291, 62);
+            this.txtNotas.Size = new System.Drawing.Size(308, 62);
             this.txtNotas.TabIndex = 19;
             this.txtNotas.Text = "";
             // 
@@ -231,7 +230,7 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
             this.dtAsesores.EnableHeadersVisualStyles = false;
-            this.dtAsesores.Location = new System.Drawing.Point(16, 426);
+            this.dtAsesores.Location = new System.Drawing.Point(15, 355);
             this.dtAsesores.MultiSelect = false;
             this.dtAsesores.Name = "dtAsesores";
             this.dtAsesores.ReadOnly = true;
@@ -240,7 +239,7 @@
             this.dtAsesores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAsesores.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAsesores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAsesores.Size = new System.Drawing.Size(572, 171);
+            this.dtAsesores.Size = new System.Drawing.Size(589, 171);
             this.dtAsesores.TabIndex = 23;
             this.dtAsesores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtAsesores_CellDoubleClick);
             // 
@@ -276,67 +275,45 @@
             // 
             this.lblSubAsesores.AutoSize = true;
             this.lblSubAsesores.Font = new System.Drawing.Font("Segoe UI Light", 14F);
-            this.lblSubAsesores.Location = new System.Drawing.Point(12, 398);
+            this.lblSubAsesores.Location = new System.Drawing.Point(11, 327);
             this.lblSubAsesores.Name = "lblSubAsesores";
             this.lblSubAsesores.Size = new System.Drawing.Size(177, 25);
             this.lblSubAsesores.TabIndex = 22;
             this.lblSubAsesores.Text = "Asesores propuestos";
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.SystemColors.HotTrack;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnGuardar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnGuardar.Location = new System.Drawing.Point(425, 331);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(163, 54);
-            this.btnGuardar.TabIndex = 32;
-            this.btnGuardar.Text = "Guardar cambios";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnCancelar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCancelar.Location = new System.Drawing.Point(17, 331);
+            this.btnCancelar.Location = new System.Drawing.Point(15, 539);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(163, 54);
             this.btnCancelar.TabIndex = 33;
             this.btnCancelar.Text = "Cancelar solicitud";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnDesignar
             // 
-            this.btnDesignar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDesignar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDesignar.FlatAppearance.BorderColor = System.Drawing.SystemColors.HotTrack;
             this.btnDesignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDesignar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnDesignar.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnDesignar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDesignar.Location = new System.Drawing.Point(425, 604);
+            this.btnDesignar.Location = new System.Drawing.Point(441, 539);
             this.btnDesignar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDesignar.Name = "btnDesignar";
             this.btnDesignar.Size = new System.Drawing.Size(163, 54);
             this.btnDesignar.TabIndex = 34;
             this.btnDesignar.Text = "Designar asesor";
             this.btnDesignar.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(151, 657);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 10);
-            this.panel2.TabIndex = 35;
-            this.panel2.Visible = false;
+            this.btnDesignar.Click += new System.EventHandler(this.btnDesignar_Click);
             // 
             // FrmConsultarSolicitud
             // 
@@ -344,11 +321,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(617, 544);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(617, 606);
             this.Controls.Add(this.btnDesignar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dtAsesores);
             this.Controls.Add(this.lblSubAsesores);
             this.Controls.Add(this.lblHorariot);
@@ -399,9 +374,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Label lblSubAsesores;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnDesignar;
-        private System.Windows.Forms.Panel panel2;
     }
 }

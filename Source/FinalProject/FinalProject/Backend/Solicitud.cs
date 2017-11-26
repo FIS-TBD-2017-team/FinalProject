@@ -56,6 +56,31 @@ namespace FinalProject.Backend
             );
         }
                 
+        public static void ActualizarSP(Solicitud solicitud)
+        {
+            String query = "ActualizarSolicitud";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("_idsolicitud", solicitud.IdSolicitud);
+            cmd.Parameters.AddWithValue("_estatus", solicitud.Estatus);
+            cmd.Parameters.AddWithValue("_idasesoria", solicitud.IdAsesoria);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.StackTrace);
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
         public static List<Solicitud> ConsultasSP(Tutor tutor)
         {
             String query = "ConsultarSolicitudes";

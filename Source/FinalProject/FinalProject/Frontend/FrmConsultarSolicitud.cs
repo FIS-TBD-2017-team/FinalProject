@@ -31,6 +31,7 @@ namespace FinalProject.Frontend
             CargarAlumnos();
             CargarAsesores();
         }
+
         public void CargarInformacion()
         {
             lblId.Text = solicitud.IdSolicitud.ToString();
@@ -65,10 +66,53 @@ namespace FinalProject.Frontend
             CargarAsesores();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnDesignar_Click(object sender, EventArgs e)
         {
-            solicitud.Notas = txtNotas.Text;
-            // TODO: Actualizar la basura
+            if(dtAsesores.RowCount == 0 || dtAsesores.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("No hay ningún asesor seleccionado.", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Alumno asesor = (Alumno)dtAsesores.SelectedRows[0].DataBoundItem;
+
+            // Crear el registro de asesoría
+            int IdAsesoria = Asesoria.InsertAndSelect(
+                new Asesoria(
+                    -1,
+                    asesor.NoControl,
+                    solicitud.IdMateria,
+                    "ACTIVA"
+                )
+            );
+
+            // Actualizar el estatus de la solicitud a "ACEPTADA"
+            solicitud.IdAsesoria = IdAsesoria;
+            solicitud.Estatus = "ACEPTADA";
+
+            Solicitud.ActualizarSP(solicitud);
+
+            // Copiar todos los integrantes de la solicitud a la asesoría
+            List<DetalleAsesoria> lista = new List<DetalleAsesoria>();
+
+            foreach (DataGridViewRow row in dtAlumnos.Rows)
+                lista.Add(new DetalleAsesoria(IdAsesoria, ((Alumno)row.DataBoundItem).NoControl));
+
+            DetalleAsesoria.Insert(lista);
+
+            Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            // Actualizar el estatus de la solicitud a "RECHAZADA"
+            solicitud.IdAsesoria = -1;
+            solicitud.Estatus = "RECHAZADA";
+
+            Solicitud.ActualizarSP(solicitud);
+
+            Close();
         }
     }
 }

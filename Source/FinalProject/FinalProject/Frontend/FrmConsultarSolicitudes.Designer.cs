@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsultarSolicitudes));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.dtListaSolicitudes = new System.Windows.Forms.DataGridView();
             this.dtcId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtcMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtcHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtcEstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtcNotas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtcEstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtListaSolicitudes)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 16F);
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mis solicitudes pendientes";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI Light", 16F);
+            this.lblTitulo.Location = new System.Drawing.Point(12, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(148, 30);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Mis solicitudes";
             // 
             // dtListaSolicitudes
             // 
@@ -67,8 +67,8 @@
             this.dtcId,
             this.dtcMateria,
             this.dtcHorario,
-            this.dtcEstatus,
-            this.dtcNotas});
+            this.dtcNotas,
+            this.dtcEstatus});
             this.dtListaSolicitudes.EnableHeadersVisualStyles = false;
             this.dtListaSolicitudes.Location = new System.Drawing.Point(12, 42);
             this.dtListaSolicitudes.Name = "dtListaSolicitudes";
@@ -105,19 +105,19 @@
             this.dtcHorario.Name = "dtcHorario";
             this.dtcHorario.ReadOnly = true;
             // 
-            // dtcEstatus
-            // 
-            this.dtcEstatus.DataPropertyName = "Estatus";
-            this.dtcEstatus.HeaderText = "Estatus";
-            this.dtcEstatus.Name = "dtcEstatus";
-            this.dtcEstatus.ReadOnly = true;
-            // 
             // dtcNotas
             // 
             this.dtcNotas.DataPropertyName = "Notas";
             this.dtcNotas.HeaderText = "Notas";
             this.dtcNotas.Name = "dtcNotas";
             this.dtcNotas.ReadOnly = true;
+            // 
+            // dtcEstatus
+            // 
+            this.dtcEstatus.DataPropertyName = "Estatus";
+            this.dtcEstatus.HeaderText = "Estatus";
+            this.dtcEstatus.Name = "dtcEstatus";
+            this.dtcEstatus.ReadOnly = true;
             // 
             // FrmConsultarSolicitudes
             // 
@@ -126,12 +126,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(692, 361);
             this.Controls.Add(this.dtListaSolicitudes);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmConsultarSolicitudes";
-            this.Text = "FrmAsesoriasPendientes";
+            this.Text = "Consultar mis solicitudes";
             ((System.ComponentModel.ISupportInitialize)(this.dtListaSolicitudes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -140,12 +140,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.DataGridView dtListaSolicitudes;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcId;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcMateria;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcHorario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtcEstatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtcNotas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtcEstatus;
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="Backend\Asistencia.cs" />
     <Compile Include="Backend\Carrera.cs" />
     <Compile Include="Backend\Connection.cs" />
+    <Compile Include="Backend\DetalleAsesoria.cs" />
     <Compile Include="Backend\DetalleRespuesta.cs" />
     <Compile Include="Backend\HoraLibre.cs" />
     <Compile Include="Backend\Materia.cs" />

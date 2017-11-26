@@ -291,6 +291,18 @@ END $$
 
 DELIMITER ;
 
+DELIMITER $$
+
+CREATE PROCEDURE ActualizarSolicitud (
+	IN _idsolicitud INT,
+    IN _estatus VARCHAR(9),
+    IN _idasesoria INT
+)
+BEGIN
+	UPDATE solicitud SET estatus = _estatus, idasesoria = _idasesoria WHERE idsolicitud = _idsolicitud;
+END $$
+DELIMITER ;
+
 -- ####################################################################
 -- DATOS DE PRUEBA
 -- ####################################################################
