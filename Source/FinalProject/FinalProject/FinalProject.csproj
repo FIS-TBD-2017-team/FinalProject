@@ -159,6 +159,12 @@
     <Compile Include="Frontend\FrmSolicitarAsesoria.Designer.cs">
       <DependentUpon>FrmSolicitarAsesoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\Reportes\FrmRepAsesores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\Reportes\FrmRepAsesores.Designer.cs">
+      <DependentUpon>FrmRepAsesores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Frontend\FrmAlumno.resx">
@@ -191,6 +197,9 @@
     <EmbeddedResource Include="Frontend\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\FrmReportes.resx">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frontend\FrmSesion.resx">
       <DependentUpon>FrmSesion.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\FrmConsultarSolicitud.resx">
       <DependentUpon>FrmConsultarSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\Reportes\FrmRepAsesores.resx">
+      <DependentUpon>FrmRepAsesores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -234,6 +246,35 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon-app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
