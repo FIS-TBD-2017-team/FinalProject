@@ -85,7 +85,7 @@ namespace FinalProject.Frontend
             List<Alumno> list = new List<Alumno>();
 
             foreach (DataGridViewRow row in dtAsesores.Rows)
-                if ((bool)row.Cells[4].Value)
+                if (Convert.ToBoolean(row.Cells[4].Value) == true)
                     list.Add(new Alumno(row.Cells[0].Value.ToString()));
 
             if(list.Count == 0)
@@ -97,10 +97,8 @@ namespace FinalProject.Frontend
             int IdRespuesta = 
                 Respuesta.InsertAndSelect(new Respuesta(-1, solicitud.IdSolicitud, tutor.IdTutor, "ACEPTADA"));
 
-            MessageBox.Show(IdRespuesta.ToString());
-            
-            // foreach (Alumno alm in list)
-            //     DetalleRespuesta.Insert()
+            foreach (Alumno alm in list)
+                DetalleRespuesta.Insert(new DetalleRespuesta(IdRespuesta, alm.NoControl));
 
             Close();
         }

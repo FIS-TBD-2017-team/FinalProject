@@ -55,8 +55,7 @@ namespace FinalProject.Backend
                 dr["notas"].ToString()
             );
         }
-
-        
+                
         public static List<Solicitud> ConsultasSP(Tutor tutor)
         {
             String query = "ConsultarSolicitudes";
@@ -177,6 +176,38 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
-        
+        public static List<Alumno> AsesoresPropuestosSP(int IdSolicitud)
+        {
+            String query = "AsesoresPropuestos";
+
+            MySqlConnection conn = Connection.Asesorias();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@_idsolicitud", IdSolicitud);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+
+            DataTable tbl = new DataTable();
+
+            try
+            {
+                adp.Fill(tbl);
+
+                List<Alumno> list = new List<Alumno>();
+
+                foreach (DataRow dr in tbl.Rows)
+                    list.Add(Alumno.FromDataRow(dr));
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+        }
+
     }
 }

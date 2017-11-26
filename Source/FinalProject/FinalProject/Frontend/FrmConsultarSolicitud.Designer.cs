@@ -54,7 +54,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnDesignar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtAsesores)).BeginInit();
             this.SuspendLayout();
@@ -323,14 +322,13 @@
             this.btnDesignar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnDesignar.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnDesignar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDesignar.Location = new System.Drawing.Point(391, 604);
+            this.btnDesignar.Location = new System.Drawing.Point(425, 604);
             this.btnDesignar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDesignar.Name = "btnDesignar";
             this.btnDesignar.Size = new System.Drawing.Size(163, 54);
             this.btnDesignar.TabIndex = 34;
             this.btnDesignar.Text = "Designar asesor";
             this.btnDesignar.UseVisualStyleBackColor = true;
-            this.btnDesignar.Visible = false;
             // 
             // panel2
             // 
@@ -340,13 +338,6 @@
             this.panel2.TabIndex = 35;
             this.panel2.Visible = false;
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(151, 600);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 10);
-            this.panel1.TabIndex = 36;
-            // 
             // FrmConsultarSolicitud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -354,7 +345,6 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(617, 544);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnDesignar);
             this.Controls.Add(this.btnCancelar);
@@ -378,6 +368,7 @@
             this.Name = "FrmConsultarSolicitud";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Solicitud";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtAsesores)).EndInit();
             this.ResumeLayout(false);
@@ -412,6 +403,5 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnDesignar;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
     }
 }

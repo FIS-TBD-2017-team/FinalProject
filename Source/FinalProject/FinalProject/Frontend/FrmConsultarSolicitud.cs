@@ -24,8 +24,12 @@ namespace FinalProject.Frontend
             dtAlumnos.AutoGenerateColumns = false;
             dtAlumnos.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
+            dtAsesores.AutoGenerateColumns = false;
+            dtAsesores.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
             CargarInformacion();
             CargarAlumnos();
+            CargarAsesores();
         }
         public void CargarInformacion()
         {
@@ -42,7 +46,7 @@ namespace FinalProject.Frontend
         public void CargarAsesores()
         {
             dtAsesores.DataSource = null;
-            //dtAlumnos.DataSource = Solicitud.Integrantes(solicitud.IdSolicitud);
+            dtAsesores.DataSource = Solicitud.AsesoresPropuestosSP(solicitud.IdSolicitud);
         }
 
         private void dtAlumnos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -54,8 +58,10 @@ namespace FinalProject.Frontend
 
         private void dtAsesores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dtAlumnos.RowCount == 0) return;
+
             Alumno asesor = (Alumno)dtAsesores.SelectedRows[0].DataBoundItem;
-            (new FrmAsesor(asesor.NoControl)).ShowDialog();
+            (new FrmAsesorHorarios(asesor.NoControl)).ShowDialog();
             CargarAsesores();
         }
 

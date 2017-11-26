@@ -272,6 +272,25 @@ END $$
 
 DELIMITER ;
 
+DELIMITER $$
+
+CREATE PROCEDURE AsesoresPropuestos(IN _idsolicitud INT)
+BEGIN
+	SELECT 
+		A.*
+	FROM 
+		respuesta R,
+		detallerespuesta DR,
+		asesor A
+	WHERE
+		R.idrespuesta = DR.idrespuesta AND
+		DR.nocontrol = A.noControl AND
+        R.idsolicitud = _idsolicitud
+	;
+END $$
+
+DELIMITER ;
+
 -- ####################################################################
 -- DATOS DE PRUEBA
 -- ####################################################################

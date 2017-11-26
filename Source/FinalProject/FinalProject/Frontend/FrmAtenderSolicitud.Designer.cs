@@ -82,7 +82,7 @@
             // lblMateria
             // 
             this.lblMateria.AutoSize = true;
-            this.lblMateria.Location = new System.Drawing.Point(75, 67);
+            this.lblMateria.Location = new System.Drawing.Point(85, 67);
             this.lblMateria.Name = "lblMateria";
             this.lblMateria.Size = new System.Drawing.Size(53, 19);
             this.lblMateria.TabIndex = 4;
@@ -91,7 +91,7 @@
             // lblMateriat
             // 
             this.lblMateriat.AutoSize = true;
-            this.lblMateriat.Location = new System.Drawing.Point(13, 67);
+            this.lblMateriat.Location = new System.Drawing.Point(23, 67);
             this.lblMateriat.Name = "lblMateriat";
             this.lblMateriat.Size = new System.Drawing.Size(57, 19);
             this.lblMateriat.TabIndex = 5;
@@ -100,7 +100,7 @@
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(76, 48);
+            this.lblId.Location = new System.Drawing.Point(86, 48);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(16, 19);
             this.lblId.TabIndex = 6;
@@ -109,7 +109,7 @@
             // lblIdt
             // 
             this.lblIdt.AutoSize = true;
-            this.lblIdt.Location = new System.Drawing.Point(46, 48);
+            this.lblIdt.Location = new System.Drawing.Point(56, 48);
             this.lblIdt.Name = "lblIdt";
             this.lblIdt.Size = new System.Drawing.Size(24, 19);
             this.lblIdt.TabIndex = 7;
@@ -144,7 +144,7 @@
             this.dtAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAlumnos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAlumnos.Size = new System.Drawing.Size(555, 171);
+            this.dtAlumnos.Size = new System.Drawing.Size(572, 171);
             this.dtAlumnos.TabIndex = 16;
             // 
             // dtcNoControl
@@ -192,14 +192,14 @@
             this.txtNotas.Enabled = false;
             this.txtNotas.Location = new System.Drawing.Point(297, 48);
             this.txtNotas.Name = "txtNotas";
-            this.txtNotas.Size = new System.Drawing.Size(274, 62);
+            this.txtNotas.Size = new System.Drawing.Size(291, 62);
             this.txtNotas.TabIndex = 19;
             this.txtNotas.Text = "";
             // 
             // lblHorariot
             // 
             this.lblHorariot.AutoSize = true;
-            this.lblHorariot.Location = new System.Drawing.Point(12, 86);
+            this.lblHorariot.Location = new System.Drawing.Point(22, 86);
             this.lblHorariot.Name = "lblHorariot";
             this.lblHorariot.Size = new System.Drawing.Size(57, 19);
             this.lblHorariot.TabIndex = 21;
@@ -208,7 +208,7 @@
             // lblHorario
             // 
             this.lblHorario.AutoSize = true;
-            this.lblHorario.Location = new System.Drawing.Point(74, 86);
+            this.lblHorario.Location = new System.Drawing.Point(84, 86);
             this.lblHorario.Name = "lblHorario";
             this.lblHorario.Size = new System.Drawing.Size(40, 19);
             this.lblHorario.TabIndex = 20;
@@ -242,7 +242,7 @@
             this.dtAsesores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAsesores.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAsesores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAsesores.Size = new System.Drawing.Size(555, 171);
+            this.dtAsesores.Size = new System.Drawing.Size(572, 171);
             this.dtAsesores.TabIndex = 23;
             // 
             // dataGridViewTextBoxColumn1
@@ -310,7 +310,7 @@
             this.btnDesignar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnDesignar.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnDesignar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDesignar.Location = new System.Drawing.Point(408, 533);
+            this.btnDesignar.Location = new System.Drawing.Point(425, 532);
             this.btnDesignar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDesignar.Name = "btnDesignar";
             this.btnDesignar.Size = new System.Drawing.Size(163, 54);
@@ -364,6 +364,7 @@
             this.Name = "FrmAtenderSolicitud";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Solicitud";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dtAlumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtAsesores)).EndInit();
             this.ResumeLayout(false);
