@@ -38,6 +38,12 @@ namespace FinalProject.Backend
             this.Notas = Notas;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo Sesion.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static Sesion FromDataRow(DataRow dr)
         {
             return new Sesion(
@@ -51,6 +57,11 @@ namespace FinalProject.Backend
             );
         }
 
+        /// <summary>
+        /// Regresa la lista de sesiones para una asesoría dada.
+        /// </summary>
+        /// <param name="asesoria"></param>
+        /// <returns></returns>
         public static List<Sesion>Select(Asesoria asesoria)
         {
             String query = "SELECT * FROM sesion WHERE idasesoria=@idasesoria ORDER BY Fecha, Hora";
@@ -75,6 +86,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -82,6 +94,11 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa la información de una sesión dada.
+        /// </summary>
+        /// <param name="IdSesion"></param>
+        /// <returns></returns>
         public static Sesion Select(int IdSesion)
         {
             String query = "SELECT * FROM sesion WHERE idsesion=@idsesion";
@@ -100,6 +117,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -107,12 +125,10 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
-
-        internal static void Delete()
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Crea el registro en la base de datos, de una sesión dada.
+        /// </summary>
+        /// <param name="sesion"></param>
         public static void Insert(Sesion sesion)
         {
             String query = "INSERT INTO sesion VALUES(null,@idasesoria,@estatus,@lugar,@fecha,@hora,@notas)";
@@ -133,6 +149,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return;
             }
             finally
@@ -140,6 +157,10 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Borra un registro de sesión.
+        /// </summary>
+        /// <param name="IdSesion"></param>
         public static void Delete(int IdSesion)
         {
             Asistencia.Delete(IdSesion);
@@ -157,6 +178,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return;
             }
             finally

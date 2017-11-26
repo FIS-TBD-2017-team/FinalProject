@@ -64,6 +64,7 @@
     <Compile Include="Backend\HoraLibre.cs" />
     <Compile Include="Backend\Materia.cs" />
     <Compile Include="Backend\Oferta.cs" />
+    <Compile Include="Backend\Reportes.cs" />
     <Compile Include="Backend\Respuesta.cs" />
     <Compile Include="Backend\Sesion.cs" />
     <Compile Include="Backend\Solicitud.cs" />

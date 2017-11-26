@@ -29,6 +29,12 @@ namespace FinalProject.Backend
             this.NombreCorto = NombreCorto;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo Carrera.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static Carrera FromDataRow(DataRow dr)
         {
             return new Carrera(
@@ -38,6 +44,11 @@ namespace FinalProject.Backend
             );
         }
 
+        /// <summary>
+        /// Regresa la información de una carrera dado su id.
+        /// </summary>
+        /// <param name="IdCarrera"></param>
+        /// <returns></returns>
         public static Carrera Select(int IdCarrera)
         {
             String query = "SELECT * FROM Carreras WHERE idCarrera = @idcarrera LIMIT 1";
@@ -56,6 +67,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally

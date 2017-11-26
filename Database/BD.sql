@@ -303,6 +303,21 @@ BEGIN
 END $$
 DELIMITER ;
 
+DELIMITER $$
+
+CREATE PROCEDURE RegistrarSolicitud (
+    IN _idmateria INT,
+    IN _idtutor INT,
+    IN _horario TEXT,
+    IN _notas TEXT
+)
+BEGIN
+	INSERT INTO solicitud VALUES(null, _idmateria, _idtutor, "PENDIENTE", _horario, _notas, -1);
+    SELECT idsolicitud FROM solicitud ORDER BY idsolicitud DESC LIMIT 1;
+END $$
+
+DELIMITER ;
+
 -- ####################################################################
 -- DATOS DE PRUEBA
 -- ####################################################################

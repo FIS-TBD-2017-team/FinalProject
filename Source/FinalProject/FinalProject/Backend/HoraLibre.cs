@@ -14,6 +14,9 @@ namespace FinalProject.Backend
         public String Dia { get; set; }
         public String Hora { get; set; }
 
+        /// <summary>
+        /// Nombre del día completo.
+        /// </summary>
         public String DiaCompleto
         {
             get
@@ -46,6 +49,12 @@ namespace FinalProject.Backend
             this.Hora = Hora;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo HoraLibre.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static HoraLibre FromDataRow(DataRow dr)
         {
             return new HoraLibre(
@@ -55,6 +64,11 @@ namespace FinalProject.Backend
             );
         }
 
+        /// <summary>
+        /// Regresa la lista de horas libres de un asesor dado.
+        /// </summary>
+        /// <param name="asesor"></param>
+        /// <returns></returns>
         public static List<HoraLibre> Select(Alumno asesor)
         {
             String query = "SELECT * FROM horaslibres WHERE nocontrol = @nocontrol " +
@@ -80,6 +94,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -87,6 +102,11 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Verifica si un asesor tiene registrada una hora como libre.
+        /// </summary>
+        /// <param name="hl"></param>
+        /// <returns></returns>
         public static bool Exists(HoraLibre hl)
         {
             String query = "SELECT * FROM horaslibres WHERE nocontrol = @nocontrol AND " +
@@ -108,6 +128,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return false;
             }
             finally
@@ -115,6 +136,11 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Registra una hora libre para un asesor.
+        /// </summary>
+        /// <param name="hl"></param>
+        /// <returns></returns>
         public static bool Insert(HoraLibre hl)
         {
             String query = "INSERT INTO horaslibres VALUES (@nocontrol, @dia, @hora)";
@@ -132,6 +158,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return false;
             }
             finally
@@ -139,6 +166,10 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Elimina de la base de datos una hora libre para un asesor.
+        /// </summary>
+        /// <param name="hl"></param>
         public static void Delete(HoraLibre hl)
         {
             String query = "DELETE FROM horaslibres WHERE nocontrol = @nocontrol AND dia = @dia AND hora = @hora";
@@ -155,6 +186,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return;
             }
             finally

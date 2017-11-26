@@ -25,6 +25,12 @@ namespace FinalProject.Backend
             this.IdMateria = IdMateria;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo Oferta.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static void Insert(Oferta oferta)
         {
             String query = "INSERT INTO oferta VALUES (null,@nocontrol,@idmateria)";
@@ -40,6 +46,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return;
             }
             finally
@@ -47,6 +54,11 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Verfica si un alumno dado tiene una materia dada como ofertada.
+        /// </summary>
+        /// <param name="oferta"></param>
+        /// <returns></returns>
         public static bool Exists(Oferta oferta)
         {
             String query = "SELECT * FROM oferta WHERE nocontrol=@nocontrol AND idmateria=@idmateria";
@@ -66,6 +78,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return false;
             }
             finally
@@ -73,6 +86,10 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Elimina de la base de datos la oferta pasada como parámetro.
+        /// </summary>
+        /// <param name="oferta"></param>
         public static void Delete(Oferta oferta)
         {
             String query = "DELETE FROM oferta WHERE nocontrol=@nocontrol AND idmateria=@idmateria";
@@ -88,6 +105,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return;
             }
             finally

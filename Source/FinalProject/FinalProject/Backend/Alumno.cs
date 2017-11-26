@@ -19,6 +19,9 @@ namespace FinalProject.Backend
         public int IdCarrera { get; set; }
         public String NombreCarrera { get; set; }
 
+        /// <summary>
+        /// Nombre completo con el formato Nombre Apellidos.
+        /// </summary>
         public String NombreCompleto
         {
             get
@@ -48,6 +51,12 @@ namespace FinalProject.Backend
             this.NombreCarrera = Carrera.Select(IdCarrera).Nombre;
         }
 
+        /// <summary>
+        /// Toma como parámetro un objeto DataRow generado por MySQL
+        /// y regresa un objeto de tipo Alumno.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// <returns></returns>
         public static Alumno FromDataRow(DataRow dr)
         {
             return new Alumno(
@@ -61,6 +70,13 @@ namespace FinalProject.Backend
             );
         }
 
+        /// <summary>
+        /// Regresa una lista de objetos de tipo Alumno que contiene
+        /// únicamente los alumnos que participan como asesores y que son
+        /// tutoreados por el tutor pasado como parámetro.
+        /// </summary>
+        /// <param name="tutor"></param>
+        /// <returns></returns>
         public static List<Alumno> SelectAsesor(Tutor tutor)
         {
             String query = "SELECT * FROM asesor WHERE idtutor = @idtutor";
@@ -85,6 +101,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -92,6 +109,14 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa una lista de obejtos de tipo Alumno que contiene a los 
+        /// asesores que son tutoreados por el tutor dado como parámetro, y
+        /// además tienen ofertada la materia pasada como parámetro.
+        /// </summary>
+        /// <param name="tutor"></param>
+        /// <param name="IdMateria"></param>
+        /// <returns></returns>
         public static List<Alumno> SelectAsesor(Tutor tutor, int IdMateria)
         {
             String query = "SELECT * FROM asesor A, oferta O WHERE A.noControl = O.nocontrol " +
@@ -118,6 +143,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -125,6 +151,12 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Regresa un registro de tipo alumno dado una cadena, que contiene
+        /// el número de control de dicho alumno, como parámetro.
+        /// </summary>
+        /// <param name="NoControl"></param>
+        /// <returns></returns>
         public static Alumno Select(String NoControl)
         {
             String query = "SELECT * FROM alumnos WHERE nocontrol = @nocontrol LIMIT 1";
@@ -143,6 +175,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return null;
             }
             finally
@@ -150,6 +183,13 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Actualiza el correo del alumno pasado como parámetro.
+        /// Cuenta con una validación en el servidor de MySQL a través
+        /// de un trigger.
+        /// </summary>
+        /// <param name="alumno"></param>
+        /// <returns></returns>
         public static bool Update(Alumno alumno)
         {
             String query = "UPDATE alumnos SET correo=@correo WHERE nocontrol = @nocontrol";
@@ -166,6 +206,7 @@ namespace FinalProject.Backend
             }
             catch (Exception ex)
             {
+                Console.Write(ex.StackTrace);
                 return false;
             }
             finally
