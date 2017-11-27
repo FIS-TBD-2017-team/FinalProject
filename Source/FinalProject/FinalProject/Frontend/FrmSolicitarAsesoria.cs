@@ -14,6 +14,8 @@ namespace FinalProject.Frontend
     public partial class FrmSolicitarAsesoria : Form
     {
         Tutor tutor;
+        List<Alumno> alumnos = new List<Alumno>();
+        Alumno alumnoAct = new Alumno();
         public FrmSolicitarAsesoria()
         {
             InitializeComponent();
@@ -23,6 +25,26 @@ namespace FinalProject.Frontend
         {
             InitializeComponent();
             this.tutor = tutor;
+            cargarComboMaterias();
+        }
+
+        public void cargarComboMaterias() {
+            cmbMateria.DataSource = null;
+            List<Materia> materias = new List<Materia>();
+            materias = Materia.Select();
+            cmbMateria.DataSource = materias;
+            cmbMateria.DisplayMember = "Nombre";
+            cmbMateria.ValueMember = "IdMateria";
+        }
+
+        public void llenarTabla() {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = alumnos;
+            dataGridView1.Refresh();
+        }
+
+        public void limpiarAlumno() {
+            txtNoControl.Text = "";
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -53,38 +75,63 @@ namespace FinalProject.Frontend
                 int.Parse(cmbMateria.SelectedValue.ToString()),
                 tutor.IdTutor,
                 "PENDIENTE",
-                "",
-                txtTema.Text
+                txtHoras.Text,
+                txtTema.Text    
             );
-            DetalleSolicitud detalle = new DetalleSolicitud(
-                solicitud.Insert(solicitud),
-                lblNoControl.Text
-            );
-            detalle.Insert(detalle);
+            Solicitud.RegistrarSP(solicitud,alumnos);
             Close();
         }
 
         private void btnBuscarAlumno_Click(object sender, EventArgs e)
         {
+        }
+
+        private void btnAgregarModulo_Click(object sender, EventArgs e)
+        {
+            String dia = "";
+            switch (cmbDia.SelectedIndex)
+            {
+                case 0:
+                    dia = "LUN";
+                    break;
+                case 1:
+                    dia = "MAR";
+                    break;
+                case 2:
+                    dia = "MIE";
+                    break;
+                case 3:
+                    dia = "JUE";
+                    break;
+                case 4:
+                    dia = "VIE";
+                    break;
+            }
+            String hora = cmbHora.SelectedItem + ":00";
+            txtHoras.Text = txtHoras.Text + dia + " " + hora + "\n";
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
             Alumno alumno = Alumno.Select(txtNoControl.Text);
-            if (alumno == null) {
+            if (alumno == null)
+            {
                 MessageBox.Show("Clave del alumno incorrecta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            cargarComboMaterias();
             btnGuardar.Enabled = true;
-            lblCarrera.Text = alumno.NombreCarrera;
-            lblCorreo.Text = alumno.Correo;
-            lblNoSemestre.Text = alumno.Semestre+"";
-            lblNombre.Text = alumno.NombreCompleto;
-            if (alumno.Correo != null)
-                lblNoControl.Text = alumno.NoControl;
-            else
-                lblCorreo.Text = "No disponible";
-            cmbMateria.DataSource = null;
-            List<Materia> materias = Materia.SelectSem(alumno.IdCarrera);
-            cmbMateria.DataSource = materias;
-            cmbMateria.DisplayMember = "nombre";
-            cmbMateria.ValueMember = "idMateria";
+            bool encontrado = false;
+            for (int i = 0; i < alumnos.Count; i++) {
+                if (alumnos[i].NoControl == alumno.NoControl)
+                    encontrado = true;
+            }
+            if (!encontrado)
+            {
+                alumnos.Add(alumno);
+                llenarTabla();
+                limpiarAlumno();
+            }
         }
     }
 }

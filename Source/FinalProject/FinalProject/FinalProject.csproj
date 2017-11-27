@@ -61,6 +61,7 @@
     <Compile Include="Backend\DetalleAsesoria.cs" />
     <Compile Include="Backend\DetalleRespuesta.cs" />
     <Compile Include="Backend\DetalleSolicitud.cs" />
+    <Compile Include="Backend\Grupo.cs" />
     <Compile Include="Backend\HoraLibre.cs" />
     <Compile Include="Backend\Materia.cs" />
     <Compile Include="Backend\Oferta.cs" />
@@ -159,6 +160,12 @@
     <Compile Include="Frontend\FrmSolicitarAsesoria.Designer.cs">
       <DependentUpon>FrmSolicitarAsesoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\FrmSolicitarAsesoriaGrupal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontend\FrmSolicitarAsesoriaGrupal.Designer.cs">
+      <DependentUpon>FrmSolicitarAsesoriaGrupal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\Reportes\FrmRepAsesores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\FrmConsultarSolicitud.resx">
       <DependentUpon>FrmConsultarSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontend\FrmSolicitarAsesoriaGrupal.resx">
+      <DependentUpon>FrmSolicitarAsesoriaGrupal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frontend\Reportes\FrmRepAsesores.resx">
       <DependentUpon>FrmRepAsesores.cs</DependentUpon>

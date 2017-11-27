@@ -46,8 +46,7 @@ namespace FinalProject.Backend
         /// <returns></returns>
         public static List<Materia> Select()
         {
-            String query = "SELECT * FROM materias";
-
+            String query = "SELECT * FROM materias where idCarrera is not null";
             MySqlConnection conn = Connection.SICE();
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
