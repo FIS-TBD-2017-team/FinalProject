@@ -108,7 +108,7 @@ namespace FinalProject.Frontend
                     break;
             }
             String hora = cmbHora.SelectedItem + ":00";
-            txtHoras.Text = txtHoras.Text + dia + " " + hora + "\n";
+            txtHoras.Text = txtHoras.Text + dia + " " + hora + " ";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
