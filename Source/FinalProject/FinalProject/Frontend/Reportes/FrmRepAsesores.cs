@@ -17,6 +17,11 @@ namespace FinalProject.Frontend.Reportes
     {
         private DataTable dtInfo = null;
 
+        /// <summary>
+        /// Constructor de la pantalla
+        /// toma como parámetro una tabla con la información de los asesores
+        /// </summary>
+        /// <param name="dt"></param>
         public FrmRepAsesores(DataTable dt)
         {
             InitializeComponent();
@@ -24,6 +29,12 @@ namespace FinalProject.Frontend.Reportes
             dtRepAsesores.DataSource = dtInfo;
         }
 
+        /// <summary>
+        /// Genera un archivo Excel con la información de los asesores
+        /// al hacer clic
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExportar_Click(object sender, EventArgs e)
         {
             DialogResult dr = sfdExportar.ShowDialog();
@@ -32,6 +43,9 @@ namespace FinalProject.Frontend.Reportes
                 Exportar(); 
         }
 
+        /// <summary>
+        /// Crea un archivo Excel con la información de los asesores
+        /// </summary>
         private void Exportar()
         {
             String ruta = Path.GetFullPath(sfdExportar.FileName);

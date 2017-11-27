@@ -10,6 +10,10 @@ namespace FinalProject.Backend
 {
     public class Reportes
     {
+        /// <summary>
+        /// Utiliza una vista para generar un reporte de los asesores
+        /// </summary>
+        /// <returns>Una tabla con la lista de asesores</returns>
         public static DataTable RepAsesores()
         {
             String query = "SELECT * FROM reporteasesores";

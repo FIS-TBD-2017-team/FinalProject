@@ -15,6 +15,11 @@ namespace FinalProject.Frontend
     {
         private Alumno alumno = null;
 
+        /// <summary>
+        /// Constructor de la clase
+        /// Recibe el id de un alumno
+        /// </summary>
+        /// <param name="nocontrol"></param>
         public FrmAlumno(String nocontrol)
         {
             InitializeComponent();
@@ -27,6 +32,10 @@ namespace FinalProject.Frontend
         {            
             CargarInformacion();
         }
+        /// <summary>
+        /// Carga la información de un alumno y la
+        /// muestra en las etiquetas
+        /// </summary>
         public void CargarInformacion()
         {
             lblNoControl.Text = alumno.NoControl;

@@ -17,7 +17,10 @@ namespace FinalProject.Frontend
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Valida que se hayan ingresado los parametros necesarios
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarDatos()
         {
             bool val = true;
@@ -41,12 +44,21 @@ namespace FinalProject.Frontend
 
             return val;
         }
+        /// <summary>
+        /// Limpia la información de los campos ingresados
+        /// </summary>
         private void LimpiarDatos()
         {
             txtUser.Text = "";
             txtPass.Text = "";   
         }
-
+        /// <summary>
+        /// Valida las credenciales de los campos correspondientes
+        /// Si son incorrectas manda un mensaje de error
+        /// Si son correctas inicia una sesion y permite al usuario ingresar 
+        /// a la pantalla principal
+        /// </summary>
+        /// <returns></returns>
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             if (!ValidarDatos()) return;

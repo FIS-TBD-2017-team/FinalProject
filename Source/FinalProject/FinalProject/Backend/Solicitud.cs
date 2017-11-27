@@ -322,7 +322,11 @@ namespace FinalProject.Backend
             }
         }
 
-        // Falta agregar horarios
+        /// <summary>
+        /// Agrega una solicitud de asesoría a la base de datos
+        /// </summary>
+        /// <param name="solicitud"></param>
+        /// <returns></returns>
         public int Insert(Solicitud solicitud)
         {
             String query = "INSERT INTO solicitud VALUES(null,@idMateria,@idTutor,'PENDIENTE',null,@notas,null); select last_insert_id() from solicitud;";

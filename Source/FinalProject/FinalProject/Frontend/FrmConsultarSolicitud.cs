@@ -14,7 +14,11 @@ namespace FinalProject.Frontend
     public partial class FrmConsultarSolicitud : Form
     {
         private Solicitud solicitud = null;
-
+        /// <summary>
+        /// Constructor de la clase
+        /// recibe como parámetro una solicitud de asesoria
+        /// </summary>
+        /// <param name="solicitud"></param>
         public FrmConsultarSolicitud(Solicitud solicitud)
         {
             InitializeComponent();
@@ -31,7 +35,10 @@ namespace FinalProject.Frontend
             CargarAlumnos();
             CargarAsesores();
         }
-
+        /// <summary>
+        /// Carga la información de la solicitud
+        /// en las etiquetas correspondientes
+        /// </summary>
         public void CargarInformacion()
         {
             lblId.Text = solicitud.IdSolicitud.ToString();
@@ -39,24 +46,41 @@ namespace FinalProject.Frontend
             txtNotas.Text = solicitud.Notas;
             lblHorario.Text = solicitud.Horario;
         }
+        /// <summary>
+        /// Carga la informacion de los alumnos
+        /// que solicitan la asesoria
+        /// </summary>
         public void CargarAlumnos()
         {
             dtAlumnos.DataSource = null;
             dtAlumnos.DataSource = Solicitud.IntegrantesSP(solicitud.IdSolicitud);
         }
+        /// <summary>
+        /// Carga la informacion de los asesores a cargo del tutor
+        /// </summary>
         public void CargarAsesores()
         {
             dtAsesores.DataSource = null;
             dtAsesores.DataSource = Solicitud.AsesoresPropuestosSP(solicitud.IdSolicitud);
         }
-
+        /// <summary>
+        /// Carga la informacion de un alumno seleccionado de la tabla
+        /// en una ventana nueva
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtAlumnos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Alumno alumno = (Alumno)dtAlumnos.SelectedRows[0].DataBoundItem;
             (new FrmAlumno(alumno.NoControl)).ShowDialog();
             CargarAlumnos();
         }
-
+        /// <summary>
+        /// Carga la informacion de un asesor seleccionado de la tabla
+        /// en una ventana nueva
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtAsesores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtAlumnos.RowCount == 0) return;
@@ -65,7 +89,11 @@ namespace FinalProject.Frontend
             (new FrmAsesorHorarios(asesor.NoControl)).ShowDialog();
             CargarAsesores();
         }
-
+        /// <summary>
+        /// Selecciona un asesor de la lista de candidatos para atender la solicitud
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDesignar_Click(object sender, EventArgs e)
         {
             if(dtAsesores.RowCount == 0 || dtAsesores.SelectedRows.Count == 0)

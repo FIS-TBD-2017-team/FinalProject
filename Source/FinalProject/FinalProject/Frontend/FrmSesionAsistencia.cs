@@ -40,7 +40,11 @@ namespace FinalProject.Frontend
 
             dtAlumnos.DataSource = list;
         }
-
+        /// <summary>
+        /// Informa si la información se cargo correctamente o no
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (Asistencia.PasarLista(list))

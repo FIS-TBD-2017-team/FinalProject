@@ -15,11 +15,20 @@ namespace FinalProject.Frontend
     {
         private Alumno asesor = null;
 
+        /// <summary>
+        /// Constructor de la clase
+        /// Recibe el número de control de un asesor
+        /// </summary>
+        /// <param name="nocontrol"></param>
         public FrmAsesor(String nocontrol) 
         {
             InitializeComponent();
             Init(Alumno.Select(nocontrol));
         }
+        /// <summary>
+        /// Inicializa los parámetros de los campos de la pntalla
+        /// </summary>
+        /// <param name="asesor"></param>
         public void Init(Alumno asesor)
         {
             this.asesor = asesor;
@@ -28,6 +37,9 @@ namespace FinalProject.Frontend
             CargarHorasLibres();
             CargarMaterias();    
         }
+        /// <summary>
+        /// Carga la inforación de un asesor en las etiquetas correspondientes
+        /// </summary>
         public void CargarInformacion()
         {
             lblNoControl.Text = asesor.NoControl;
@@ -37,6 +49,9 @@ namespace FinalProject.Frontend
 
             txtCorreo.Text = asesor.Correo;
         }
+        /// <summary>
+        /// Cambia los combos a sus valores iniciales
+        /// </summary>
         public void InitCombos()
         {
             cmbMateria.DataSource = Materia.Select();
@@ -45,6 +60,11 @@ namespace FinalProject.Frontend
             cmbHora.SelectedIndex = 0;
             cmbMateria.SelectedIndex = 0;
         }
+        
+        /// <summary>
+        /// Carga las horas libres en las qque un asesor
+        /// puede impartir asesorias
+        /// </summary>
         public void CargarHorasLibres()
         {
             dtHorasLibres.AutoGenerateColumns = false;
@@ -53,12 +73,22 @@ namespace FinalProject.Frontend
             dtHorasLibres.DataSource = null;
             dtHorasLibres.DataSource = HoraLibre.Select(asesor);
         }
+
+        /// <summary>
+        /// Carga las materias impartidas por un asesor
+        /// </summary>
         public void CargarMaterias()
         {
             dtMaterias.AutoGenerateColumns = false;
             dtMaterias.DataSource = Materia.Select(asesor);
         }
 
+        /// <summary>
+        /// Agrega horas libres en las que el asesor puede
+        /// dar asesoria
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregarModulo_Click(object sender, EventArgs e)
         {
             String dia = "";
@@ -93,6 +123,11 @@ namespace FinalProject.Frontend
             }
         }
 
+        /// <summary>
+        /// Elimina una hora libre del asesor si ha sido ocupada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnQuitarModulo_Click(object sender, EventArgs e)
         {
             if (dtHorasLibres.SelectedRows.Count == 0)
@@ -104,6 +139,11 @@ namespace FinalProject.Frontend
             CargarHorasLibres();
         }
 
+        /// <summary>
+        /// Agrega materias a un asesor solo si no han sido registradas previamente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregarMateria_Click(object sender, EventArgs e)
         {
             Oferta oferta = new Oferta(-1, asesor.NoControl, (int)cmbMateria.SelectedValue);

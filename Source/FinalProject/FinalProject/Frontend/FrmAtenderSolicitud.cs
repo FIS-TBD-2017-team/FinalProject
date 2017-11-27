@@ -16,6 +16,13 @@ namespace FinalProject.Frontend
         private Tutor tutor = null;
         private Solicitud solicitud = null;
 
+        /// <summary>
+        /// Constructor de la clase
+        /// recibe como parámetro un objeto de tipo tutor y un obejto
+        /// tipo solicitud
+        /// </summary>
+        /// <param name="tutor"></param>
+        /// <param name="solicitud"></param>
         public FrmAtenderSolicitud(Tutor tutor, Solicitud solicitud)
         {
             InitializeComponent();
@@ -34,6 +41,9 @@ namespace FinalProject.Frontend
             CargarAlumnos();
             CargarAsesores();
         }
+        /// <summary>
+        /// Carga la información de la solicitud en las etiquetas correspondientes
+        /// </summary>
         public void CargarInformacion()
         {
             lblId.Text = solicitud.IdSolicitud.ToString();
@@ -41,6 +51,9 @@ namespace FinalProject.Frontend
             txtNotas.Text = solicitud.Notas;
             lblHorario.Text = solicitud.Horario;
         }
+        /// <summary>
+        /// Carga los alumnos correspondientes a la solicitud en un combo
+        /// </summary>
         public void CargarAlumnos()
         {
             dtAlumnos.DataSource = null;
@@ -61,7 +74,12 @@ namespace FinalProject.Frontend
 
             dtAsesores.DataSource = list;
         }
-
+        /// <summary>
+        /// Carga la inormación de un asesor seleccionado de una tabla
+        /// en una nueva ventana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dtAsesores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Alumno asesor = (Alumno)dtAsesores.SelectedRows[0].DataBoundItem;
@@ -73,13 +91,22 @@ namespace FinalProject.Frontend
         {
             // TODO: Actualizar la basura
         }
-
+        /// <summary>
+        /// Rechaza una peticion de aseesoria
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRechazar_Click(object sender, EventArgs e)
         {
             Respuesta.Insert(new Respuesta(-1, solicitud.IdSolicitud, tutor.IdTutor, "RECHAZADA"));
             Close();
         }
-
+        /// <summary>
+        /// Manda una respuesta a una solicitud de asesoria
+        /// con la información del asesor candidato
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDesignar_Click(object sender, EventArgs e)
         {
             List<Alumno> list = new List<Alumno>();

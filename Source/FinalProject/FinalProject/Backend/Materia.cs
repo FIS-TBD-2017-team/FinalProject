@@ -74,6 +74,12 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Selecciona las materias
+        /// correspondientes a cierto semestre
+        /// </summary>
+        /// <param name="semestre"></param>
+        /// <returns></returns>
         public static List<Materia> SelectSem(int semestre)
         {
             String query = "SELECT * FROM materias where idCarrera=@idSemestre";

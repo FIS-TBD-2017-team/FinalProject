@@ -16,7 +16,12 @@ namespace FinalProject.Frontend
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Carga la información de los asesores a cargo del tutor y
+        /// abre una ventana nueva para visualizarlos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRepAsesores_Click(object sender, EventArgs e)
         {
             DataTable dt = Backend.Reportes.RepAsesores();

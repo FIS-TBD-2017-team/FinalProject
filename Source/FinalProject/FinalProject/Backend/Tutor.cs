@@ -89,6 +89,12 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Toma como parámetro un id de tutor 
+        /// retorna un objeto tipo tutor
+        /// </summary>
+        /// <param name="IdTutor">Id del tutor</param>
+        /// <returns>Objeto tutor</returns>
         public static Tutor Select(int IdTutor)
         {
             String query = "SELECT * FROM Tutores WHERE idtutor = @idtutor LIMIT 1";

@@ -27,7 +27,9 @@ namespace FinalProject.Frontend
             this.tutor = tutor;
             cargarComboMaterias();
         }
-
+        /// <summary>
+        /// Carga el nombre de todas las materias en el comboBox
+        /// </summary>
         public void cargarComboMaterias() {
             cmbMateria.DataSource = null;
             List<Materia> materias = new List<Materia>();
@@ -36,13 +38,18 @@ namespace FinalProject.Frontend
             cmbMateria.DisplayMember = "Nombre";
             cmbMateria.ValueMember = "IdMateria";
         }
-
+        /// <summary>
+        /// Recarga la información de los alumnos que solicitan la asesoria
+        /// de la tabla
+        /// </summary>
         public void llenarTabla() {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = alumnos;
             dataGridView1.Refresh();
         }
-
+        /// <summary>
+        /// Limpia la informacion del numero de control
+        /// </summary>
         public void limpiarAlumno() {
             txtNoControl.Text = "";
         }
@@ -56,7 +63,11 @@ namespace FinalProject.Frontend
         {
 
         }
-
+        /// <summary>
+        /// Verifica que se hayan llenado los campos necesarios
+        /// De no ser asi manda un mensaje de error
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarDatos() {
             if (cmbMateria.Text.Length == 0)
             {
@@ -65,7 +76,12 @@ namespace FinalProject.Frontend
             }
             return true;
         }
-
+        /// <summary>
+        /// Guarda la inforacion de la solicitud mediante procedimientos almacenados
+        /// Si el procedimiento falla en alguna consulta se cancelan todos los registros
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!ValidarDatos())
@@ -85,7 +101,11 @@ namespace FinalProject.Frontend
         private void btnBuscarAlumno_Click(object sender, EventArgs e)
         {
         }
-
+        /// <summary>
+        /// Agrega la informacion de las horas en las que se puede recibir la asesoria
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregarModulo_Click(object sender, EventArgs e)
         {
             String dia = "";
@@ -110,7 +130,12 @@ namespace FinalProject.Frontend
             String hora = cmbHora.SelectedItem + ":00";
             txtHoras.Text = txtHoras.Text + dia + " " + hora + " ";
         }
-
+        /// <summary>
+        /// Carga la información de un alumno en la tabla mediante el numero de control
+        /// Si el numero de control es incorrecto manda un mensaje de error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Alumno alumno = Alumno.Select(txtNoControl.Text);

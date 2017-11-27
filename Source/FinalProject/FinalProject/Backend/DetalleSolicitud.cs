@@ -22,8 +22,8 @@ namespace FinalProject.Backend
         /// <summary>
         /// Agrega una lista de alumnos a la solicitud.
         /// </summary>
-        /// <param name="IdSolicitud"></param>
-        /// <param name="lista"></param>
+        /// <param name="IdSolicitud">Id de la solicitud</param>
+        /// <param name="lista">Lista de alumnos para la asesoria</param>
         /// <returns></returns>
         public static bool Insert(int IdSolicitud, List<Alumno> lista)
         {
@@ -59,6 +59,11 @@ namespace FinalProject.Backend
                 conn.Dispose();
             }
         }
+        /// <summary>
+        /// Combiarte una fila en un DetalledeSolicitud
+        /// </summary>
+        /// <param name="dr">Fila, resultado de una consulta</param>
+        /// <returns></returns>
         public DetalleSolicitud FromDataRow(DataRow dr)
         {
             return new DetalleSolicitud(
@@ -66,6 +71,10 @@ namespace FinalProject.Backend
                 dr["noControl"].ToString()
             );
         }
+        /// <summary>
+        /// Agrega un detalle de solicitud a la base de datos
+        /// </summary>
+        /// <param name="detalleSolicitud"></param>
         public void Insert(DetalleSolicitud detalleSolicitud)
         {
             String query = "INSERT INTO detallesolicitud VALUES(@idSolicitud,@noControl);";

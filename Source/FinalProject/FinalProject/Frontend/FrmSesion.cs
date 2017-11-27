@@ -15,6 +15,11 @@ namespace FinalProject.Frontend
     {
         private int IdAsesoria;
 
+        /// <summary>
+        /// Constructor de la clase
+        /// Recibe el ide de la asesoria
+        /// </summary>
+        /// <param name="IdAsesoria"></param>
         public FrmSesion(int IdAsesoria)
         {
             InitializeComponent();
@@ -25,7 +30,11 @@ namespace FinalProject.Frontend
             dtpFecha.Value = DateTime.Now;
             dtpHora.Value = DateTime.Now;
         }
-
+        /// <summary>
+        /// Valida que la informacion necesaria se haya llenado
+        /// De no ser asi regresa un mensaje de error
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarDatos()
         {
             if (txtLugar.Text.Length == 0) {
@@ -34,7 +43,12 @@ namespace FinalProject.Frontend
             }
             return true;
         }
-
+        /// <summary>
+        /// Verifica que los datos se hayan llenado correctamente
+        /// De ser así registra la información de la sesion en la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!ValidarDatos()) return;

@@ -102,7 +102,7 @@
             this.lblId.AutoSize = true;
             this.lblId.Location = new System.Drawing.Point(86, 48);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(16, 19);
+            this.lblId.Size = new System.Drawing.Size(14, 19);
             this.lblId.TabIndex = 6;
             this.lblId.Text = "1";
             // 
@@ -144,7 +144,7 @@
             this.dtAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAlumnos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAlumnos.Size = new System.Drawing.Size(572, 171);
+            this.dtAlumnos.Size = new System.Drawing.Size(555, 171);
             this.dtAlumnos.TabIndex = 16;
             // 
             // dtcNoControl
@@ -192,7 +192,7 @@
             this.txtNotas.Enabled = false;
             this.txtNotas.Location = new System.Drawing.Point(297, 48);
             this.txtNotas.Name = "txtNotas";
-            this.txtNotas.Size = new System.Drawing.Size(291, 62);
+            this.txtNotas.Size = new System.Drawing.Size(274, 62);
             this.txtNotas.TabIndex = 19;
             this.txtNotas.Text = "";
             // 
@@ -210,7 +210,7 @@
             this.lblHorario.AutoSize = true;
             this.lblHorario.Location = new System.Drawing.Point(84, 86);
             this.lblHorario.Name = "lblHorario";
-            this.lblHorario.Size = new System.Drawing.Size(40, 19);
+            this.lblHorario.Size = new System.Drawing.Size(38, 19);
             this.lblHorario.TabIndex = 20;
             this.lblHorario.Text = "10:00";
             // 
@@ -242,7 +242,7 @@
             this.dtAsesores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAsesores.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAsesores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAsesores.Size = new System.Drawing.Size(572, 171);
+            this.dtAsesores.Size = new System.Drawing.Size(555, 171);
             this.dtAsesores.TabIndex = 23;
             // 
             // dataGridViewTextBoxColumn1
@@ -310,7 +310,7 @@
             this.btnDesignar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnDesignar.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btnDesignar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDesignar.Location = new System.Drawing.Point(425, 532);
+            this.btnDesignar.Location = new System.Drawing.Point(408, 532);
             this.btnDesignar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDesignar.Name = "btnDesignar";
             this.btnDesignar.Size = new System.Drawing.Size(163, 54);

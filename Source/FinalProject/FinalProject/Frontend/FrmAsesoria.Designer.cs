@@ -139,7 +139,7 @@
             this.lblNoControl.AutoSize = true;
             this.lblNoControl.Location = new System.Drawing.Point(384, 61);
             this.lblNoControl.Name = "lblNoControl";
-            this.lblNoControl.Size = new System.Drawing.Size(72, 19);
+            this.lblNoControl.Size = new System.Drawing.Size(68, 19);
             this.lblNoControl.TabIndex = 10;
             this.lblNoControl.Text = "S15120048";
             // 
@@ -218,7 +218,7 @@
             this.dtAlumnos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtAlumnos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtAlumnos.Size = new System.Drawing.Size(610, 181);
+            this.dtAlumnos.Size = new System.Drawing.Size(593, 181);
             this.dtAlumnos.TabIndex = 15;
             this.dtAlumnos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtAlumnos_CellDoubleClick);
             // 
@@ -289,7 +289,7 @@
             this.dtSesiones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dtSesiones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dtSesiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtSesiones.Size = new System.Drawing.Size(610, 176);
+            this.dtSesiones.Size = new System.Drawing.Size(593, 176);
             this.dtSesiones.TabIndex = 17;
             this.dtSesiones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtSesiones_CellDoubleClick);
             // 
@@ -333,7 +333,7 @@
             this.btnAgregarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarSesion.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.btnAgregarSesion.Location = new System.Drawing.Point(551, 357);
+            this.btnAgregarSesion.Location = new System.Drawing.Point(534, 357);
             this.btnAgregarSesion.Name = "btnAgregarSesion";
             this.btnAgregarSesion.Size = new System.Drawing.Size(36, 23);
             this.btnAgregarSesion.TabIndex = 25;
@@ -346,7 +346,7 @@
             this.btnQuitarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQuitarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuitarSesion.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.btnQuitarSesion.Location = new System.Drawing.Point(593, 357);
+            this.btnQuitarSesion.Location = new System.Drawing.Point(576, 357);
             this.btnQuitarSesion.Name = "btnQuitarSesion";
             this.btnQuitarSesion.Size = new System.Drawing.Size(36, 23);
             this.btnQuitarSesion.TabIndex = 26;

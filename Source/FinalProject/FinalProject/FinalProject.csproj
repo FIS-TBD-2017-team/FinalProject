@@ -61,7 +61,6 @@
     <Compile Include="Backend\DetalleAsesoria.cs" />
     <Compile Include="Backend\DetalleRespuesta.cs" />
     <Compile Include="Backend\DetalleSolicitud.cs" />
-    <Compile Include="Backend\Grupo.cs" />
     <Compile Include="Backend\HoraLibre.cs" />
     <Compile Include="Backend\Materia.cs" />
     <Compile Include="Backend\Oferta.cs" />
